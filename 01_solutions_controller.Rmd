@@ -1,0 +1,28 @@
+---
+title: "Solutions for day 1"
+output: 
+  distill::distill_article:
+    toc: true
+    toc_float: true
+    number_sections: true
+params:
+  showDownload: TRUE
+  includeSolution1: TRUE
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r download_script, child= if(params$showDownload) "tasks/day1/01_tasks_download.Rmd"}
+
+```
+
+## 1 Create project
+
+```{r create_project, child=if (params$includeSolution1) "tasks/day1/01_tasks_01_create_project_solution.Rmd"}
+```
+
+
+```{r create_project_empty, child=if (!params$includeSolution1) "tasks/day1/01_tasks_01_create_project_solution_empty.Rmd"}
+```

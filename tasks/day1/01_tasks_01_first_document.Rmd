@@ -1,0 +1,25 @@
+### 1.1 Create an RStudio project
+
+Create an RStudio project for the documents, scripts, notes, data, etc. from this workshop.
+We will only create a few documents in this workshop, so it might feel a bit exaggerated to
+create an entire project structure around it. However, in real life, it's very useful
+to use projects and to set them up correctly. So just imagine a more complex project that
+you are working on.
+
+- Create a project in a directory of your choice following the instructions from the slides
+- Use the `File` pane in RStudio to create a basic folder structure in your project which will be filled with files in the next days
+  - E.g. create the folders `data`, `R`, `documents`,...
+  - You can always change the structure of your project later, but for now, we want some basic folders that we can navigate
+
+You can add files to your project either directly in RStudio, or in the file explorer of your operating system.
+
+### 1.2 Add an `.Rmd` document from a template
+
+- Create a new rmarkdown document and save it in the appropriate folder of your project (e.g. `documents` or `reports`)
+- Try to knit the document to different output version, trying both the keyboard shortcut and the knit button
+- Compare the output of the rendered document with the rmarkdown
+  - Can you understand what happened in the different sections (YAML header, code chunks, markdown text)
+  
+#### Extras
+
+- If you still have a few minutes try changeing things in the code/text/header, render the document again and see what happens  

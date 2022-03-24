@@ -15,7 +15,7 @@ output:
       beforeInit: "macros.js"
 params:
   title: "Reproducible Documents with `{rmarkdown}`"
-  day: ""
+  day: "Day 1"
   bg_image: "img/rmarkdown.png"
   bg_image_scale: "30%"
   bg_position: "90% 90%"
@@ -35,74 +35,110 @@ library(fontawesome)
 ---
 # A standard workflow
 
-![](img/day1/data_analysis_situation.png)
+<br>
+
+.pull-left[
+.center[![](img/day1/classic_workflow.png)]
+]
+
+
+--
+
+.pull-right[
+
+**Hard to answer questions:**
+
+- How did you produced this figure? What analysis is behind it?
+
+- What data did you use for this table? Did you leave any data points out?
+
+- Were does this value come from?
+
+- I found an error in the raw data. Can you repeat the analysis?
+
+]
 
 ---
 # A standard workflow
 
-With this workflow, it's hard to answer questions such as:
+Main problem with this workflow: 
 
-- How did you produce this figure? What is the analysis behind it?
-- What data did you use? Which data points were left out?
-- Where does this value come from?
+- **error prone** and **non-reproducible**
 
----
-# The situation
+--
 
-This workflow has many problems:
+If you have to repeat the analysis
 
-- If there is an error and you have to repeat the analysis
-  - Update all the figures and tables in Word document
-- Manual copy pasting of value from the analysis in to the Word document
-  - Annoying
-  -**Very** error prone -> Did you update all the values after redoing the analysis?
+--
+
+- Redo all figures and tables
+
+--
   
+- Update them in document and presentation manually
+  
+  - Manual copy pasting of values is very **error** prone
+  
+--
+  
+- Annoying and you probably have to repeat this several times
+
 ---
-# The solution
+# Solution: A workflow using `{rmarkdown}`
+
+.pull-left[
+
+**Basic idea**
+
+- Text + Code + Metadata
+- Mix everything together and add code output
+- Convert into desired output format
+  - HTML
+  - Pdf
+  - Word
+  - Presentations
+  - ...
+]
+
+.pull-right[
 
 .center[![](img/rmarkdown_wizards.png)]
 
----
-# Basic Idea of Rmarkdown
-
-
-- text + code + metadata
-- knit everything togehter
-- convert into desired output format
-  - HTML
-  - Pdf
-  - word
-  - ...
-  
----
-# Rmarkdown universe
-
-- Many packages that provide additional functionality
-
-.center[![:scale 15%](img/blogdown.png)![:scale 15%](img/bookdown.png)![:scale 15%](img/pagedown.png)![:scale 15%](img/pkgdown.png)![:scale 15%](img/xaringan.png) ...]
+]
 
 ---
 # Motivation
 
 - Reproducibility
-- Documentation and Code + Output in one place
+
+  - Easy to redo analysis
+  - Easy to verify and check
+  - No more copy pasting
+  - Continuous workflow that is independent of the person that wrote the workflow
+  
+--
+
+- Documentation/Text, Code & Output in one place
+
+--
+
 - Use R pipeline to produce documents 
-  - parameterized reports
-- No more copy pasting -> If you have to redo your analysis
-  - Copy numbers from R to a word doc table
+  - Create an automatic workflow
+  
+-- 
+
 - Fun
 
 ---
 # Use cases
 
-**"Basic"**
+Any type of document, especially if it contains something produced by code: 
 
 - Lab reports
-- Documentation of analysis for supervisors
-- Publications
-- ...
+- Documentation of analysis for yourself/supervisors/...
+- Publication + Publication of analysis
 
-**"Advanced"**
+--
 
 - Presentations
 - Websites
@@ -110,73 +146,157 @@ This workflow has many problems:
 - ...
 
 ---
+# The `rmarkdown` universe
+
+- Many packages that provide additional functionality
+  
+  - Additional output formats
+  - Templates
+  - Formatting tools
+  - Printing tools
+  - ...
+  
+Just some examples:
+
+.center[![:scale 10%](img/blogdown.png)![:scale 10%](img/bookdown.png)![:scale 10%](img/pagedown.png)![:scale 10%](img/pkgdown.png)![:scale 10%](img/xaringan.png)![:scale 10%](https://camo.githubusercontent.com/84624c361fada90aed38c52d4b615339d5026988eddb96133485951e125b2eb3/68747470733a2f2f68616f7a68753233332e6769746875622e696f2f6b61626c6545787472612f6b61626c6545787472612e737667)]![](https://github.com/rstudio/rticles/blob/a1a29ec98c04642de01506f764ca9408d7be99ad/man/figures/logo.png)
+
+There are many more ...
+
+
+---
 # The basic workflow
 
-- Create an empty `.Rmd` document
-- Write the document
-- Render the document to the preferred output format (so called knitting)
-  
-.center[![:scale 70%](img/rmarkdown_wizards.png)]
+.pull-left[
+
+1. Create an `.Rmd` document 
+
+2. Write text and R code in the document
+
+3. Render the document to a defined output format using `rmarkdown`
+  - Knit from `.Rmd` to `.md`: Use [`{knitr}`](https://yihui.org/knitr/) package, run all the code and put its
+  output in the document
+  - Use [pandoc](https://pandoc.org/) (+ LaTeX) to convert to `.pdf`, `.docx`, ...
+  - This is all done automatically by `rmarkdown`
+
+]
+
+.pull-right[.center[![](img/day1/workflow_rmarkdown.png)]]
+
+.footnote-right[Figure adapted from [BES Guides to better science: Reproducible code](https://www.britishecologicalsociety.org/wp-content/uploads/2019/06/BES-Guide-Reproducible-Code-2019.pdf)]
 
 ---
 # Basic workflow in practice
 
-**Step 1: Create an empty `.Rmd` document**
+**Step 1: Create a new `.Rmd` document**
 
-- From scratch: Create a new file in RStudio and save it with file ending `.Rmd`
-- From a template:
-  - Rmarkdown itself comes with some templates
-  - Additional packages come with additional packages
-    - rticles for article templates
-    - xaringan for presentations ...
-  - `File` -> `New File` -> `Rmarkdown...` 
+- **Empty**: Create a new file in your project and save it with file ending `.Rmd`
+
+- **From a template**:
+
+  Rmarkdown itself comes with some templates
+    - `File` -> `New File` -> `Rmarkdown...`
+    
+  Additional packages come with additional packages
+    - [`{rticles}`](https://pkgs.rstudio.com/rticles/) for article templates
+    - [`{xaringan}`](https://github.com/yihui/xaringan) for presentations ...
+  
   
 ---
 # Basic workflow in practice
 
-**Step 1: Create an empty `.Rmd` document**
+**Step 1: Create a new `.Rmd` document**
 
 .pull-left[
-- Select template
+`File` -> `New File` -> `Rmarkdown...`
+
+- Select template on left
+
 - Add title and author metadata 
-  - can also be left blank and done later
+  - Can also be left blank and done later
+  
 - Select output format
+
+- Click `OK`
 ]
 
 .pull-right[
-![](img/day1/create_document.png)
+![:scale 80%](img/day1/create_document.png)
 ]
 
 ---
 # Basic structure of an Rmarkdown document
 
-![](img/day1/dummy_document_basics.png)
+.center[![:scale 80%](img/day1/dummy_document_basics.png)]
+
 
 ---
 # Basic structure of an Rmarkdown document
+
+.pull-left[
 
 **Meta data**
 
 - On top of the document
+
 - Enclosed in `---`
-- Contains metadata in YAML Syntax
 
-**Text in Markdown syntax**
+- Contains 
+  - Document metadata in YAML Syntax
+  - Information on output type and options
+  
+]
 
-- Document text body
+.pull-right[
+
+.center[![](img/day1/dummy_document_basics.png)]
+
+]
+
+---
+# Basic structure of an Rmarkdown document
+
+.pull-left[
+
+**Text body**
+
 - Anywhere in the document
+
 - Markdown syntax
 
-**R code in Code chunks**
+]
 
-- Contains any R code that should be used in the document
-- Encolsed in 
+.pull-right[
 
+.center[![](img/day1/dummy_document_basics.png)]
+
+]
+
+---
+# Basic structure of an Rmarkdown document
+
+.pull-left[
+
+**Code chunks**
+
+- For R code (but also other languges)
+
+- Structure of code chunks:
+
+````markdown
+`r ''````{r}
+# your R code goes here
 ```
-```{r}
-# here the code
-```
-```
+````
+
+- Can have different options
+
+]
+
+.pull-right[
+
+.center[![](img/day1/dummy_document_basics.png)]
+
+]
 
 ---
 # Basic workflow in practice
@@ -187,27 +307,44 @@ This workflow has many problems:
 - Text 
 - R code
 
+---
+# Basic workflow in practice
+
+**Step 3: Render/Knit the document to the desired output format**
+
+.pull-left[
+
+- `knitr` runs the code and combines it with the text
+
+- pandoc creates the output document
+
+- Document is knitted in a new R session
+  - This makes sure that the docuement is reproducible and that it does
+  not depend on the current environment
+
+]
+
+.pull-right[.center[![](img/day1/workflow_rmarkdown.png)]]
 
 ---
 # Basic workflow in practice
 
-**Step 3: Render the document to the desired output format**
+**Step 3: Render/Knit the document to the desired output format**
 
-- This proesses is called **rendering** or **knitting**
-- Knitr uses pandoc to transform documents 
-- `.Rmd` -> Rmarkdown -> Knitr -> pandoc -> pdf, html, word ...
+.pull-left[
+
 - Click the `knit` Button
+
 - Use the keyboard shortcut `Ctrl/Cmd + Shift + K`
 - For more options, click the little arrow next to the `Knit` button
 
-![The options of the knit button after clicking on the little arrow next to it](img/day1/knit_button.png)
+]
 
-Document is knitted in a new R session -> This is desired because it makes sure that the document is reproducible and that there is no object missing
+.pull-right[.center[![The options of the knit button after clicking on the little arrow next to it](img/day1/knit_button.png)]]
 
----
-# Basic workflow in practice
+--
 
-- Iterate through steps 2 and 3 more often and not just once in the end
+`r fa("arrow-right")` Iterate through steps 2 and 3 until finished
 
 ---
 class: inverse, middle, center
@@ -462,7 +599,21 @@ output: pdf_document:
 - `toc`
 - `toc_depth`
 
+---
+# Rendering/Knitting details
 
+- `{rmarkdown}` controls the workflow
+- knitting converts `.Rmd`into `.md` but before runs all the code and puts the output in the file
+- pandoc (no related to R) takes the `.md` and converts it to desired output file
+  - if you want `.pdf` output, pandoc will use LaTeX, so you also need LaTex installed for pdf output
+
+---
+# Rendering/Knitting details
+
+- Click on knit button
+- use Keyboard shortcut
+- Use `rmarkdown::render()` -> most flexible
+- Use `rmarkdown::html_document()`, `rmarkdown::pdf_document()`,...
 
 
 

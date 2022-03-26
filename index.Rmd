@@ -1,5 +1,5 @@
 ---
-title: "Introduction to R for Data Analysis"
+title: "Reproducible documents with `{rmarkdown}`"
 site: distill::distill_website
 ---
 
@@ -16,8 +16,8 @@ knitr::opts_chunk$set(echo = FALSE)
 
 # Workshop organization and schedule
 
-🕘 9 a.m. - 4 p.m. (🥪 ~ 12 a.m. - 1 p.m.)<br>
-📍 We will meet every morning in the `General` meeting room of our Webex team.
+🕘 1 p.m. - 5 p.m. <br>
+📍 We will meet every day in the `General` meeting room of our Webex team.
 
 
 # Workshop Material

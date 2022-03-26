@@ -6,7 +6,7 @@ output:
     toc_float: true
     number_sections: true
 params:
-  showDownload: TRUE
+  showDownload: FALSE
   includeSolution1: TRUE
 ---
 
@@ -14,15 +14,44 @@ params:
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-```{r download_script, child= if(params$showDownload) "tasks/day1/01_tasks_download.Rmd"}
+```{r download_script, child= if(params$showDownload) "tasks/day1/01_download.Rmd"}
 
 ```
 
-## 1 Create project
+## 1 Set up the RStudio Project
 
-```{r create_project, child=if (params$includeSolution1) "tasks/day1/01_tasks_01_create_project_solution.Rmd"}
+```{r create_project, child=if (params$includeSolution1) "tasks/day1/01_01_first_document_solution.Rmd"}
 ```
 
 
-```{r create_project_empty, child=if (!params$includeSolution1) "tasks/day1/01_tasks_01_create_project_solution_empty.Rmd"}
+```{r create_project_empty, child=if (!params$includeSolution1) "tasks/day1/01_01_first_document_solution_empty.Rmd"}
+```
+
+## 2 First document and text
+
+```{r create_project, child=if (params$includeSolution1) "tasks/day1/01_02_penguin_markdown_solution.Rmd"}
+```
+
+
+```{r create_project_empty, child=if (!params$includeSolution1) "tasks/day1/01_02_penguin_markdown_solution_empty.Rmd"}
+```
+
+## 3 Add R code
+
+
+```{r create_project, child=if (params$includeSolution1) "tasks/day1/01_03_penguin_r_solution.Rmd"}
+```
+
+
+```{r create_project_empty, child=if (!params$includeSolution1) "tasks/day1/01_03_penguin_r_solution_empty.Rmd"}
+```
+
+## 4 Change YAML header
+
+
+```{r create_project, child=if (params$includeSolution1) "tasks/day1/01_04_penguin_yaml_solution.Rmd"}
+```
+
+
+```{r create_project_empty, child=if (!params$includeSolution1) "tasks/day1/01_04_penguin_yaml_solution_empty.Rmd"}
 ```

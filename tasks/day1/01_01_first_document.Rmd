@@ -1,0 +1,19 @@
+### 1.1 Download RStudio project
+
+Download the RStudio project that I created for this workshop from [here]().
+Save it in a convenient location on your machine, and open it in RStudio by double clicking on the `.Rproj` file.
+
+In the project, you can find some demo documents and presentations, that summarize some of the useful things that you can do with `Rmarkdown`. You can look through them later if you want and use them for reference.
+
+Read the `README` file to get more information.
+
+### 1.2 Add an `.Rmd` document from a template
+
+- Create a new rmarkdown document and save it in the `docs` folder of the project
+- Knit the document to different output versions, trying both the keyboard shortcut and the knit button
+- Compare the output of the rendered document with the rmarkdown
+  - Can you understand what happened in the different sections (YAML header, code chunks, markdown text)
+  
+#### Extras
+
+- If you still have a few minutes try changeing things in the code/text/header, render the document again and see what happens  

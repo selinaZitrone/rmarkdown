@@ -12,7 +12,23 @@ output:
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-## 1 Set up an RStudio project and add an rmarkdown document
+## 1 Set up the RStudio Project
 
-```{r create_rstudio_project, child="tasks/day1/01_tasks_01_first_document.Rmd"}
+```{r create_rstudio_project, child="tasks/day1/01_01_first_document.Rmd"}
 ```
+
+## 2 First document and text
+
+```{r text_markdown, child="tasks/day1/01_02_penguin_markdown.Rmd"}
+```
+
+## 3 Add R code
+
+```{r r_code, child="tasks/day1/01_03_penguin_r.Rmd"}
+```
+
+## 4 Change YAML header
+
+```{r yaml_header, child="tasks/day1/01_04_penguin_yaml.Rmd"}
+```
+

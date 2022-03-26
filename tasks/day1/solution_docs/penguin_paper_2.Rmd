@@ -1,0 +1,107 @@
+---
+title: "The penguins of Antarctica"
+author: "Selina Baldauf"
+date: "3/25/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, # code is included in output
+                      warning = FALSE, # don't show warnings
+                      message = FALSE # don't show messages
+                      )
+library(tidyverse)
+library(palmerpenguins)
+```
+
+## Introduction
+
+There are some penguin species Antarctica that, you can see them in the following figure:
+
+![Artwork by [Allison Horst](https://twitter.com/allison_horst)](https://github.com/allisonhorst/palmerpenguins/blob/master/man/figures/lter_penguins.png?raw=true)
+
+## Methods
+
+### The data
+
+The data that will be analysed in this document was collected on islands in Antarctica and
+published by Gorman et al. (2014) in PLoS ONE. You can find the original paper with the 
+title "Ecological sexual dimorphism and environmental variability within a community of Antarctic penguins (genus *Pygoscelis*)"^[paper available [here](https://doi.org/10.1371/journal.pone.0090081).]
+
+The data is also published via the `palmerpenguins` R package which you can find [on this website](https://allisonhorst.github.io/palmerpenguins/).
+
+**The data contains the following measurements:**
+
+- bill length
+- bill depth
+- flipper length
+- body mass
+- sex
+  - male
+  - female
+
+### The analysis
+
+We conduct the following analysis:
+
+1. Plot some plots of the data
+2. Calculate some summary statistics and print them in a table
+3. Calculate a linear model of the form $y = ax + b + \epsilon$
+
+
+## Results
+
+The mean flipper length of all penguin species is `r mean(penguins$flipper_length_mm, na.rm = TRUE)` ($\pm$ `r mean(penguins$flipper_length_mm, na.rm = TRUE)`). 
+
+```{r calculate-mean, echo=FALSE}
+# mean penguin species
+adelie_mean <- penguins %>% filter(species == "Adelie") %>% pull(flipper_length_mm) %>% mean(na.rm = TRUE) 
+chinstrap_mean <- penguins %>% filter(species == "Chinstrap") %>% pull(flipper_length_mm) %>% mean(na.rm = TRUE) 
+gentoo_mean <- penguins %>% filter(species == "Gentoo") %>% pull(flipper_length_mm) %>% mean(na.rm = TRUE) 
+```
+
+
+The Gentoo species has the highest flipper length (mean `r gentoo_mean`), followed by 
+the Chinstrap species (mean `r chinstrap_mean`). The Adelie species as the lowest
+average flipper length (mean `r adelie_mean`).
+
+
+```{r histogram-flipper, fig.cap="Histogram of the three penguin species.", fig.width=4, fig.height=3, fig.align='center'}
+ggplot(penguins, aes(x = flipper_length_mm, fill = species)) +
+  geom_histogram(alpha = 0.6) +
+   scale_fill_manual(values = c("darkorange", "purple", "cyan4")) +
+  theme_minimal()
+```
+
+There is a positive relationship between bill length and bill depth for all 3 species, as the figure below shows.
+
+```{r scatterplot-bill, eval=FALSE, fig.cap="Scatter plot with regression lines showing the relationship between bill length and bill depth for the 3 penguin species"}
+ggplot(
+  data = penguins,
+  aes(
+    x = bill_length_mm,
+    y = bill_depth_mm,
+    color = species,
+    shape = species
+  )
+) +
+  geom_point(size = 3, alpha = 0.8) +
+  geom_smooth(method = "lm", se = FALSE) +
+  scale_color_manual(values = c("darkorange", "purple", "cyan4")) +
+  theme_minimal()
+```
+In general, it looks like the body characteristics differ between the sexes but also between the penguin
+species, as the table below illustrates:
+
+```{r summary-table}
+penguins %>% 
+  filter(!(is.na(sex))) %>% 
+  group_by(species, sex) %>% 
+  summarize(
+    bill_length = mean(bill_length_mm, na.rm = TRUE),
+    bill_depth = mean(bill_depth_mm, na.rm = TRUE),
+    flipper_length = mean(flipper_length_mm, na.rm = TRUE),
+    body_mass = mean(body_mass_g, na.rm = TRUE)
+  )
+```
+

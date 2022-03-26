@@ -1,0 +1,31 @@
+In the last step, we will add some additional `YAML` metadata and document options
+to the document.
+
+Also in this task, you can try out the options that you find most interesting. But 
+I will give you some basic suggestions of what to try.
+
+Knit often, to see the difference that the options make to the document.
+
+#### Metadata
+
+- Add today's date to the document
+- Add a subtitle
+
+#### Document options
+
+Today, we mostly worked with `html_document` output. So add some options for this
+document type to the YAML header. Be careful to respect the rules of indentation.
+
+Options that might be interesting to try on your document:
+
+- `df_print`: set it to `"kable"` and see how the style of the table that you printed looks like
+- Add a table of contents. Explore the following options (start with those that seem most interesting to you):
+  - `toc`
+  - `toc_depth`
+  - `number_sections`
+  - `toc_float`: This option is only working for html output only
+- If you show your code, you can try different code highlighting themes using `highlight` option
+- Try a different theme, using the `theme` option (html only)
+  - Values you can try are "flatly", "journal" or "united"
+  - [Here](https://www.datadreaming.org/post/r-markdown-theme-gallery/) you can find a list of other themes to try
+- Try `code_folding: "hide"` (html only) to hide code and make it available via a button

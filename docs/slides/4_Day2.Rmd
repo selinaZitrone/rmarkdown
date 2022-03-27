@@ -444,7 +444,7 @@ output:
 --
 
 - Package [`{officedown}`](https://davidgohel.github.io/officedown/) might be useful
-  - It offers templates for advanced Word documents and Powerpoint presenations
+  - It offers templates for advanced Word documents and Powerpoint presentations
   - `File` -> `New File` -> `R Markdown...` -> `From Template`
 
 ---

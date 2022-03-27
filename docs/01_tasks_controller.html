@@ -2413,7 +2413,7 @@ Solutions
 </div>
 </div>
 <a href="online_resources.html">Resources &amp; Packages</a>
-<a href="https://github.com/selinaZitrone/intro-rmarkdown">
+<a href="https://github.com/selinaZitrone/rmarkdown">
 <i class="fa fa-github" aria-hidden="true"></i>
 </a>
 <a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
@@ -2437,125 +2437,160 @@ Solutions
 <nav class="l-text toc figcaption" id="TOC">
 <h3>Contents</h3>
 <ul>
-<li><a href="#set-up-the-rstudio-project">1 Set up the RStudio Project</a>
-<ul>
-<li><a href="#download-rstudio-project">1.1 Download RStudio project</a></li>
-<li><a href="#add-an-.rmd-document-from-a-template">1.2 Add an <code>.Rmd</code> document from a template</a></li>
-</ul></li>
-<li><a href="#first-document-and-text">2 First document and text</a></li>
-<li><a href="#getting-started">1.1 Getting started</a></li>
+<li><a href="#first-document-and-text">1 First document and text</a></li>
+<li><a href="#preparing-the-data">1.1 Preparing the data</a></li>
 <li><a href="#create-first-rmarkdown-document">1.2 Create first <code>rmarkdown</code> document</a></li>
-<li><a href="#write-some-markdown-text">1.2 Write some markdown text</a>
-<ul>
-<li><a href="#hints-are-missing-for-the-links-and-so-on">Hints are missing for the links and so on</a></li>
-</ul></li>
-<li><a href="#add-r-code">3 Add R code</a></li>
-<li><a href="#load-the-package">2.1 Load the package</a></li>
-<li><a href="#adding-r-code">2.1 Adding R code</a></li>
-<li><a href="#inline-code">2.1 Inline code</a>
+<li><a href="#lets-add-some-text">1.2 Let’s add some text</a></li>
+<li><a href="#add-r-code">2 Add R code</a></li>
+<li><a href="#load-the-palmerpenguins-in-your-document">2.1 Load the <code>palmerpenguins</code> in your document</a></li>
+<li><a href="#add-r-code-chunks">2.2 Add R code chunks</a></li>
+<li><a href="#add-inline-code">2.1 Add inline code</a>
 <ul>
 <li><a href="#chunk-options">2.3 Chunk options</a></li>
 </ul></li>
-<li><a href="#change-yaml-header">4 Change YAML header</a></li>
+<li><a href="#change-yaml-header">3 Change YAML header</a></li>
 </ul>
 </nav>
 </div>
-<h2 id="set-up-the-rstudio-project">1 Set up the RStudio Project</h2>
-<h3 id="download-rstudio-project">1.1 Download RStudio project</h3>
-<p>Download the RStudio project that I created for this workshop from <a href="">here</a>. Save it in a convenient location on your machine, and open it in RStudio by double clicking on the <code>.Rproj</code> file.</p>
-<p>In the project, you can find some demo documents and presentations, that summarize some of the useful things that you can do with <code>Rmarkdown</code>. You can look through them later if you want and use them for reference.</p>
-<p>Read the <code>README</code> file to get more information.</p>
-<h3 id="add-an-.rmd-document-from-a-template">1.2 Add an <code>.Rmd</code> document from a template</h3>
-<ul>
-<li>Create a new rmarkdown document and save it in the <code>docs</code> folder of the project</li>
-<li>Knit the document to different output versions, trying both the keyboard shortcut and the knit button</li>
-<li>Compare the output of the rendered document with the rmarkdown
-<ul>
-<li>Can you understand what happened in the different sections (YAML header, code chunks, markdown text)</li>
-</ul></li>
-</ul>
-<h4 id="extras">Extras</h4>
-<ul>
-<li>If you still have a few minutes try changeing things in the code/text/header, render the document again and see what happens<br />
-</li>
-</ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
-<h2 id="first-document-and-text">2 First document and text</h2>
-<h2 id="getting-started">1.1 Getting started</h2>
-<p>To practice, we will write a document that contains the analysis of a data set on 3 species of penguins on islands in Antarctica. The document will start small, and we will incorporate more functionality during the workshop.</p>
+<h2 id="first-document-and-text">1 First document and text</h2>
+<h2 id="preparing-the-data">1.1 Preparing the data</h2>
+<p>To practice, we will write a short paper about a data set on 3 different penguin species (<em>Chinstrap</em>, <em>Gentoo</em>, and <em>Adelie</em>) on islands in Antarctica. As we progress in the workshop, we will incorporate more options, functionality and formatting into the document.</p>
 <figure>
-<img src="https://github.com/allisonhorst/palmerpenguins/blob/master/man/figures/lter_penguins.png?raw=true" alt="Artwork by [@AllisonHorst](https://twitter.com/allison_horst)" /><figcaption aria-hidden="true">Artwork by <span class="citation" data-cites="AllisonHorst">[@AllisonHorst]</span>(<a href="https://twitter.com/allison_horst" class="uri">https://twitter.com/allison_horst</a>)</figcaption>
+<img src="https://github.com/allisonhorst/palmerpenguins/blob/master/man/figures/lter_penguins.png?raw=true" alt="Artwork by Allison Horst" /><figcaption aria-hidden="true">Artwork by <a href="https://twitter.com/allison_horst">Allison Horst</a></figcaption>
 </figure>
-<p>The data is available from the <a href="https://allisonhorst.github.io/palmerpenguins/">palmerpenguins</a> package. To get it, you have to:</p>
+<p>The data is available from the <a href="https://allisonhorst.github.io/palmerpenguins/">palmerpenguins</a> package. To get it, you have to open RStudio and:</p>
 <ul>
-<li>Install the package with install.packages(“palmerpenguins”)</li>
-<li>Load the package into your R session with library(palmerpenguins) (just do this in the console)</li>
+<li>Install the package with <code>install.packages("palmerpenguins")</code></li>
 </ul>
 <p>Take a moment to get familiar with the data set and its variables:</p>
 <ul>
-<li>Just type <code>penguins</code> in the console and you should see the penguins tibble</li>
-<li>It contains data on bill and flipper size, weight and sex of 3 penguin</li>
+<li>Load the package into your R session with <code>library(palmerpenguins)</code> (just do this in the console)</li>
+<li>Type <code>penguins</code> in the console and you should see the penguins tibble</li>
+<li>It contains data on bill and flipper size, weight and sex of the 3 penguin species</li>
 </ul>
-<p>We will need the data later.</p>
-<p>For all tasks of today, you might find it helpful, to open the <a href="https://raw.githubusercontent.com/rstudio/cheatsheets/master/rmarkdown-2.0.pdf">Rmarkdown cheat sheet</a> on the side for reference.</p>
+<p>We will need the data later, so remember that you can access via the variable <code>penguins</code>.</p>
 <h2 id="create-first-rmarkdown-document">1.2 Create first <code>rmarkdown</code> document</h2>
-<p>Create a new <code>.Rmd</code> document using the standard template from the <code>rmarkdown</code> package. For now, chose <code>HTML</code> as default output format.</p>
-<p>Save the document in the <code>/docs</code> folder of your project.</p>
+<p>For all tasks of today, you might find it helpful, to open the <a href="https://raw.githubusercontent.com/rstudio/cheatsheets/master/rmarkdown-2.0.pdf">R Markdown cheat sheet</a> for reference.</p>
+<p>Start by creating a new <code>.Rmd</code> file:</p>
+<ul>
+<li>Go to <code>File</code> -&gt; <code>New File</code> -&gt; <code>R Markdown...</code> and</li>
+<li>Chose <code>HTML</code> as default output format from the <code>Document</code> section (This should be already selected as default)</li>
+<li>If you want, you can already enter a title and author</li>
+</ul>
+<p>Save the file in a convenient location on your machine.</p>
 <p>Before you start working with the document:</p>
 <ul>
-<li>Knit the document using different options and see what happens
+<li>Knit the document to see what happens
 <ul>
-<li>Try the knit button or the keyboard shortcut <code>Ctrl/Cmd + Shift + K</code></li>
-<li>Chose different output formats to knit to by clicking on the little black arrow next to the knit button</li>
+<li>Try the Knit button on top of your document or the keyboard shortcut <code>Ctrl/Cmd + Shift + K</code></li>
+<li>Chose different output formats to knit to by clicking on the little black arrow next to the Knit button</li>
 </ul></li>
 </ul>
-<h2 id="write-some-markdown-text">1.2 Write some markdown text</h2>
-<p>Now we start our own document by adding some text about the penguins. Remove all the template text from the document <strong>except</strong> the YAML header and the first code chunk (we will learn later what that does).</p>
-<p>Before you start writing, have a look at <a href="./tasks/day1/solution_docs/penguin_paper_1.html">this document</a>. It was created with <code>rmarkdown</code>.</p>
+<h2 id="lets-add-some-text">1.2 Let’s add some text</h2>
+<p>Now start writing your very own paper about the 3 penguins.</p>
+<p>First, remove all template text from the document <strong>except</strong> the YAML header and the first code chunk (we will learn later what that does).</p>
+<p>Before you start writing, have a quick look at the <code>Example text</code> that I show below. It is the one we discussed together just now and includes many different markdown formatting elements and some text about the penguin data set.</p>
 <ul>
-<li>Try to identify the markdown formatting elements that were used to produce the text.</li>
+<li>You can find the links that I used in the text in the <code>Links</code> section or by right clicking on the text</li>
 </ul>
-<p>Now write a text yourself. If you want, you can take my example text and reproduce it. But of course, you can also write your own text. The important thing in this task is to include many different markdown formatting elements.</p>
-<p>During the writing process, don’t forget to knit your document often. It’s easier to fix mistakes and error messages if you detect them early.</p>
-<h3 id="hints-are-missing-for-the-links-and-so-on">Hints are missing for the links and so on</h3>
-<p>Mabe tab with hints and the text, instead of a link to another page?</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
-<h2 id="add-r-code">3 Add R code</h2>
-<h2 id="load-the-package">2.1 Load the package</h2>
-<p>We will now write R code in the penguin document that analyses and plots the data from the <code>palmerpenguins</code> package. As with “normal” R code, you also need to load the package in your document in the beginning.</p>
-<p>You can do this in the <code>setup</code> code chunk.</p>
-<p>Just add <code>library(palmerpenguins)</code> as a line in the chunk.</p>
-<p>You can always come back to the setup chunk and add the packages that you need in your analysis. Then you have all the <code>library()</code> calls in one place.</p>
-<h2 id="adding-r-code">2.1 Adding R code</h2>
-<p>Now let’s add some R code that produces different types of output to the document.</p>
-<p>Try using both the RStudio interface (<code>Code</code> -&gt; <code>Insert Chunk</code>) and the keyboard shortcut (<code>Ctrl/Cmd + Alt/Option + I</code>) to insert the code chunks.</p>
-<p>Remember that every time, you use a function from a package, you have to load the package into the document environment. Just add another <code>library()</code> line to the setup chunk.</p>
+<p>Now write a text yourself. You can either reproduce my text and use copy paste to type less, or you can write your own text about penguins (or anything else you want to write about). The important thing in this task is to include many different markdown formatting elements.</p>
+<p>During the writing process, <strong>don’t forget to knit your document often</strong>. It’s easier to fix mistakes and error messages if you detect them early.</p>
+<div class="panelset">
+<section id="example-text" class="panel">
+<h1>Example text</h1>
+<h2 id="the-penguins-of-antarctica">The penguins of Antarctica</h2>
+<h4 id="selina-baldauf">Selina Baldauf</h4>
+<h4 id="section">25/03/2022</h4>
+<h3 id="introduction">Introduction</h3>
+<p>There are three main penguin species in Antarctica (<em>Chinstrap</em>, <em>Gentoo</em>, <em>Adelie</em>). You can see them in the following figure:</p>
+<figure>
+<img src="https://github.com/allisonhorst/palmerpenguins/blob/master/man/figures/lter_penguins.png?raw=true" alt="Artwork by Allison Horst" /><figcaption aria-hidden="true">Artwork by <a href="https://twitter.com/allison_horst">Allison Horst</a></figcaption>
+</figure>
+<p>In this paper we want to answer the following questions</p>
+<ol type="1">
+<li>How does bill depth depend on bill length?</li>
+<li>Which penguin species has the highest body mass?</li>
+</ol>
+<h3 id="methods">Methods</h3>
+<h4 id="the-data">The data</h4>
+<p>The data was collected on islands in Antarctica and published by Gorman et al. (2014). You can find the original paper with the title “Ecological sexual dimorphism and environmental variability within a community of Antarctic penguins (genus <em>Pygoscelis</em>)” in PLoS ONE<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p>The data is published via the <code>palmerpenguins</code> R package which you can find <a href="https://allisonhorst.github.io/palmerpenguins/">on this website</a>.</p>
+<p><strong>The data contains (among others) the following measurements:</strong></p>
+<ul>
+<li>bill length</li>
+<li>bill depth</li>
+<li>body mass</li>
+<li>sex
+<ul>
+<li>male</li>
+<li>female</li>
+</ul></li>
+</ul>
+<h4 id="the-analysis">The analysis</h4>
+<p>We did some plots, calculated some summary statistics and a linear model of the form <span class="math inline">\(y = ax + b + \epsilon\)</span></p>
+<h3 id="results">Results</h3>
+<p>Will be added later</p>
+</section>
+<section id="links-used" class="panel">
+<h3>Links used</h3>
+<p>Here are the links that I used in the text for URL links and the figure. You can use them to reproduce my text. But feel also free to link other things if you want.</p>
+<ul>
+<li>Link to Allison Horst’s twitter: <a href="https://twitter.com/allison_horst" class="uri">https://twitter.com/allison_horst</a></li>
+<li>Link to the paper: <a href="https://doi.org/10.1371/journal.pone.0090081" class="uri">https://doi.org/10.1371/journal.pone.0090081</a></li>
+<li>Link to the palmerpenguins package: <a href="https://allisonhorst.github.io/palmerpenguins/" class="uri">https://allisonhorst.github.io/palmerpenguins/</a></li>
+<li>Link to the penguin image: <a href="https://github.com/allisonhorst/palmerpenguins/blob/master/man/figures/lter_penguins.png?raw=true" class="uri">https://github.com/allisonhorst/palmerpenguins/blob/master/man/figures/lter_penguins.png?raw=true</a></li>
+</ul>
+</section>
+</div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<h2 id="add-r-code">2 Add R code</h2>
+<h2 id="load-the-palmerpenguins-in-your-document">2.1 Load the <code>palmerpenguins</code> in your document</h2>
+<p>We will now include some analysis of the <code>penguins</code> data in the document.</p>
+<p>As with “normal” R code, you need to load the <code>palmerpenguins</code> package in your document in the beginning.</p>
+<p>A convenient location to load packages is the <code>setup</code> code chunk.</p>
+<p>Just add <code>library(palmerpenguins)</code> as a line in this chunk.</p>
+<p>You can always come back to the setup chunk and add all the packages that you need in your analysis. Then you have all the <code>library()</code> calls in one place.</p>
+<h2 id="add-r-code-chunks">2.2 Add R code chunks</h2>
+<p>Now let’s add some R code that produces different types of output in the document.</p>
+<p>First finish all the tasks and then come back to the extra (the linear model) if you still have time.</p>
+<p>Try using both the RStudio interface (<code>Code</code> -&gt; <code>Insert Chunk</code>) and the keyboard shortcut (<code>Ctrl/Cmd + Alt/Option + I</code>) to insert R code chunks.</p>
 <p>The different output types we will try are:</p>
 <ul>
 <li>A figure for the penguin data set</li>
 <li>A summary table of the data set</li>
-<li>Some statics using the penguin data set</li>
+<li>A linear model with the data set (<strong>Extra</strong>)</li>
 </ul>
-<p>For each of the three output types, go through the following steps:</p>
+<p>For each of the output types, go through the following steps:</p>
 <ol type="1">
-<li>Select a location in your document, where you want the output to be.</li>
+<li>Select the location in your document, where you want the output to be (probably the result section).</li>
 <li>Insert a new code chunk at the location</li>
-<li>Write the code that produces the output (or copy from my examples below)</li>
-<li>Run the code inside the document (Clicking on the little green arrow button next to the code chunk)</li>
+<li>Write the code that produces the output (you can copy it from my examples below)</li>
+<li>Run the code inside the document</li>
+</ol>
+<ul>
+<li>Click on the little green arrow button next to the code chunk</li>
+<li>Careful: if you get an error message, make sure that you run all chunks that your code depends on before. E.g. you probably have to run the setup chunk to load all the packages first.</li>
+</ul>
+<ol start="5" type="1">
 <li>Knit the document and see how the output looks like</li>
 </ol>
-<p>Below, you find example code for each of the three output types. I suggest, you copy the code to your respective chunk in the first step. Then if you still have time, you can also change the code or write code yourself.</p>
+<p>Below, you find example code for a figure, a table and a linear model. I suggest, you copy my code to your R chunk. If you still have time, you can change the code or write new code.</p>
+<p><strong>Don’t forget</strong></p>
+<ul>
+<li>Every time, you use a function from a new package, you have to load the package into the document environment. Just add another <code>library()</code> line to the setup chunk.</li>
+<li>Knit your document often to detect errors early on</li>
+</ul>
 <div class="panelset">
 <section id="figure" class="panel">
 <h3>Figure</h3>
-<p>I use <code>ggplot</code> to produce the figure, so don’t forget to load the package in the setup chunk.</p>
+<p>I use <code>ggplot2</code> to produce the figures, so don’t forget to load the package in the setup chunk.</p>
 <p>Chose one of the two figure ideas from below:</p>
 <ol type="1">
-<li>Create a histogram of the flipper length for the 3 penguin species</li>
+<li>Create a histogram of the body mass for the 3 penguin species</li>
 </ol>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>penguins</span>, <span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>flipper_length_mm</span>, fill <span class='op'>=</span> <span class='va'>species</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>penguins</span>, <span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>body_mass_g</span>, fill <span class='op'>=</span> <span class='va'>species</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
   <span class='fu'>geom_histogram</span><span class='op'>(</span>alpha <span class='op'>=</span> <span class='fl'>0.6</span><span class='op'>)</span> <span class='op'>+</span>
    <span class='fu'>scale_fill_manual</span><span class='op'>(</span>values <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"darkorange"</span>, <span class='st'>"purple"</span>, <span class='st'>"cyan4"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
   <span class='fu'>theme_minimal</span><span class='op'>(</span><span class='op'>)</span>
@@ -2586,7 +2621,7 @@ Solutions
 </section>
 <section id="summary-table" class="panel">
 <h3>Summary table</h3>
-<p>Add a summary table that shows the mean variable values grouped by penguin species and sex.</p>
+<p>I create a summary table of the mean variable values grouped by penguin species and sex.</p>
 <p>I use the <code>dplyr</code> package here, so don’t forget to load it in the setup chunk.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -2603,59 +2638,50 @@ Solutions
 </div>
 </div>
 </section>
-<section id="some-statistics" class="panel">
-<h3>Some statistics</h3>
-<p>I used a Wilcoxon rank sum test, to compare the flipper length of male and female penguins:</p>
+<section id="linear-model-extra" class="panel">
+<h3>Linear Model (Extra)</h3>
+<p>I create a linear model to test the effect of bill length on bill depth and to see if it differs between species.</p>
+<p>Don’t worry if you don’t know exactly what a linear model is. This course is about markdown after all :)</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># extract flipper length of male and female penuguins as a vector</span>
-<span class='va'>females</span> <span class='op'>&lt;-</span> <span class='va'>penguins</span> <span class='op'>%&gt;%</span> <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>sex</span> <span class='op'>==</span> <span class='st'>"female"</span><span class='op'>)</span> <span class='op'>%&gt;%</span> <span class='fu'>pull</span><span class='op'>(</span><span class='va'>flipper_length_mm</span><span class='op'>)</span>
-<span class='va'>males</span> <span class='op'>&lt;-</span> <span class='va'>penguins</span> <span class='op'>%&gt;%</span> <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>sex</span> <span class='op'>==</span> <span class='st'>"male"</span><span class='op'>)</span> <span class='op'>%&gt;%</span> <span class='fu'>pull</span><span class='op'>(</span><span class='va'>flipper_length_mm</span><span class='op'>)</span>
-<span class='co'># do the test</span>
-<span class='va'>test</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/wilcox.test.html'>wilcox.test</a></span><span class='op'>(</span><span class='va'>females</span>, <span class='va'>males</span><span class='op'>)</span>
-<span class='va'>test</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># Calculate the linear model</span>
+<span class='va'>lm_penguins</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>bill_depth_mm</span> <span class='op'>~</span> <span class='va'>bill_length_mm</span> <span class='op'>+</span> <span class='va'>species</span>, data <span class='op'>=</span> <span class='va'>penguins</span><span class='op'>)</span>
+<span class='co'># Create the summary table</span>
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>lm_penguins</span><span class='op'>)</span>
 </code></pre>
 </div>
 </div>
 </section>
 </div>
-<h2 id="inline-code">2.1 Inline code</h2>
-<p>Try adding some sentences to the document that use R code to add some numbers.</p>
-<p>Ideas are:</p>
+<h2 id="add-inline-code">2.1 Add inline code</h2>
+<p>Add some sentences to the document that use R code to report some numbers.</p>
+<p>You can start with the ideas below. If you still have time in the end, you can add more sentences:</p>
 <ul>
-<li><p>Mean values of variables</p></li>
-<li><p>Species names</p></li>
-<li><p>The mean flipper length of all penguins is 200.9152047.</p></li>
-<li><p>The islands that were investigated are</p></li>
+<li>Report the mean body mass of all penguins, e.g. like this:
+<ul>
+<li>The mean body mass of all penguins is 4202 g.</li>
+</ul></li>
 </ul>
 <h4 id="extra">Extra</h4>
-<p>Can you print the results of the wilcoxon test above into a nice sentence?</p>
-<p>Something like: Male penguins have longer flippers than female penguins (Wilcoxon rank sum test, W = xyz, p = xyz).</p>
-<p>You can access the elements of the test with <code>$</code>:</p>
-<ul>
-<li><code>test$statistics</code> for the test statistics (in this case W)</li>
-<li><code>test$p.value</code> for the p-value</li>
-</ul>
+<p>Can you report the number of penguins and their body mass separately for the three penguin species?</p>
+<p><em>Hint:</em> Calculate the mean weight of the penguin species in a separate code chunk and save them in 3 variables. Then you can use these variables in the inline code.</p>
 <h3 id="chunk-options">2.3 Chunk options</h3>
-<p>Now add some chunk options to make the output nicer.</p>
+<p>Now we modify some of the code output using chunk options.</p>
 <p>Start with the chunk that produces the figure:</p>
 <ul>
 <li>Add a figure caption.</li>
-<li>Change the figure size using either <code>fig.width</code> and <code>fig.height</code> or <code>out.width</code></li>
+<li>If you want, change the figure size using either <code>fig.width</code> and <code>fig.height</code> or <code>out.width</code></li>
+<li>Align the figure where you like to have it</li>
 </ul>
-<p>Knit the document again and look at the output.</p>
-<p>Now think of global chunk options that might make sense for your document. Add the ones that you like to have to the <code>knitr</code> options in the setup chunk.</p>
+<p>Knit the document and look at the output.</p>
+<p>Now think of some global chunk options that might make sense for your document. Add the ones that you like to have to the <code>knitr</code> options in the setup chunk.</p>
 <p>You can for example think of things like:</p>
 <ul>
 <li>Should the R code be shown in the document?</li>
 <li>Should warnings and messages be printed into the document as well?</li>
 </ul>
-<h4 id="extra-1">Extra</h4>
-<ul>
-<li>Try different figure alignments</li>
-</ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
-<h2 id="change-yaml-header">4 Change YAML header</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<h2 id="change-yaml-header">3 Change YAML header</h2>
 <p>In the last step, we will add some additional <code>YAML</code> metadata and document options to the document.</p>
 <p>Also in this task, you can try out the options that you find most interesting. But I will give you some basic suggestions of what to try.</p>
 <p>Knit often, to see the difference that the options make to the document.</p>
@@ -2684,8 +2710,14 @@ Solutions
 </ul></li>
 <li>Try <code>code_folding: "hide"</code> (html only) to hide code and make it available via a button</li>
 </ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>paper available <a href="https://doi.org/10.1371/journal.pone.0090081">here</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
@@ -2693,6 +2725,15 @@ Solutions
 <div class="d-appendix">
 </div>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 
 <!--radix_placeholder_site_after_body-->
 <!--/radix_placeholder_site_after_body-->

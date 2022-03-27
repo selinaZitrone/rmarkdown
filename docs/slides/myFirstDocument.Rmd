@@ -23,7 +23,7 @@ bibliography: references.bib
 knitr::opts_knit$set(eval.after = "fig.cap", echo=TRUE)
 ```
 
-## The table
+# Introduction
 
 ```{r}
 library(knitr)
@@ -83,7 +83,6 @@ iris_sum |> kable(booktabs = TRUE,
 
 ```
 
-
 ```{r}
 #iris[1:7,] |> kable(booktabs = TRUE) |> kable_classic("striped")
 ```
@@ -91,7 +90,6 @@ iris_sum |> kable(booktabs = TRUE,
 ```{r}
 #iris |> flextable()
 ```
-
 
 ## R Markdown
 

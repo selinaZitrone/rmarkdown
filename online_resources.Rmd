@@ -1,7 +1,7 @@
 ---
-title: "Additional online resources"
+title: "Additional resources"
 description: |
-  Below you can find a collection of helpful links to further online resources regarding the workshop topics.
+  Below you can find a collection of helpful links to further online resources and a list of useful packages regarding the workshop topics.
 output: 
   distill::distill_article:
     toc: true
@@ -10,3 +10,31 @@ output:
 ---
 
 ## General
+
+There are two books that I very much recommend as reference:
+
+- [R Markdown: The definitive guide](https://bookdown.org/yihui/rmarkdown/): Covers everything from getting started, to many different document types (html, pdf, word, xaringan presentations, websites, books, journal articles, ...), to parameterized reports. You can just scroll through the table of contents of the book to see what you can do with rmarkdown and get inspiration. 
+
+- [R markdown cookbook](https://bookdown.org/yihui/rmarkdown-cookbook/): Covers the basics and different document types. Is more structured by docuemnt elements than by document types. Also here, you can scroll through the table of
+contents to see what is possible and how to do it.
+
+- A [list of R Markdown books](https://www.bigbookofr.com/r-markdown.html): This list contains the two above-mentioned books but also lists some other books about R Markdown that are freely available
+
+- [R markdown cheat sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/master/rmarkdown-2.0.pdf): Handy as a reference while working
+
+- Comprehensive [Markdown cheat sheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet): Not exactly pandoc flavoured markdown but most of the things work the same. So this page is a good and comprehensive list of markdown elements that you can use to format your texts
+
+## R packages
+
+In the table below, you can find a list of R packages with a short description and 
+some links for further reading. The package selection is based on my personal experience and
+packages that I regularly use and like in combination with `rmarkdown`. 
+The list is in no way complete. If you know a useful package 
+that I missed, let me know and I can add it to the list.
+
+
+```{r echo=FALSE}
+pkg <- readxl::read_xlsx("./data/packages.xlsx")
+kableExtra::kbl(pkg) |>  kableExtra::kable_styling("striped")
+```
+

@@ -233,77 +233,6 @@ There are many more ...
 
 .center[![:scale 70%](img/day1/dummy_document_basics.png)]
 
-
----
-# Structure of an `rmarkdown` document
-
-.pull-left[
-
-**Meta data**
-
-- On top of the document
-
-- Enclosed in `---`
-
-- Contains 
-  - Document metadata in YAML Syntax
-  - Information on output type and options
-  
-]
-
-.pull-right[
-
-.center[![](img/day1/dummy_document_basics.png)]
-
-]
-
----
-# Structure of an `rmarkdown` document
-
-.pull-left[
-
-**Text body**
-
-- Anywhere in the document
-
-- Markdown syntax
-
-]
-
-.pull-right[
-
-.center[![](img/day1/dummy_document_basics.png)]
-
-]
-
----
-
-# Structure of an `rmarkdown` document
-
-.pull-left[
-
-**Code chunks**
-
-- For R code (but also other languges)
-
-- Structure of code chunks:
-
-````md
-`r ''````{r}
-head(iris)
-```
-````
-
-- Can have different options
-
-]
-
-.pull-right[
-
-.center[![](img/day1/dummy_document_basics.png)]
-
-]
-
 ---
 # Basic workflow in practice
 
@@ -333,7 +262,7 @@ A multipstep process that is coordinated by the `rmarkdown` package
 - [Pandoc](https://pandoc.org/) (+ LaTeX) converts the markdown document to the desired output format
 
 - Document is knitted in a new R session
-  - This makes sure that the docuement is reproducible and that it does
+  - This makes sure that the document is reproducible and that it does
   not depend on the current environment
 
 ]
@@ -367,18 +296,9 @@ A multipstep process that is coordinated by the `rmarkdown` package
 I recommend to knit often, otherwise it can become a pain to debug.
 
 ---
-class: inverse, middle, center
+class: inverse, center
 
-# .large[Now you]
-
-## Task 1: Create and RStudio Project with your first Rmarkdown document
-
-#### Find the task description <a href="../01_tasks_controller.html#first-rmarkdown-document">here</a>
-
----
-class: inverse
-
-# The text body
+.large[# The text body]
 
 ---
 # The text body
@@ -502,9 +422,7 @@ becomes
 ---
 # The text body
 
-**Math expressions**
-
-Enclosed in `$` or `$$` and written in LaTeX syntax
+**Math expressions** can be written in in LaTeX syntax
 
 --
 
@@ -529,7 +447,7 @@ You don't need to remember all of this. [Here](https://raw.githubusercontent.com
 
 --
 
-Always use spaces around rmarkdown object so that they can be rendered correctly, e.g.
+Always use spaces around markdown objects so that they can be rendered correctly, e.g.
 
 ```markdown
 ## My section
@@ -549,6 +467,14 @@ This is an ordered list:
 1. item 1
 2. item 2
 ```
+
+---
+
+# The text body
+
+**Let's look at an example together**
+
+Can you identify the formatting elements in <a href="../tasks/day1/solution_docs/penguin_paper_1.html">this document</a>?
 
 ---
 class: inverse, middle, center
@@ -697,7 +623,7 @@ mean(1:3)
 
 --
 
-- Chunk options separated by commas
+- Chunk options are separated by commas
 
 ````md
 `r ''````{r calculate-mean, warning=TRUE, message=TRUE}
@@ -719,6 +645,8 @@ mean(1:3)
 
 # Chunk options
 
+**Some important general options**
+
 - `message`: `TRUE`, `FALSE`, Show message in output?
 
 - `warning`: `TRUE`, `FALSE`, Show warning in output?
@@ -736,7 +664,7 @@ mean(1:3)
 ---
 # Chunk options
 
-**For code chunks that have figures as output**
+**Some important figure related options**
 
 --
 
@@ -767,17 +695,22 @@ plot(1:10, 1:10)
 
 - See [here](https://yihui.org/knitr/options/) for a comprehensive list of all chunk options
 
-
 - Some chunk options can be set by clicking on the gear icon next to the chunk
+
+
 ![](img/day1/chunk_options_gear.png)
 
 ---
 
 # The setup chunk
 
-- Set default options of code chunks in the beginning of the document
+--
 
-- Knitr options can be set in an R code chunk
+- Set default chunk options in the beginning of the document
+
+- Default options can be overwritten in individual chunks
+
+- Default chunk options can be set via `knitr` in an R code chunk:
 
 
 ````md
@@ -796,7 +729,6 @@ knitr::opts_chunk$set(
 You can also run code chunks of other languages:
 
 
-
 ```{r}
 names(knitr::knit_engines$get())
 ```
@@ -805,9 +737,9 @@ names(knitr::knit_engines$get())
 See [here](https://bookdown.org/yihui/rmarkdown/language-engines.html) if you are interested
 
 ---
-class: inverse
+class: inverse, center
 
-# Metadata with the YAML header
+.large[# Metadata with the YAML header]
 
 ---
 
@@ -821,7 +753,7 @@ class: inverse
   - Meta data
   - Document output formats and their options
   
-- Is used by Pandoc, rmarkdown and knitr at different stages
+- Is used by Pandoc, `rmarkdown` and `knitr`
 
 ---
 
@@ -838,7 +770,7 @@ date: "3/22/2022"
 output: 
   html_document:
     toc: true
-    tod_float: true
+    toc_float: true
 bibliography: references.bib
 ---
 ```
@@ -880,7 +812,7 @@ date: "`r knitr::inline_expr("Sys.Date()")`"
 
 .pull-right[
 
-- Inline R code can print the current date at time of knitting the document
+- Inline R code can print the current date at knitting time
 
 ]
 
@@ -919,9 +851,11 @@ output:
 
 **Document output options**
 
-- Output formats have options than can be specified in the YAML header
+- Every output format has options than can be specified in the YAML header
   - Some options are shared between formats
   - Some options are specific to formats
+  
+--
   
 - Have a look at `?rmarkdown::pdf_document`, `?rmarkdown::html_document`, etc. to see all options and their default values
 

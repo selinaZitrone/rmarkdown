@@ -262,7 +262,7 @@ A multipstep process that is coordinated by the `rmarkdown` package
 - [Pandoc](https://pandoc.org/) (+ LaTeX) converts the markdown document to the desired output format
 
 - Document is knitted in a new R session
-  - This makes sure that the docuement is reproducible and that it does
+  - This makes sure that the document is reproducible and that it does
   not depend on the current environment
 
 ]
@@ -296,18 +296,9 @@ A multipstep process that is coordinated by the `rmarkdown` package
 I recommend to knit often, otherwise it can become a pain to debug.
 
 ---
-class: inverse, middle, center
+class: inverse, center
 
-# .large[Now you]
-
-## Task 1: Create and RStudio Project with your first Rmarkdown document
-
-#### Find the task description <a href="../01_tasks_controller.html#first-rmarkdown-document">here</a>
-
----
-class: inverse
-
-# The text body
+.large[# The text body]
 
 ---
 # The text body
@@ -324,7 +315,7 @@ class: inverse
 
 **The basics**
 
-- Bold: `**text**` becomes <b>text</b>
+- Bold: `**text**` becomes **text**
 
 - Italic: `*text*` becomes *text*
 
@@ -431,7 +422,7 @@ becomes
 ---
 # The text body
 
-**Math expressions** can be writtein in LaTeX syntax
+**Math expressions** can be written in in LaTeX syntax
 
 --
 
@@ -476,6 +467,14 @@ This is an ordered list:
 1. item 1
 2. item 2
 ```
+
+---
+
+# The text body
+
+**Let's look at an example together**
+
+Can you identify the formatting elements in <a href="../tasks/day1/solution_docs/penguin_paper_1.html">this document</a>?
 
 ---
 class: inverse, middle, center

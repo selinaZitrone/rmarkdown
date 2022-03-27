@@ -1,30 +1,34 @@
-name: "generic-workshop"
-title: "A generic workshop"
+name: "rmarkdown-workshop"
+title: "Reproducible documents with rmarkdown"
 theme: theme.css
 description: |
   My Website
 output_dir: "docs"
-exclude: ["R/", "data/"]
+exclude: ["R/", "data/", "*.pptx", "*.xlsx"]
 navbar:
   right:
     - text: "Home"
       href: index.html
     - text: "Slides"
       menu:
-        - text: "01 - RStudio Projects"
-          href: slides/01_01_RStudio_projects.html
+        - text: "RStudio Projects"
+          href: slides/2_RStudio_projects.html
+        - text: "Day 1"
+          href: slides/3_Day1.html
+        - text: "Day 2"
+          href: slides/4_Day2.html
     - text: "Tasks"
       menu:
         - text: "Day 1: Task"
           href: 01_tasks_controller.html
+        - text: "Day 2: Task"
     - text: "Solutions"
       menu:
         - text: "Day 1: Solution"
           href: 01_solutions_controller.html
-    - text: "Resources"
+        - text: "Day 2: Solution"
+    - text: "Resources & Packages"
       href: online_resources.html
-    - text: "Packages"
-      href: packages.html
     - icon: fa fa-github
-      href: https://github.com/selinaZitrone/intro-rmarkdown
+      href: https://github.com/selinaZitrone/rmarkdown
 output: distill::distill_article

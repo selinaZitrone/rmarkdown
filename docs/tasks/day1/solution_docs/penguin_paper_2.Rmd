@@ -6,52 +6,59 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, # code is included in output
-                      warning = FALSE, # don't show warnings
-                      message = FALSE # don't show messages
-                      )
+knitr::opts_chunk$set(
+  echo = TRUE, # code is included in output
+  warning = FALSE, # don't show warnings
+  message = FALSE # don't show messages
+)
 library(tidyverse)
 library(palmerpenguins)
 ```
 
 ## Introduction
 
-There are some penguin species Antarctica that, you can see them in the following figure:
+There are three main penguin species in Antarctica (*Chinstrap*, *Gentoo*, *Adelie*). You can see them in the following figure:
 
 ![Artwork by [Allison Horst](https://twitter.com/allison_horst)](https://github.com/allisonhorst/palmerpenguins/blob/master/man/figures/lter_penguins.png?raw=true)
+
+In this paper we want to answer the following questions
+
+1. How bill depth depends on bill length?
+2. Which penguin species has the highest body mass?
 
 ## Methods
 
 ### The data
 
-The data that will be analysed in this document was collected on islands in Antarctica and
-published by Gorman et al. (2014) in PLoS ONE. You can find the original paper with the 
-title "Ecological sexual dimorphism and environmental variability within a community of Antarctic penguins (genus *Pygoscelis*)"^[paper available [here](https://doi.org/10.1371/journal.pone.0090081).]
+The data was collected on islands in Antarctica and published by Gorman et al. (2014). You can find the original paper with the title "Ecological sexual dimorphism and environmental variability within a community of Antarctic penguins (genus *Pygoscelis*)" in PLoS ONE^[paper available [here](https://doi.org/10.1371/journal.pone.0090081).]
 
-The data is also published via the `palmerpenguins` R package which you can find [on this website](https://allisonhorst.github.io/palmerpenguins/).
+The data is published via the `palmerpenguins` R package which you can find [on this website](https://allisonhorst.github.io/palmerpenguins/).
 
-**The data contains the following measurements:**
+**The data contains (among others) the following measurements:**
 
 - bill length
 - bill depth
-- flipper length
 - body mass
 - sex
   - male
   - female
 
+
 ### The analysis
 
-We conduct the following analysis:
-
-1. Plot some plots of the data
-2. Calculate some summary statistics and print them in a table
-3. Calculate a linear model of the form $y = ax + b + \epsilon$
+We did some plots, calculated some summary statistics and a linear model of the 
+form $y = ax + b + \epsilon$
 
 
 ## Results
 
-The mean flipper length of all penguin species is `r mean(penguins$flipper_length_mm, na.rm = TRUE)` ($\pm$ `r mean(penguins$flipper_length_mm, na.rm = TRUE)`). 
+```{r mean-penguin-species, include=FALSE}
+# calculate the mean body mass of the penguin species
+adelie_mean <- penguins %>% filter(species == "Adelie") %>% pull(body_mass_g) %>% mean(na.rm = TRUE) 
+chinstrap_mean <- penguins %>% filter(species == "Chinstrap") %>% pull(body_mass_g) %>% mean(na.rm = TRUE) 
+gentoo_mean <- penguins %>% filter(species == "Gentoo") %>% pull(body_mass_g) %>% mean(na.rm = TRUE) 
+```
+The mean weight of all penguin species is `r mean(penguins$body_mass_g, na.rm = TRUE)`. *Gentoo* penguins have an average weight of `r round(gentoo_mean,0)` g, *Adelie* penguins of `r round(adelie_mean, 0)` g and *Chinstrap* penguins of `r round(chinstrap_mean, 0)` g.
 
 ```{r calculate-mean, echo=FALSE}
 # mean penguin species
@@ -60,14 +67,10 @@ chinstrap_mean <- penguins %>% filter(species == "Chinstrap") %>% pull(flipper_l
 gentoo_mean <- penguins %>% filter(species == "Gentoo") %>% pull(flipper_length_mm) %>% mean(na.rm = TRUE) 
 ```
 
+The figure below shows that *Gentoo* penguins have the highest body mass.
 
-The Gentoo species has the highest flipper length (mean `r gentoo_mean`), followed by 
-the Chinstrap species (mean `r chinstrap_mean`). The Adelie species as the lowest
-average flipper length (mean `r adelie_mean`).
-
-
-```{r histogram-flipper, fig.cap="Histogram of the three penguin species.", fig.width=4, fig.height=3, fig.align='center'}
-ggplot(penguins, aes(x = flipper_length_mm, fill = species)) +
+```{r histogram-flipper, fig.cap="Histogram of weight of the three penguin species.", fig.width=4, fig.height=3, fig.align='center'}
+ggplot(penguins, aes(x = body_mass_g, fill = species)) +
   geom_histogram(alpha = 0.6) +
    scale_fill_manual(values = c("darkorange", "purple", "cyan4")) +
   theme_minimal()
@@ -103,5 +106,15 @@ penguins %>%
     flipper_length = mean(flipper_length_mm, na.rm = TRUE),
     body_mass = mean(body_mass_g, na.rm = TRUE)
   )
+```
+
+The linear model analysis shows that both bill length and species have a significant effect on 
+the bill depth of the penguins.
+
+```{r linear-model}
+# Calculate the linear model
+lm_penguins <- lm(bill_depth_mm ~ bill_length_mm + species, data = penguins)
+# Create the summary table
+summary(lm_penguins)
 ```
 

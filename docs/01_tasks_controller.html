@@ -2345,6 +2345,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   }</style>
   <!--/radix_placeholder_distill-->
   <script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+  <link href="site_libs/panelset-0.2.6/panelset.css" rel="stylesheet" />
+  <script src="site_libs/panelset-0.2.6/panelset.js"></script>
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
   <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
@@ -2449,12 +2451,7 @@ Solutions
 </ul></li>
 <li><a href="#add-r-code">3 Add R code</a></li>
 <li><a href="#load-the-package">2.1 Load the package</a></li>
-<li><a href="#adding-r-code">2.1 Adding R code</a>
-<ul>
-<li><a href="#figure">Figure</a></li>
-<li><a href="#summary-table">Summary table</a></li>
-<li><a href="#some-statistics">Some statistics</a></li>
-</ul></li>
+<li><a href="#adding-r-code">2.1 Adding R code</a></li>
 <li><a href="#inline-code">2.1 Inline code</a>
 <ul>
 <li><a href="#chunk-options">2.3 Chunk options</a></li>
@@ -2529,7 +2526,7 @@ Solutions
 <p>You can do this in the <code>setup</code> code chunk.</p>
 <p>Just add <code>library(palmerpenguins)</code> as a line in the chunk.</p>
 <p>You can always come back to the setup chunk and add the packages that you need in your analysis. Then you have all the <code>library()</code> calls in one place.</p>
-<h2 class="tabset" id="adding-r-code">2.1 Adding R code</h2>
+<h2 id="adding-r-code">2.1 Adding R code</h2>
 <p>Now let’s add some R code that produces different types of output to the document.</p>
 <p>Try using both the RStudio interface (<code>Code</code> -&gt; <code>Insert Chunk</code>) and the keyboard shortcut (<code>Ctrl/Cmd + Alt/Option + I</code>) to insert the code chunks.</p>
 <p>Remember that every time, you use a function from a package, you have to load the package into the document environment. Just add another <code>library()</code> line to the setup chunk.</p>
@@ -2548,31 +2545,79 @@ Solutions
 <li>Knit the document and see how the output looks like</li>
 </ol>
 <p>Below, you find example code for each of the three output types. I suggest, you copy the code to your respective chunk in the first step. Then if you still have time, you can also change the code or write code yourself.</p>
-<h3 class="tabset" id="figure">Figure</h3>
+<div class="panelset">
+<section id="figure" class="panel">
+<h3>Figure</h3>
 <p>I use <code>ggplot</code> to produce the figure, so don’t forget to load the package in the setup chunk.</p>
 <p>Chose one of the two figure ideas from below:</p>
 <ol type="1">
 <li>Create a histogram of the flipper length for the 3 penguin species</li>
 </ol>
 <div class="layout-chunk" data-layout="l-body">
-
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span><span class='va'>penguins</span>, <span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>flipper_length_mm</span>, fill <span class='op'>=</span> <span class='va'>species</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_histogram</span><span class='op'>(</span>alpha <span class='op'>=</span> <span class='fl'>0.6</span><span class='op'>)</span> <span class='op'>+</span>
+   <span class='fu'>scale_fill_manual</span><span class='op'>(</span>values <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"darkorange"</span>, <span class='st'>"purple"</span>, <span class='st'>"cyan4"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>theme_minimal</span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
 </div>
 <ol start="2" type="1">
 <li>Create a scatter plot of the relationship between bill length and bill depth</li>
 </ol>
 <div class="layout-chunk" data-layout="l-body">
-
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>ggplot</span><span class='op'>(</span>
+  data <span class='op'>=</span> <span class='va'>penguins</span>,
+  <span class='fu'>aes</span><span class='op'>(</span>
+    x <span class='op'>=</span> <span class='va'>bill_length_mm</span>,
+    y <span class='op'>=</span> <span class='va'>bill_depth_mm</span>,
+    color <span class='op'>=</span> <span class='va'>species</span>,
+    shape <span class='op'>=</span> <span class='va'>species</span>
+  <span class='op'>)</span>
+<span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_point</span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>3</span>, alpha <span class='op'>=</span> <span class='fl'>0.8</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_smooth</span><span class='op'>(</span>method <span class='op'>=</span> <span class='st'>"lm"</span>, se <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>scale_color_manual</span><span class='op'>(</span>values <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"darkorange"</span>, <span class='st'>"purple"</span>, <span class='st'>"cyan4"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>theme_minimal</span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
 </div>
-<h3 id="summary-table">Summary table</h3>
+</div>
+</section>
+<section id="summary-table" class="panel">
+<h3>Summary table</h3>
 <p>Add a summary table that shows the mean variable values grouped by penguin species and sex.</p>
 <p>I use the <code>dplyr</code> package here, so don’t forget to load it in the setup chunk.</p>
 <div class="layout-chunk" data-layout="l-body">
-
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>penguins</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='op'>!</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>sex</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>group_by</span><span class='op'>(</span><span class='va'>species</span>, <span class='va'>sex</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>summarize</span><span class='op'>(</span>
+    bill_length <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>bill_length_mm</span>, na.rm <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>,
+    bill_depth <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>bill_depth_mm</span>, na.rm <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>,
+    flipper_length <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>flipper_length_mm</span>, na.rm <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>,
+    body_mass <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>body_mass_g</span>, na.rm <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
+  <span class='op'>)</span>
+</code></pre>
 </div>
-<h3 id="some-statistics">Some statistics</h3>
+</div>
+</section>
+<section id="some-statistics" class="panel">
+<h3>Some statistics</h3>
 <p>I used a Wilcoxon rank sum test, to compare the flipper length of male and female penguins:</p>
 <div class="layout-chunk" data-layout="l-body">
-
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># extract flipper length of male and female penuguins as a vector</span>
+<span class='va'>females</span> <span class='op'>&lt;-</span> <span class='va'>penguins</span> <span class='op'>%&gt;%</span> <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>sex</span> <span class='op'>==</span> <span class='st'>"female"</span><span class='op'>)</span> <span class='op'>%&gt;%</span> <span class='fu'>pull</span><span class='op'>(</span><span class='va'>flipper_length_mm</span><span class='op'>)</span>
+<span class='va'>males</span> <span class='op'>&lt;-</span> <span class='va'>penguins</span> <span class='op'>%&gt;%</span> <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>sex</span> <span class='op'>==</span> <span class='st'>"male"</span><span class='op'>)</span> <span class='op'>%&gt;%</span> <span class='fu'>pull</span><span class='op'>(</span><span class='va'>flipper_length_mm</span><span class='op'>)</span>
+<span class='co'># do the test</span>
+<span class='va'>test</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/wilcox.test.html'>wilcox.test</a></span><span class='op'>(</span><span class='va'>females</span>, <span class='va'>males</span><span class='op'>)</span>
+<span class='va'>test</span>
+</code></pre>
+</div>
+</div>
+</section>
 </div>
 <h2 id="inline-code">2.1 Inline code</h2>
 <p>Try adding some sentences to the document that use R code to add some numbers.</p>

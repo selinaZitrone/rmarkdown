@@ -2,6 +2,7 @@
 library(palmerpenguins)
 library(ggplot2)
 library(dplyr)
+xaringanExtra::use_panelset()
 ```
 
 ## 2.1 Load the package
@@ -17,7 +18,7 @@ Just add `library(palmerpenguins)` as a line in the chunk.
 You can always come back to the setup chunk and add the packages that you need in 
 your analysis. Then you have all the `library()` calls in one place.
 
-## 2.1 Adding R code {.tabset}
+## 2.1 Adding R code
 
 Now let's add some R code that produces different types of output to the document.
 
@@ -45,8 +46,11 @@ Below, you find example code for each of the three output types. I suggest, you 
 code to your respective chunk in the first step. Then if you still have time, you can 
 also change the code or write code yourself.
 
+::::: {.panelset}
 
-### Figure {.tabset}
+::: {.panel}
+
+### Figure
 
 I use `ggplot` to produce the figure, so don't forget to load the package in the setup
 chunk.
@@ -55,7 +59,7 @@ Chose one of the two figure ideas from below:
 
 1. Create a histogram of the flipper length for the 3 penguin species
 
-```{r eval=FALSE}
+```{r eval=FALSE, echo=TRUE}
 ggplot(penguins, aes(x = flipper_length_mm, fill = species)) +
   geom_histogram(alpha = 0.6) +
    scale_fill_manual(values = c("darkorange", "purple", "cyan4")) +
@@ -64,7 +68,7 @@ ggplot(penguins, aes(x = flipper_length_mm, fill = species)) +
 
 2. Create a scatter plot of the relationship between bill length and bill depth
 
-```{r eval=FALSE}
+```{r eval=FALSE, echo=TRUE}
 ggplot(
   data = penguins,
   aes(
@@ -80,6 +84,10 @@ ggplot(
   theme_minimal()
 ```
 
+:::
+
+::: {.panel}
+
 ### Summary table
 
 Add a summary table that shows the mean variable values grouped
@@ -87,7 +95,7 @@ by penguin species and sex.
 
 I use the `dplyr` package here, so don't forget to load it in the setup chunk.
 
-```{r eval=FALSE}
+```{r eval=FALSE, echo=TRUE}
 penguins %>% 
   filter(!(is.na(sex))) %>% 
   group_by(species, sex) %>% 
@@ -98,12 +106,15 @@ penguins %>%
     body_mass = mean(body_mass_g, na.rm = TRUE)
   )
 ```
+:::
+
+::: {.panel}
 
 ### Some statistics
 
 I used a Wilcoxon rank sum test, to compare the flipper length of male and female penguins:
 
-```{r eval=FALSE}
+```{r eval=FALSE, echo=TRUE}
 # extract flipper length of male and female penuguins as a vector
 females <- penguins %>% filter(sex == "female") %>% pull(flipper_length_mm)
 males <- penguins %>% filter(sex == "male") %>% pull(flipper_length_mm)
@@ -111,6 +122,10 @@ males <- penguins %>% filter(sex == "male") %>% pull(flipper_length_mm)
 test <- wilcox.test(females, males)
 test
 ```
+
+:::
+
+:::::
 
 ## 2.1 Inline code
 

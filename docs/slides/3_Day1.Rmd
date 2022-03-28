@@ -58,7 +58,7 @@ library(fontawesome)
 
 - How did you produced this figure? What analysis is behind it?
 
-- Were does this value come from?
+- Where does this value come from?
 
 - I found an error in the raw data. Can you repeat the analysis?
 

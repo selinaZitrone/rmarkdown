@@ -2387,6 +2387,7 @@ Slides
 <div class="nav-dropdown-content">
 <a href="slides/3_Day1.html">Day 1 - R Markdown Introduction</a>
 <a href="slides/4_Day2.html">Day 2 - Citations, tables and more</a>
+<a href="slides/5_General_tips.html">General tips</a>
 </div>
 </div>
 <div class="nav-dropdown">
@@ -2397,7 +2398,7 @@ Tasks
 </button>
 <div class="nav-dropdown-content">
 <a href="01_tasks_controller.html">Day 1: Task</a>
-<span class="nav-dropdown-header">Day 2: Task</span>
+<a href="02_tasks_controller.html">Day 2: Task</a>
 </div>
 </div>
 <div class="nav-dropdown">
@@ -2440,7 +2441,7 @@ Solutions
 <ul>
 <li><a href="#preparing-the-data">1.1 Preparing the data</a></li>
 <li><a href="#create-first-rmarkdown-document">1.2 Create first <code>rmarkdown</code> document</a></li>
-<li><a href="#lets-add-some-text">1.2 Let’s add some text</a></li>
+<li><a href="#add-some-text">1.2 Add some text</a></li>
 </ul></li>
 <li><a href="#add-r-code">2 Add R code</a>
 <ul>
@@ -2491,7 +2492,7 @@ Solutions
 <li>Chose different output formats to knit to by clicking on the little black arrow next to the Knit button</li>
 </ul></li>
 </ul>
-<h3 id="lets-add-some-text">1.2 Let’s add some text</h3>
+<h3 id="add-some-text">1.2 Add some text</h3>
 <p>Now start writing your very own paper about the 3 penguins.</p>
 <p>First, remove all template text from the document <strong>except</strong> the YAML header and the first code chunk (we will learn later what that does).</p>
 <p>Before you start writing, have a quick look at the <code>Example text</code> that I show below. It is the one we discussed together just now and includes many different markdown formatting elements and some text about the penguin data set.</p>
@@ -2563,7 +2564,6 @@ Solutions
 <ul>
 <li>A figure for the penguin data set</li>
 <li>A summary table of the data set</li>
-<li>A linear model with the data set (<strong>Extra</strong>)</li>
 </ul>
 <p>For each of the output types, go through the following steps:</p>
 <ol type="1">
@@ -2643,20 +2643,6 @@ Solutions
 </div>
 </div>
 </section>
-<section id="linear-model-extra" class="panel">
-<h3>Linear Model (Extra)</h3>
-<p>I create a linear model to test the effect of bill length on bill depth and to see if it differs between species.</p>
-<p>Don’t worry if you don’t know exactly what a linear model is. This course is about markdown after all :)</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># Calculate the linear model</span>
-<span class='va'>lm_penguins</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>bill_depth_mm</span> <span class='op'>~</span> <span class='va'>bill_length_mm</span> <span class='op'>+</span> <span class='va'>species</span>, data <span class='op'>=</span> <span class='va'>penguins</span><span class='op'>)</span>
-<span class='co'># Create the summary table</span>
-<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>lm_penguins</span><span class='op'>)</span>
-</code></pre>
-</div>
-</div>
-</section>
 </div>
 <h3 id="add-inline-code">2.1 Add inline code</h3>
 <p>Add some sentences to the document that use R code to report some numbers.</p>
@@ -2668,6 +2654,7 @@ Solutions
 </ul></li>
 </ul>
 <h4 id="extra">Extra</h4>
+<p>Only do this if you are alredy finished with the Chunk option task below.</p>
 <p>Can you report the number of penguins and their body mass separately for the three penguin species?</p>
 <p><em>Hint:</em> Calculate the mean weight of the penguin species in a separate code chunk and save them in 3 variables. Then you can use these variables in the inline code.</p>
 <h3 id="chunk-options">2.3 Chunk options</h3>

@@ -1,6 +1,6 @@
 slides_rmd <- list.files("./slides",pattern = "*.Rmd")
 
-slides_rmd <- c("1_Organization.Rmd", "3_Day1.Rmd", "4_Day2.Rmd")
+slides_rmd <- c("1_Organization.Rmd", "3_Day1.Rmd", "4_Day2.Rmd", "5_General_tips.Rmd")
 
 # Render all slides
 lapply(slides_rmd, function(x) {rmarkdown::render(here::here("slides",x))})

@@ -100,14 +100,3 @@ penguins %>%
     body_mass = mean(body_mass_g, na.rm = TRUE)
   )
 ```
-
-The linear model analysis shows that both bill length and species have a significant effect on 
-the bill depth of the penguins.
-
-```{r linear-model}
-# Calculate the linear model
-lm_penguins <- lm(bill_depth_mm ~ bill_length_mm + species, data = penguins)
-# Create the summary table
-summary(lm_penguins)
-```
-

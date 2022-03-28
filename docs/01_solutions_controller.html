@@ -2387,6 +2387,7 @@ Slides
 <div class="nav-dropdown-content">
 <a href="slides/3_Day1.html">Day 1 - R Markdown Introduction</a>
 <a href="slides/4_Day2.html">Day 2 - Citations, tables and more</a>
+<a href="slides/5_General_tips.html">General tips</a>
 </div>
 </div>
 <div class="nav-dropdown">
@@ -2397,7 +2398,7 @@ Tasks
 </button>
 <div class="nav-dropdown-content">
 <a href="01_tasks_controller.html">Day 1: Task</a>
-<span class="nav-dropdown-header">Day 2: Task</span>
+<a href="02_tasks_controller.html">Day 2: Task</a>
 </div>
 </div>
 <div class="nav-dropdown">
@@ -2563,18 +2564,7 @@ Solutions
 <span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a><span class="in">    flipper_length = mean(flipper_length_mm, na.rm = TRUE),</span></span>
 <span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a><span class="in">    body_mass = mean(body_mass_g, na.rm = TRUE)</span></span>
 <span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a><span class="in">  )</span></span>
-<span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-133"><a href="#cb1-133" aria-hidden="true" tabindex="-1"></a>The linear model analysis shows that both bill length and species have a </span>
-<span id="cb1-134"><a href="#cb1-134" aria-hidden="true" tabindex="-1"></a>significant effect on </span>
-<span id="cb1-135"><a href="#cb1-135" aria-hidden="true" tabindex="-1"></a>the bill depth of the penguins.</span>
-<span id="cb1-136"><a href="#cb1-136" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-137"><a href="#cb1-137" aria-hidden="true" tabindex="-1"></a><span class="in">```{r linear-model}</span></span>
-<span id="cb1-138"><a href="#cb1-138" aria-hidden="true" tabindex="-1"></a><span class="in"># Calculate the linear model</span></span>
-<span id="cb1-139"><a href="#cb1-139" aria-hidden="true" tabindex="-1"></a><span class="in">lm_penguins &lt;- lm(bill_depth_mm ~ bill_length_mm + species, data = penguins)</span></span>
-<span id="cb1-140"><a href="#cb1-140" aria-hidden="true" tabindex="-1"></a><span class="in"># Create the summary table</span></span>
-<span id="cb1-141"><a href="#cb1-141" aria-hidden="true" tabindex="-1"></a><span class="in">summary(lm_penguins)</span></span>
-<span id="cb1-142"><a href="#cb1-142" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
+<span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <div class="layout-chunk" data-layout="l-body">
 <pre><code>[1] FALSE</code></pre>

@@ -6,42 +6,16 @@ output:
     toc_float: true
     number_sections: true
 params:
-  showDownload: FALSE
-  includeSolution1: FALSE
+  includeSolution1: TRUE
 ---
 
-```{r setup, include=FALSE}
+```{r global-setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
+xaringanExtra::use_panelset()
 ```
 
-```{r download_script, child= if(params$showDownload) "tasks/day1/01_download.Rmd"}
+```{r solution-day1, child=if (params$includeSolution1) "tasks/day1/01_penguin_solution.Rmd"}
 ```
 
-## 1 First document and text
-
-```{r rmarkdown_text, child=if (params$includeSolution1) "tasks/day1/01_01_penguin_markdown_solution.Rmd"}
-```
-
-
-```{r rmarkdown_text_empty, child=if (!params$includeSolution1) "tasks/day1/01_01_penguin_markdown_solution_empty.Rmd"}
-```
-
-## 2 Add R code
-
-
-```{r add_r, child=if (params$includeSolution1) "tasks/day1/01_02_penguin_r_solution.Rmd"}
-```
-
-
-```{r add_r_empty, child=if (!params$includeSolution1) "tasks/day1/01_02_penguin_r_solution_empty.Rmd"}
-```
-
-## 3 Change YAML header
-
-
-```{r yaml, child=if (params$includeSolution1) "tasks/day1/01_03_penguin_yaml_solution.Rmd"}
-```
-
-
-```{r yaml_empty, child=if (!params$includeSolution1) "tasks/day1/01_03_penguin_yaml_solution_empty.Rmd"}
+```{r solution-day1_empty, child=if (!params$includeSolution1) "tasks/day1/01_penguin_solution_empty.Rmd"}
 ```

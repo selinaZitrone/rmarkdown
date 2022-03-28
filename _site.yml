@@ -11,11 +11,9 @@ navbar:
       href: index.html
     - text: "Slides"
       menu:
-        - text: "RStudio Projects"
-          href: slides/2_RStudio_projects.html
-        - text: "Day 1"
+        - text: "Day 1 - R Markdown Introduction"
           href: slides/3_Day1.html
-        - text: "Day 2"
+        - text: "Day 2 - Citations, tables and more"
           href: slides/4_Day2.html
     - text: "Tasks"
       menu:
@@ -27,6 +25,7 @@ navbar:
         - text: "Day 1: Solution"
           href: 01_solutions_controller.html
         - text: "Day 2: Solution"
+          href: 02_solutions_controller.html
     - text: "Resources & Packages"
       href: online_resources.html
     - icon: fa fa-github

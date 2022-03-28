@@ -4,7 +4,7 @@ library(ggplot2)
 library(dplyr)
 ```
 
-## 2.1 Load the `palmerpenguins` in your document
+### 2.1 Load the `palmerpenguins` in your document
 
 We will now include some analysis of the `penguins` data in the document.
 
@@ -18,7 +18,7 @@ Just add `library(palmerpenguins)` as a line in this chunk.
 You can always come back to the setup chunk and add all the packages that you need in 
 your analysis. Then you have all the `library()` calls in one place.
 
-## 2.2 Add R code chunks
+### 2.2 Add R code chunks
 
 Now let's add some R code that produces different types of output in the document.
 
@@ -138,7 +138,7 @@ summary(lm_penguins)
 
 :::::
 
-## 2.1 Add inline code
+### 2.1 Add inline code
 
 Add some sentences to the document that use R code to report some numbers.
 

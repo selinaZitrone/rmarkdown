@@ -1,118 +1,85 @@
-### 1.1 Preparing the data
+### 1.1 Explore the visual editor
 
-To practice, we will write a short paper about a data set on 3 different penguin species (*Chinstrap*, *Gentoo*, and *Adelie*) on islands in Antarctica. 
-As we progress in the workshop, we will incorporate more options, functionality and formatting into the document.
+Open your R Markdown document from the last task. 
 
-![Artwork by [Allison Horst](https://twitter.com/allison_horst)](https://github.com/allisonhorst/palmerpenguins/blob/master/man/figures/lter_penguins.png?raw=true)
+Switch to the visual editor by clicking on the RStudio compass button on the top right of 
+the document. 
 
-The data is available from the [palmerpenguins](https://allisonhorst.github.io/palmerpenguins/) package. To get it, you have to open RStudio and:
+First, scroll through your document and see how it looks different
+from the original document view.
 
-- Install the package with `install.packages("palmerpenguins")`
+Take 5-10 minutes and explore the visual editor. If you want, you can try to e.g.,
 
-Take a moment to get familiar with the data set and its variables:
-    
-- Load the package into your R session with `library(palmerpenguins)` (just do this in the console)
-- Type `penguins` in the console and you should see the penguins tibble
-- It contains data on bill and flipper size, weight and sex of the 3 penguin species
+- Insert a link  (`r fontawesome::fa("link")` button)
+- Insert a markdown table
+- ...
 
-We will need the data later, so remember that you can access via the variable `penguins`.
+After you inserted an element, switch back to the normal R Studio editor view 
+(click on the compass button again) and see how your original document changed.
 
-### 1.2 Create first `rmarkdown` document
+### 1.2. Add Citation
 
-For all tasks of today, you might find it helpful, to open the [R Markdown cheat sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/master/rmarkdown-2.0.pdf) for reference.
+#### Add Gorman et al. (2014) via visual editor
 
-Start by creating a new `.Rmd` file:
+First, we will cite the original paper that published and analysed the penguin data
+set. The paper is by Gorman et al. (2014).
 
-- Go to `File` -> `New File` -> `R Markdown...` and 
-- Chose `HTML` as default output format from the `Document` section (This should be already selected as default)
-- If you want, you can already enter a title and author
+Switch to the visual editor and
 
-Save the file in a convenient location on your machine.
+- Select a location in the text to add the citation
+- Click the insert citation button (`@` symbol) on top
+- Select `From DOI` and search the DOI `10.1371/journal.pone.0090081`. This should
+list the Gorman paper.
 
-Before you start working with the document:
+Before inserting the citation, have a close look at the options that the
+`Insert Citation` window offers. 
+On the bottom, There is a check box to chose between *in-text* (without brackets) 
+or *normal* (in brackets) citation.
+You can leave the rest at the default settings. 
 
-- Knit the document to see what happens
-  - Try the Knit button on top of your document or the keyboard shortcut `Ctrl/Cmd + Shift + K`
-  - Chose different output formats to knit to by clicking on the little black arrow next to the Knit button
-  
-### 1.2 Let's add some text
+Now hit `Insert` and see what changed in the document:
 
-Now start writing your very own paper about the 3 penguins. 
+- See how RStudio automatically created a `references.bib` file in your project
+(the same location where your `*.Rmd` file is located)
+- Open `references.bib` in the editor to see how it looks like
+- Look at the YAML header to find the reference file added there automatically
 
-First, remove all template text from the document **except** the YAML header and the first code chunk (we will learn later what that does).
+- Knit the document and check that the citation was added correctly in the text and 
+that the reference is listed at the end of the document
 
-Before you start writing, have a quick look at the `Example text` that I show below. It is the one we discussed together just now and includes many different markdown formatting elements and some text about the penguin data set.
+#### Add `palmerpenguins` citation
 
-- You can find the links that I used in the text in the `Links` section or by right clicking on the text
+Now let's use a different method to add a second citation of the `palmerpenguins` package. 
 
-Now write a text yourself. You can either reproduce my text and use copy paste to type less, or you can write your own text about penguins (or anything else you want to write about).
-The important thing in this task is to include many different markdown formatting elements.
+Open the `references.bib` file in RStudio (or any other text editor) and add the
+following BibTeX entry in a new line:
 
-During the writing process, **don't forget to knit your document often**. It's easier to fix mistakes and error messages if you detect them early.
+```bibtex
+@Manual{horst2020,
+    title = {palmerpenguins: Palmer Archipelago (Antarctica) penguin data},
+    author = {Allison Marie Horst and Alison Presmanes Hill and Kristen B Gorman},
+    year = {2020},
+    note = {R package version 0.1.0},
+    doi = {10.5281/zenodo.3960218},
+    url = {https://allisonhorst.github.io/palmerpenguins/},
+  }
+```
 
-::::: {.panelset}
+Save the file and close it.
 
-::: {.panel}
+Now go to you R Markdown document, switch to the visual editor and select a location
+where you want to add the new citation.
 
-# Example text
+- Start typing `@horst2020` in the text. You should see that RStudio starts suggesting
+references that match this name. From the list, select the citation of the 
+palmerpenguins package.
 
-## The penguins of Antarctica
+Knit the document.
 
-#### Selina Baldauf
+Were citation and reference added correctly to the text?
 
-#### 25/03/2022
+#### Extras
 
-### Introduction
-
-There are three main penguin species in Antarctica (*Chinstrap*, *Gentoo*, *Adelie*). You can see them in the following figure:
-
-![Artwork by [Allison Horst](https://twitter.com/allison_horst)](https://github.com/allisonhorst/palmerpenguins/blob/master/man/figures/lter_penguins.png?raw=true)
-
-In this paper we want to answer the following questions
-
-1. How does bill depth depend on bill length?
-2. Which penguin species has the highest body mass?
-
-### Methods
-
-#### The data
-
-The data was collected on islands in Antarctica and published by Gorman et al. (2014). You can find the original paper with the title "Ecological sexual dimorphism and environmental variability within a community of Antarctic penguins (genus *Pygoscelis*)" in PLoS ONE^[paper available [here](https://doi.org/10.1371/journal.pone.0090081).]
-
-The data is published via the `palmerpenguins` R package which you can find [on this website](https://allisonhorst.github.io/palmerpenguins/).
-
-**The data contains (among others) the following measurements:**
-
-- bill length
-- bill depth
-- body mass
-- sex
-  - male
-  - female
-
-#### The analysis
-
-We did some plots, calculated some summary statistics and a linear model of the 
-form $y = ax + b + \epsilon$
-
-### Results
-
-Will be added later
-
-:::
-
-::: {.panel}
-
-### Links used
-
-Here are the links that I used in the text for URL links and the figure. You can
-use them to reproduce my text. But feel also free to link other things if you want.
-
-- Link to Allison Horst's twitter: https://twitter.com/allison_horst
-- Link to the paper: https://doi.org/10.1371/journal.pone.0090081
-- Link to the palmerpenguins package: https://allisonhorst.github.io/palmerpenguins/
-- Link to the penguin image: https://github.com/allisonhorst/palmerpenguins/blob/master/man/figures/lter_penguins.png?raw=true
-
-:::
-
-:::::
+Play with adding both *in-text* and *normal* citations. You can search 
+citations via DOI or one of the other methods.
+If you have Zotero, you can also try to add a reference from there.

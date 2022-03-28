@@ -1,118 +1,69 @@
-### 1.1 Preparing the data
+Before you start the task, chose one of two packages to produce nice tables to start with. 
 
-To practice, we will write a short paper about a data set on 3 different penguin species (*Chinstrap*, *Gentoo*, and *Adelie*) on islands in Antarctica. 
-As we progress in the workshop, we will incorporate more options, functionality and formatting into the document.
+- If you want to put a focus on `word_document` output, I recommend you to try the 
+`flextable` package because it works better for word output
+- If you want to focus on `pdf_document` or `html_document`, I highly recommend to
+use `knitr::kable` in combinations with `kableExtra` because it's easy to use and 
+very flexible.
 
-![Artwork by [Allison Horst](https://twitter.com/allison_horst)](https://github.com/allisonhorst/palmerpenguins/blob/master/man/figures/lter_penguins.png?raw=true)
+Now try to make the table that is already included in your document more beautiful.
 
-The data is available from the [palmerpenguins](https://allisonhorst.github.io/palmerpenguins/) package. To get it, you have to open RStudio and:
+A tip to start is to first save the table in a new variable. Then you can pass this 
+variable into the table functions:
 
-- Install the package with `install.packages("palmerpenguins")`
+```{r eval=FALSE, echo=TRUE}
+penguins_sum <- penguins %>%
+  filter(!(is.na(sex))) %>%
+  group_by(species, sex) %>%
+  summarize(
+    bill_length = mean(bill_length_mm, na.rm = TRUE),
+    bill_depth = mean(bill_depth_mm, na.rm = TRUE),
+    flipper_length = mean(flipper_length_mm, na.rm = TRUE),
+    body_mass = mean(body_mass_g, na.rm = TRUE)
+  )
+penguins_sum
+```
 
-Take a moment to get familiar with the data set and its variables:
-    
-- Load the package into your R session with `library(palmerpenguins)` (just do this in the console)
-- Type `penguins` in the console and you should see the penguins tibble
-- It contains data on bill and flipper size, weight and sex of the 3 penguin species
+#### Option 1 `kable` and `kableExtra`
 
-We will need the data later, so remember that you can access via the variable `penguins`.
+Don't forget to load the packages `knitr` and `kableExtra`
+using the `library` function in the setup chunk.
 
-### 1.2 Create first `rmarkdown` document
+Start with the `kable` function. You can for example:
 
-For all tasks of today, you might find it helpful, to open the [R Markdown cheat sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/master/rmarkdown-2.0.pdf) for reference.
+- Pass the table into the function
+- Add a caption
+- Restrict the number of digits printed
+- Change the column headers
+- Change the alignment of text in the cells
+- Use `booktabs` option (only works in PDF output, is ignored for HTML output)
 
-Start by creating a new `.Rmd` file:
+Knit the document in your target output format and see how the table looks like.
 
-- Go to `File` -> `New File` -> `R Markdown...` and 
-- Chose `HTML` as default output format from the `Document` section (This should be already selected as default)
-- If you want, you can already enter a title and author
+Now start adding some extra styling using the `kableExtra` package (fitting 
+the document output that you use). For example, you can
 
-Save the file in a convenient location on your machine.
+- Apply some `kable_styling`, e.g
+  - Font size
+  - Position of the table or full width table
+  - Specify `latex_options` and/or `bootstrap_options`
+- Change the table theme using one of the `kable_*` themes (only HTML)
 
-Before you start working with the document:
+#### Option 2 `flextable`
 
-- Knit the document to see what happens
-  - Try the Knit button on top of your document or the keyboard shortcut `Ctrl/Cmd + Shift + K`
-  - Chose different output formats to knit to by clicking on the little black arrow next to the Knit button
-  
-### 1.2 Let's add some text
+Don't forget to load the package `flextable` using the `library` function in the setup
+chunk.
 
-Now start writing your very own paper about the 3 penguins. 
+Start by setting the default flex table options in the setup chunk.
 
-First, remove all template text from the document **except** the YAML header and the first code chunk (we will learn later what that does).
+- Have a look at the example on the slide and check out `?flextable::set_flextable_defaults`
 
-Before you start writing, have a quick look at the `Example text` that I show below. It is the one we discussed together just now and includes many different markdown formatting elements and some text about the penguin data set.
+Now print the table in your document as a flextable by passing it into the `flextable()` function.
 
-- You can find the links that I used in the text in the `Links` section or by right clicking on the text
+Customize the look further, e.g. by
 
-Now write a text yourself. You can either reproduce my text and use copy paste to type less, or you can write your own text about penguins (or anything else you want to write about).
-The important thing in this task is to include many different markdown formatting elements.
+- Changing the header labels
+- Adding a table caption
+- Applying the formatting for the double columns
 
-During the writing process, **don't forget to knit your document often**. It's easier to fix mistakes and error messages if you detect them early.
-
-::::: {.panelset}
-
-::: {.panel}
-
-# Example text
-
-## The penguins of Antarctica
-
-#### Selina Baldauf
-
-#### 25/03/2022
-
-### Introduction
-
-There are three main penguin species in Antarctica (*Chinstrap*, *Gentoo*, *Adelie*). You can see them in the following figure:
-
-![Artwork by [Allison Horst](https://twitter.com/allison_horst)](https://github.com/allisonhorst/palmerpenguins/blob/master/man/figures/lter_penguins.png?raw=true)
-
-In this paper we want to answer the following questions
-
-1. How does bill depth depend on bill length?
-2. Which penguin species has the highest body mass?
-
-### Methods
-
-#### The data
-
-The data was collected on islands in Antarctica and published by Gorman et al. (2014). You can find the original paper with the title "Ecological sexual dimorphism and environmental variability within a community of Antarctic penguins (genus *Pygoscelis*)" in PLoS ONE^[paper available [here](https://doi.org/10.1371/journal.pone.0090081).]
-
-The data is published via the `palmerpenguins` R package which you can find [on this website](https://allisonhorst.github.io/palmerpenguins/).
-
-**The data contains (among others) the following measurements:**
-
-- bill length
-- bill depth
-- body mass
-- sex
-  - male
-  - female
-
-#### The analysis
-
-We did some plots, calculated some summary statistics and a linear model of the 
-form $y = ax + b + \epsilon$
-
-### Results
-
-Will be added later
-
-:::
-
-::: {.panel}
-
-### Links used
-
-Here are the links that I used in the text for URL links and the figure. You can
-use them to reproduce my text. But feel also free to link other things if you want.
-
-- Link to Allison Horst's twitter: https://twitter.com/allison_horst
-- Link to the paper: https://doi.org/10.1371/journal.pone.0090081
-- Link to the palmerpenguins package: https://allisonhorst.github.io/palmerpenguins/
-- Link to the penguin image: https://github.com/allisonhorst/palmerpenguins/blob/master/man/figures/lter_penguins.png?raw=true
-
-:::
-
-:::::
+If you still have time, move from Word to HTML or PDF output and try the other packages.

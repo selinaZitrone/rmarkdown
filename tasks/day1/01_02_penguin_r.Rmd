@@ -32,7 +32,6 @@ The different output types we will try are:
 
 - A figure for the penguin data set
 - A summary table of the data set
-- A linear model with the data set (**Extra**)
 
 For each of the output types, go through the following steps:
 
@@ -117,25 +116,6 @@ penguins %>%
 ```
 :::
 
-::: {.panel}
-
-### Linear Model (Extra)
-
-I create a linear model to test the effect of bill length on bill depth and to see
-if it differs between species.
-
-Don't worry if you don't know exactly what a linear model is. This course is about 
-markdown after all :)
-
-```{r eval=FALSE, echo=TRUE}
-# Calculate the linear model
-lm_penguins <- lm(bill_depth_mm ~ bill_length_mm + species, data = penguins)
-# Create the summary table
-summary(lm_penguins)
-```
-
-:::
-
 :::::
 
 ### 2.1 Add inline code
@@ -148,6 +128,8 @@ You can start with the ideas below. If you still have time in the end, you can a
   - The mean body mass of all penguins is `r round(mean(penguins$body_mass_g, na.rm=TRUE), 0)` g.
 
 #### Extra
+
+Only do this if you are alredy finished with the Chunk option task below.
 
 Can you report the number of penguins and their body mass separately for the three 
 penguin species?

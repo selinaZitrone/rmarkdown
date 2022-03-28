@@ -15,11 +15,14 @@ navbar:
           href: slides/3_Day1.html
         - text: "Day 2 - Citations, tables and more"
           href: slides/4_Day2.html
+        - text: "General tips"
+          href: slides/5_General_tips.html
     - text: "Tasks"
       menu:
         - text: "Day 1: Task"
           href: 01_tasks_controller.html
         - text: "Day 2: Task"
+          href: 02_tasks_controller.html
     - text: "Solutions"
       menu:
         - text: "Day 1: Solution"

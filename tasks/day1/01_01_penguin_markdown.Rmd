@@ -35,7 +35,7 @@ Before you start working with the document:
   - Try the Knit button on top of your document or the keyboard shortcut `Ctrl/Cmd + Shift + K`
   - Chose different output formats to knit to by clicking on the little black arrow next to the Knit button
   
-### 1.2 Let's add some text
+### 1.2 Add some text
 
 Now start writing your very own paper about the 3 penguins. 
 

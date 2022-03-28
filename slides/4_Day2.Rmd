@@ -27,6 +27,8 @@ knitr::opts_chunk$set(echo = TRUE,
                       message = FALSE)
 library(fontawesome)
 library(palmerpenguins)
+library(xaringanExtra)
+xaringanExtra::use_panelset()
 ```
 
 ```{r child="title_slide.Rmd"}
@@ -199,12 +201,12 @@ class: inverse, middle, center
 
 ## Task 1: Add some citations
 
-#### Find the task description <a href="../01_tasks_controller.html#first-rmarkdown-document">here</a>
+#### Find the task description <a href="../02_tasks_controller.html#add-citations">here</a>
 
 ---
 class: inverse, middle, center
 
-# .large[A bit more output formats
+# .large[A bit more on the output formats
 
   `html_document`, `pdf_document`, `word_document`]
 
@@ -225,6 +227,7 @@ date: "3/22/2022"
 output: 
   html_document: default
   pdf_document: default
+  word_document: default
 bibliography: references.bib
 ---
 ```
@@ -327,6 +330,22 @@ some content
 
 some other content
 ```
+
+**This is the main section**
+
+And here I add some text to the main section
+
+.panelset[
+.panel[.panel-name[The first tab]
+some content
+]
+.panel[.panel-name[The second tab]
+
+some other content
+
+]
+
+]
 
 
 ---
@@ -452,9 +471,10 @@ class: inverse, middle, center
 
 # .large[Now you]
 
-## Task 1: Create some documents
+## Task 2: Try different output formats
 
-#### Find the task description <a href="../01_tasks_controller.html#first-rmarkdown-document">here</a>
+#### Find the task description <a href="../02_tasks_controller.html#multiple-output-formats">here</a>
+
 
 ---
 class: inverse, middle, center
@@ -543,6 +563,10 @@ knitr::kable(
 
 # The `{kableExtra}` package
 
+- Provides options for table styling
+
+--
+
 - Most of the features work for both HTML and PDF tables
 
 - Find the full documentation [here](https://haozhu233.github.io/kableExtra/)
@@ -551,34 +575,140 @@ knitr::kable(
 
 --
 
-- You can use the pipe operator (`%>%`) to pipe `kable()` output to styling functions
-
---
-
-- The basic styling function is `kable_styling()`
+- Load the packages in the setup chunk before using them
 
 ```{r}
 library(knitr)
 library(kableExtra)
-kable(iris_sum) %>% kable_styling(font_size = 14)
 ```
 
 ---
 
 # The `{kableExtra}` package
 
-**`kable_styling()`**
+**`kable_styling()`** is the basic styling function
 
-- Some simple styling options
+- Use the pipe operator (`%>%`) to pipe `kable()` output to styling function `kable_styling()`
 
+--
 
 ```{r}
-iris_sum %>% kable() %>%
+iris_sum %>% 
+  kable() %>%
   kable_styling(
   full_width = FALSE, # display table on full page width?
   position = "left",  # if not full width -> where 
   font_size = 15
 )
+```
+
+---
+
+# The `{kableExtra}` package
+
+**`kable_styling()`** provides styling options
+
+- Additional styling options for HTML output are passed via `bootstrap_options`
+
+--
+
+```{r eval=FALSE}
+iris_sum %>% 
+  kable() %>%
+  kable_styling(
+  full_width = FALSE, # display table on full page width?
+  position = "left",  # if not full width -> where 
+  font_size = 15,
+  bootstrap_options = c("striped", "hover")
+)
+```
+
+```{r echo=FALSE}
+iris_sum %>% 
+  kable() %>%
+  kable_styling(
+  full_width = FALSE, # display table on full page width?
+  position = "left",  # if not full width -> where 
+  font_size = 15,
+) |> 
+  kable_classic(c("hover", "striped"))
+```
+
+---
+
+# The `{kableExtra}` package
+
+**`kable_styling()`** provides styling options
+
+- Additional styling options for PDF output are passed via `latex_options`
+
+```{r eval=FALSE}
+iris_sum %>%
+  kable(booktabs = TRUE) %>%
+  kable_styling(
+    full_width = FALSE, # display table on full page width?
+    position = "left", # if not full width -> where
+    font_size = 15,
+    bootstrap_options = c("striped", "hover"),
+    latex_options = c("striped", "hold_position", "scale_down")
+  )
+```
+
+```{r echo=FALSE}
+iris_sum %>% 
+  kable() %>%
+  kable_styling(
+  full_width = FALSE, # display table on full page width?
+  position = "left",  # if not full width -> where 
+  font_size = 15,
+) |> 
+  kable_classic(c("hover", "striped"))
+```
+
+--
+
+- Depending on the output format you chose, `bootstrap_options` or `latex_options` will be ignored
+
+
+---
+
+# The `{kableExtra}` package
+
+**`kable_styling()`** provides styling options
+
+- Additional styling options for PDF output are passed via `latex_options`
+
+--
+
+```{r eval=FALSE}
+iris_sum %>%
+  kable(booktabs = TRUE) %>%
+  kable_styling(
+    full_width = FALSE, # display table on full page width?
+    position = "left", # if not full width -> where
+    font_size = 15,
+    bootstrap_options = c("striped", "hover"),
+    latex_options = c("striped", "hold_position", "scale_down")
+  )
+```
+
+- `booktabs = TRUE` will use the `booktabs` LaTeX package to create nice horizontal lines and removes vertical lines
+- `hold_position` places the table where it is created in the document (no floating)
+- `striped` creates striped tables
+
+---
+
+# The `{kableExtra}` package
+
+**Packing rows and columns**
+
+```{r}
+iris_sum %>%
+  kable() %>%
+  kable_styling(font_size = 15) %>%
+  add_header_above(c("", "Sepals" = 2, "Petals" = 2)) %>%
+  pack_rows("Group 1", 1, 1) %>%
+  pack_rows("Group 2", 2, 3)
 ```
 
 ---
@@ -603,20 +733,6 @@ iris_sum %>%
 
 # The `{kableExtra}` package
 
-**Packing rows and columns**
-
-```{r}
-iris_sum %>%
-  kable() %>%
-  add_header_above(c("","Sepals" = 2, "Petals" = 2)) %>%
-  pack_rows("Group 1", 1, 1) %>%
-  pack_rows("Group 2", 2,3)
-```
-
----
-
-# The `{kableExtra}` package
-
 **Some predefined html themes**
 
 - `kableExtra` offers some themes for HTML tables
@@ -626,46 +742,17 @@ iris_sum %>%
 --
 
 ```{r}
-kable(iris_sum) %>% kable_classic(c("striped", "hover"))
+iris_sum %>%
+  kable() %>%
+  kable_classic(
+    font_size = 15
+  )
 ```
-
----
-
-# The `{kableExtra}` package
-
-**PDF/LaTeX options**
-
-```{r, eval = FALSE}
-iris_sum %>% kable(booktabs = TRUE) %>%
-  kable_styling(latex_options = c("striped", "hold_position"))
-```
-
-- `booktabs = TRUE` will use the `booktabs` package to create nicer horizontal lines and removes vertical lines
-- `hold_position` places the table where it is created in the docuemnt (no floating)
-- `striped` creates striped tables
-
----
-
-# The `{kableExtra}` package
-
-- In general, style your table in a way that fits your primary output format
 
 --
 
-- If you have multiple output formats, you can chose a table style that looks good in all output formats
+- This only works with HTML output! It will give you an error for PDF output.
 
-**Example**
-
-```{r}
-iris_sum %>% kable(booktabs = TRUE, caption = "Iris table") %>%
-  kable_styling(latex_options = c("striped", "hold_position"),
-                full_width = FALSE,
-                position = "left",
-                font_size = 10
-                ) 
-```
-
-- Some LaTeX options will just be ignored in HTML output
 
 ---
 
@@ -701,13 +788,14 @@ set_flextable_defaults(
 ```{r}
 iris_sum %>%
   flextable() %>%
+  set_caption("Summary of the iris data") %>%
   set_header_labels(
     Sepal.Length = "Sepal Length",
     Sepal.Width = "Sepal Width",
     Petal.Length = "Petal Length",
     Petal.Width = "Petal Width"
   ) %>%
-  autofit()
+  colformat_double()
 ```
 
 - See [here](https://ardata-fr.github.io/flextable-book/design.html#map-of-functions) for all the functions that you can add to the flextable
@@ -716,154 +804,8 @@ iris_sum %>%
 ---
 class: inverse, middle, center
 
-# .large[Some general tips and good practice]
+# .large[Now you]
 
----
+## Task 3: Create a nice table
 
-# Tip 1: Keep your document clean
-
-`.Rmd` documents can quickly become large and messy. To keep them clean, you can
-
---
-
-- Use headers to mark sections in your document
-  - Navigate the file using the document outline
-  
-![:scale 20%](img/day2/document_outline_circle.png)
-  
---
-
-- Use names for your code chunks
-  - Navigate code chunks with the code and document outline (bottom left of script)
-
-![:scale 20%](img/day2/chunk_outline.png)
-
----
-
-# Tip 2: Source large data preparation scripts
-
-- Related to Tip 1
-
-- If it's not necessary for the document, do data preparation in a separate R Script
-
-- Place that R Script in the project where the `.Rmd` is located
-
-- Then source the script in a code chunk:
-
---
-
-````md
-`r ''````{r prepare-data, warning=TRUE, message=TRUE}
-source("path/to/script.R")
-```
-````
-
---
-
-- This runs all the R code in `script.R` and loads the results into the `.Rmd` document
-
----
-
-# Tip 3: Split larger documents into multiple `.Rmd` files
-
-- Related to Tip 1
-
-- Write separate `.Rmd` files e.g. for Introduction, Methods and Results
-
---
-
-- Have on main `.Rmd` file that
-  - Combines the sections into one
-  - Controls YAML options of the output
-  
---
-
-- You can load an `.Rmd` file into another one using the `child` chunk option
-
-````md
-`r ''````{r load-child, child="path/to/child.Rmd"}
-```
-````
-
----
-
-# Tip 3: Split larger documents into multiple `.Rmd` files
-
-
-.pull-left[
-
-- 3 separate files `Introduction.Rmd`, `Methods.Rmd`, `Results.Rmd`
-
-- The separate files control everything that happens on the lower levels of the documents, e.g.
-
-````md
-## First results
-
-`r ''````{r result-plot, fig.width=3}
-plot(1:10, 1:10)
-```
-````
-
-- `Main.Rmd` (see right) controls
-  - YAML options 
-  - Global setup options
-  - Includes the sections via the `child` option
-  
-
-]
-
---
-
-.pull-right[
-
-````md
----
-title: "My paper"
-author: "Selina Baldauf"
-output: 
-  pdf_document:
-    toc: true
----
-
-```{r global-setup, include = FALSE}`r ''`
-knitr::opts_chunk$set(echo = FALSE)
-```
-
-# Introduction
-
-```{r intro, child="Introduction.Rmd"}`r ''`
-```
-
-# Methods
-
-```{r methods, child="Methods.Rmd"}`r ''`
-```
-
-# Results
-
-```{r results, child="Results.Rmd"}`r ''`
-```
-
-````
-
-]
-
----
-
-# Tip 4: Read through some online resources
-
-- Read or scroll through some R Markdown books or tutorials to
-  
-  - See what is possible with R Markdown
-  - Find thing that are relevant for your own documents
-
-- I recommend to start with the two books:
-  - [R Markdown Cookbook](https://bookdown.org/yihui/rmarkdown-cookbook/)
-  - [R Markdown - The Definitve Guide](https://bookdown.org/yihui/rmarkdown/)
-  
-- You can also find some <a href="../online_resources.html">resources on the workshop website</a>
-
-
-
-
-
+#### Find the task description <a href="../02_tasks_controller.html#make-nice-tables">here</a>

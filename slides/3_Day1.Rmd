@@ -34,6 +34,16 @@ library(fontawesome)
 
 ---
 
+# Topics today
+
+- Introduction to the package
+
+- Basic workflow
+
+- First R Markdown document
+
+---
+
 # A standard workflow
 
 .pull-left[
@@ -296,7 +306,7 @@ A multipstep process that is coordinated by the `rmarkdown` package
 I recommend to knit often, otherwise it can become a pain to debug.
 
 ---
-class: inverse, center
+class: inverse, center, middle
 
 .large[# The text body]
 
@@ -481,14 +491,14 @@ class: inverse, middle, center
 
 # .large[Now you]
 
-## Task 1: Create some markdown text
+## Task 1: Create a first docuemnt and add some text
 
-#### Find the task description <a href="../01_tasks_controller.html#first-rmarkdown-document">here</a>
+#### Find the task description <a href="../01_tasks_controller.html#first-document-and-text">here</a>
 
 ---
-class: inverse
+class: inverse, center, middle
 
-# The R code
+.large[# The R code]
 
 ---
 
@@ -737,13 +747,23 @@ names(knitr::knit_engines$get())
 See [here](https://bookdown.org/yihui/rmarkdown/language-engines.html) if you are interested
 
 ---
-class: inverse, center
+class: inverse, middle, center
 
-.large[# Metadata with the YAML header]
+# .large[Now you]
+
+## Task 2: Add some R code to the document
+
+#### Find the task description <a href="../01_tasks_controller.html#add-r-code">here</a>
+
+---
+class: inverse, center, middle
+
+.large[# The YAML (/ˈjæməl/) header]
+
 
 ---
 
-# YAML (/ˈjæməl/ ) header
+# YAML (/ˈjæməl/) header
 
 - YAML is a data-serialization language
 
@@ -757,7 +777,7 @@ class: inverse, center
 
 ---
 
-# YAML (/ˈjæməl/ ) header
+# YAML (/ˈjæməl/) header
 
 .pull-left[
 **Example**
@@ -795,7 +815,7 @@ bibliography: references.bib
 
 ---
 
-# YAML (/ˈjæməl/ ) header
+# YAML (/ˈjæməl/) header
 
 **Metadata**
 
@@ -818,7 +838,7 @@ date: "`r knitr::inline_expr("Sys.Date()")`"
 
 ---
 
-# YAML (/ˈjæməl/ ) header
+# YAML (/ˈjæməl/) header
 
 **Document outputs**
 
@@ -847,7 +867,7 @@ output:
 
 ---
 
-# YAML (/ˈjæməl/ ) header
+# YAML (/ˈjæməl/) header
 
 **Document output options**
 
@@ -863,7 +883,7 @@ output:
 
 ---
 
-# YAML (/ˈjæməl/ ) header
+# YAML (/ˈjæməl/) header
 
 **Document output options**
 
@@ -894,7 +914,7 @@ output:
 
 ---
 
-# YAML (/ˈjæməl/ ) header
+# YAML (/ˈjæməl/) header
 
 **Document parmeters**
 
@@ -912,3 +932,11 @@ to_plot <- subset(iris, Species == params$species)
 plot(Sepal.Length, to_plot, data = to_plot)
 ```
 ````
+---
+class: inverse, middle, center
+
+# .large[Now you]
+
+## Task 3: Change meta data and document options
+
+#### Find the task description <a href="../01_tasks_controller.html#change-yaml-header">here</a>

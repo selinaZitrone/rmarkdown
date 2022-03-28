@@ -1,0 +1,21 @@
+---
+title: "Solutions for day 2"
+output: 
+  distill::distill_article:
+    toc: true
+    toc_float: true
+    number_sections: true
+params:
+  includeSolution1: TRUE
+---
+
+```{r global-setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+xaringanExtra::use_panelset()
+```
+
+```{r solution-day2, child=if (params$includeSolution1) "tasks/day2/02_penguin_solution.Rmd"}
+```
+
+```{r solution-day2_empty, child=if (!params$includeSolution1) "tasks/day2/02_penguin_solution_empty.Rmd"}
+```

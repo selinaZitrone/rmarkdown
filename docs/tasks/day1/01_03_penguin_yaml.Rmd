@@ -8,12 +8,12 @@ options as well.
 Also here, knit often, to see the difference that the options make to the document
 and to make sure that there is no but.
 
-## 3.1 Add Metadata
+### 3.1 Add Metadata
 
 - Add today's date to the document
 - Add a title and subtitle
 
-## 3.2 Document options
+### 3.2 Document options
 
 Today, we mostly worked with `html_document` output. So add some options for this
 document type to the YAML header. Be careful to respect the rules of indentation.

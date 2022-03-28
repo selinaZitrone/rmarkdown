@@ -1,4 +1,4 @@
-## 1.1 Preparing the data
+### 1.1 Preparing the data
 
 To practice, we will write a short paper about a data set on 3 different penguin species (*Chinstrap*, *Gentoo*, and *Adelie*) on islands in Antarctica. 
 As we progress in the workshop, we will incorporate more options, functionality and formatting into the document.
@@ -17,7 +17,7 @@ Take a moment to get familiar with the data set and its variables:
 
 We will need the data later, so remember that you can access via the variable `penguins`.
 
-## 1.2 Create first `rmarkdown` document
+### 1.2 Create first `rmarkdown` document
 
 For all tasks of today, you might find it helpful, to open the [R Markdown cheat sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/master/rmarkdown-2.0.pdf) for reference.
 
@@ -35,7 +35,7 @@ Before you start working with the document:
   - Try the Knit button on top of your document or the keyboard shortcut `Ctrl/Cmd + Shift + K`
   - Chose different output formats to knit to by clicking on the little black arrow next to the Knit button
   
-## 1.2 Let's add some text
+### 1.2 Let's add some text
 
 Now start writing your very own paper about the 3 penguins. 
 

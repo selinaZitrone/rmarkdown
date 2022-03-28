@@ -2436,25 +2436,29 @@ Solutions
 <nav class="l-text toc figcaption" id="TOC">
 <h3>Contents</h3>
 <ul>
-<li><a href="#first-document-and-text">1 First document and text</a></li>
+<li><a href="#first-document-and-text">1 First document and text</a>
+<ul>
 <li><a href="#preparing-the-data">1.1 Preparing the data</a></li>
 <li><a href="#create-first-rmarkdown-document">1.2 Create first <code>rmarkdown</code> document</a></li>
 <li><a href="#lets-add-some-text">1.2 Let’s add some text</a></li>
-<li><a href="#add-r-code">2 Add R code</a></li>
+</ul></li>
+<li><a href="#add-r-code">2 Add R code</a>
+<ul>
 <li><a href="#load-the-palmerpenguins-in-your-document">2.1 Load the <code>palmerpenguins</code> in your document</a></li>
 <li><a href="#add-r-code-chunks">2.2 Add R code chunks</a></li>
-<li><a href="#add-inline-code">2.1 Add inline code</a>
-<ul>
+<li><a href="#add-inline-code">2.1 Add inline code</a></li>
 <li><a href="#chunk-options">2.3 Chunk options</a></li>
 </ul></li>
-<li><a href="#change-yaml-header">3 Change YAML header</a></li>
+<li><a href="#change-yaml-header">3 Change YAML header</a>
+<ul>
 <li><a href="#add-metadata">3.1 Add Metadata</a></li>
 <li><a href="#document-options">3.2 Document options</a></li>
+</ul></li>
 </ul>
 </nav>
 </div>
 <h2 id="first-document-and-text">1 First document and text</h2>
-<h2 id="preparing-the-data">1.1 Preparing the data</h2>
+<h3 id="preparing-the-data">1.1 Preparing the data</h3>
 <p>To practice, we will write a short paper about a data set on 3 different penguin species (<em>Chinstrap</em>, <em>Gentoo</em>, and <em>Adelie</em>) on islands in Antarctica. As we progress in the workshop, we will incorporate more options, functionality and formatting into the document.</p>
 <figure>
 <img src="https://github.com/allisonhorst/palmerpenguins/blob/master/man/figures/lter_penguins.png?raw=true" alt="Artwork by Allison Horst" /><figcaption aria-hidden="true">Artwork by <a href="https://twitter.com/allison_horst">Allison Horst</a></figcaption>
@@ -2470,7 +2474,7 @@ Solutions
 <li>It contains data on bill and flipper size, weight and sex of the 3 penguin species</li>
 </ul>
 <p>We will need the data later, so remember that you can access via the variable <code>penguins</code>.</p>
-<h2 id="create-first-rmarkdown-document">1.2 Create first <code>rmarkdown</code> document</h2>
+<h3 id="create-first-rmarkdown-document">1.2 Create first <code>rmarkdown</code> document</h3>
 <p>For all tasks of today, you might find it helpful, to open the <a href="https://raw.githubusercontent.com/rstudio/cheatsheets/master/rmarkdown-2.0.pdf">R Markdown cheat sheet</a> for reference.</p>
 <p>Start by creating a new <code>.Rmd</code> file:</p>
 <ul>
@@ -2487,7 +2491,7 @@ Solutions
 <li>Chose different output formats to knit to by clicking on the little black arrow next to the Knit button</li>
 </ul></li>
 </ul>
-<h2 id="lets-add-some-text">1.2 Let’s add some text</h2>
+<h3 id="lets-add-some-text">1.2 Let’s add some text</h3>
 <p>Now start writing your very own paper about the 3 penguins.</p>
 <p>First, remove all template text from the document <strong>except</strong> the YAML header and the first code chunk (we will learn later what that does).</p>
 <p>Before you start writing, have a quick look at the <code>Example text</code> that I show below. It is the one we discussed together just now and includes many different markdown formatting elements and some text about the penguin data set.</p>
@@ -2545,13 +2549,13 @@ Solutions
 </div>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <h2 id="add-r-code">2 Add R code</h2>
-<h2 id="load-the-palmerpenguins-in-your-document">2.1 Load the <code>palmerpenguins</code> in your document</h2>
+<h3 id="load-the-palmerpenguins-in-your-document">2.1 Load the <code>palmerpenguins</code> in your document</h3>
 <p>We will now include some analysis of the <code>penguins</code> data in the document.</p>
 <p>As with “normal” R code, you need to load the <code>palmerpenguins</code> package in your document in the beginning.</p>
 <p>A convenient location to load packages is the <code>setup</code> code chunk.</p>
 <p>Just add <code>library(palmerpenguins)</code> as a line in this chunk.</p>
 <p>You can always come back to the setup chunk and add all the packages that you need in your analysis. Then you have all the <code>library()</code> calls in one place.</p>
-<h2 id="add-r-code-chunks">2.2 Add R code chunks</h2>
+<h3 id="add-r-code-chunks">2.2 Add R code chunks</h3>
 <p>Now let’s add some R code that produces different types of output in the document.</p>
 <p>First finish all the tasks and then come back to the extra (the linear model) if you still have time.</p>
 <p>Try using both the RStudio interface (<code>Code</code> -&gt; <code>Insert Chunk</code>) and the keyboard shortcut (<code>Ctrl/Cmd + Alt/Option + I</code>) to insert R code chunks.</p>
@@ -2654,7 +2658,7 @@ Solutions
 </div>
 </section>
 </div>
-<h2 id="add-inline-code">2.1 Add inline code</h2>
+<h3 id="add-inline-code">2.1 Add inline code</h3>
 <p>Add some sentences to the document that use R code to report some numbers.</p>
 <p>You can start with the ideas below. If you still have time in the end, you can add more sentences:</p>
 <ul>
@@ -2686,12 +2690,12 @@ Solutions
 <p>We will no add some additional <code>YAML</code> metadata and document options to the document.</p>
 <p>In this task, you can test the options that you find most interesting. I will give you some suggestions to start with and if you still have time, you can explore other options as well.</p>
 <p>Also here, knit often, to see the difference that the options make to the document and to make sure that there is no but.</p>
-<h2 id="add-metadata">3.1 Add Metadata</h2>
+<h3 id="add-metadata">3.1 Add Metadata</h3>
 <ul>
 <li>Add today’s date to the document</li>
 <li>Add a title and subtitle</li>
 </ul>
-<h2 id="document-options">3.2 Document options</h2>
+<h3 id="document-options">3.2 Document options</h3>
 <p>Today, we mostly worked with <code>html_document</code> output. So add some options for this document type to the YAML header. Be careful to respect the rules of indentation.</p>
 <p>Options that might be interesting to try on your document:</p>
 <ul>

@@ -48,6 +48,7 @@ library(fontawesome)
 #### Teaching `r fa("r-project")`
 
 - Statistics with R for Biology Master students
+- Workshop "Introduction to Data analysis with R"
 - Workshops on R packages, R development, ...
 ]
 
@@ -61,20 +62,22 @@ library(fontawesome)
 ---
 # The Workshop: Topics
 
-.pull-left[.center[![](img/rmarkdown_wizards.png)]]
-.pull-right[
-  - **Day 1: Introduction to the {rmarkdown} package**
-    - What is it? 
-    - What can you do with it?
-    - Basic functionality
-  - **Day 2: More advanced features and other document types**
-    - Citations
-    - HTML output
-    - Word output
-    - Format tables
-    - Additonal things if time
-  - **Day 3: Bring your own data**
+.pull-right[.center[![](img/rmarkdown_wizards.png)]]
+.pull-left[
+
+- **Day 1: Introduction to the R Markdown package**
   
+  - What is it? 
+  - What can you do with it?
+  - Basic functionality
+  
+- **Day 2: More advanced features and other document types**
+  - Citations
+  - Additional output types
+  - Format tables
+  
+- **Day 3: Bring your own data**
+  - Optional
 ]
 
 
@@ -83,7 +86,7 @@ library(fontawesome)
 ---
 # The Workshop: Schedule and Organization
 
-🕘 1 p.m. - 5 p.m. (🥪 ~ 12 a.m. - 1 p.m.)<br>
+🕘 1 p.m. - 5 p.m. <br>
 📍  We will meet in the `General` meeting on Webex
 
 --
@@ -95,7 +98,7 @@ library(fontawesome)
   - Some examples
   
 - **Tasks** regarding this topic
-  - Solve them in small groups
+  - Two groups: Only chat or meeting
   
 - **Joint discussion** of tasks and additional questions
 
@@ -109,10 +112,6 @@ library(fontawesome)
   - Solutions
   - Additional resources
   
---
-
-- The complete material can be downloaded from the website after the workshop
-
 ---
 # Bring your own data
 
@@ -120,15 +119,14 @@ library(fontawesome)
 
 #### Learning by doing
 
-- Work on your own research data
-    - I will also provide some real life data sets from different topics
-    
 - Create your own documents
   - Use methods learned in the course
   - Try something new
   - Create the document that you actually need or want to learn
 
-- Think about it and let me know tomorrow afternoon if you want to participate
+- It is optional
+  - Think about it and let me know tomorrow afternoon if you want to participate
+  - If you already know: add your name to the [joint document](https://hackmd.io/@selinaZitrone/SknOLL17c/edit)
 
 - If you want to try something specific: Let me know and I can check for resources etc. before
 
@@ -147,4 +145,4 @@ I am curious to know
 ---
 # Before we get started II
 
-.large[Did anyone have problems installing the package or R and R Studio?]
+.large[Did anyone have problems installing the R Markdown?]

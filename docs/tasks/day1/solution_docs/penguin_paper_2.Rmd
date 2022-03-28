@@ -60,16 +60,9 @@ gentoo_mean <- penguins %>% filter(species == "Gentoo") %>% pull(body_mass_g) %>
 ```
 The mean weight of all penguin species is `r mean(penguins$body_mass_g, na.rm = TRUE)`. *Gentoo* penguins have an average weight of `r round(gentoo_mean,0)` g, *Adelie* penguins of `r round(adelie_mean, 0)` g and *Chinstrap* penguins of `r round(chinstrap_mean, 0)` g.
 
-```{r calculate-mean, echo=FALSE}
-# mean penguin species
-adelie_mean <- penguins %>% filter(species == "Adelie") %>% pull(flipper_length_mm) %>% mean(na.rm = TRUE) 
-chinstrap_mean <- penguins %>% filter(species == "Chinstrap") %>% pull(flipper_length_mm) %>% mean(na.rm = TRUE) 
-gentoo_mean <- penguins %>% filter(species == "Gentoo") %>% pull(flipper_length_mm) %>% mean(na.rm = TRUE) 
-```
-
 The figure below shows that *Gentoo* penguins have the highest body mass.
 
-```{r histogram-flipper, fig.cap="Histogram of weight of the three penguin species.", fig.width=4, fig.height=3, fig.align='center'}
+```{r histogram-body, fig.cap="Histogram of weight of the three penguin species.", fig.width=4, fig.height=3, fig.align='center'}
 ggplot(penguins, aes(x = body_mass_g, fill = species)) +
   geom_histogram(alpha = 0.6) +
    scale_fill_manual(values = c("darkorange", "purple", "cyan4")) +

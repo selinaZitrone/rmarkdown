@@ -2385,9 +2385,8 @@ Slides
 <span class="down-arrow">&#x25BE;</span>
 </button>
 <div class="nav-dropdown-content">
-<a href="slides/2_RStudio_projects.html">RStudio Projects</a>
-<a href="slides/3_Day1.html">Day 1</a>
-<a href="slides/4_Day2.html">Day 2</a>
+<a href="slides/3_Day1.html">Day 1 - R Markdown Introduction</a>
+<a href="slides/4_Day2.html">Day 2 - Citations, tables and more</a>
 </div>
 </div>
 <div class="nav-dropdown">
@@ -2409,7 +2408,7 @@ Solutions
 </button>
 <div class="nav-dropdown-content">
 <a href="01_solutions_controller.html">Day 1: Solution</a>
-<span class="nav-dropdown-header">Day 2: Solution</span>
+<a href="02_solutions_controller.html">Day 2: Solution</a>
 </div>
 </div>
 <a href="online_resources.html">Resources &amp; Packages</a>
@@ -2449,6 +2448,8 @@ Solutions
 <li><a href="#chunk-options">2.3 Chunk options</a></li>
 </ul></li>
 <li><a href="#change-yaml-header">3 Change YAML header</a></li>
+<li><a href="#add-metadata">3.1 Add Metadata</a></li>
+<li><a href="#document-options">3.2 Document options</a></li>
 </ul>
 </nav>
 </div>
@@ -2682,34 +2683,42 @@ Solutions
 </ul>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <h2 id="change-yaml-header">3 Change YAML header</h2>
-<p>In the last step, we will add some additional <code>YAML</code> metadata and document options to the document.</p>
-<p>Also in this task, you can try out the options that you find most interesting. But I will give you some basic suggestions of what to try.</p>
-<p>Knit often, to see the difference that the options make to the document.</p>
-<h4 id="metadata">Metadata</h4>
+<p>We will no add some additional <code>YAML</code> metadata and document options to the document.</p>
+<p>In this task, you can test the options that you find most interesting. I will give you some suggestions to start with and if you still have time, you can explore other options as well.</p>
+<p>Also here, knit often, to see the difference that the options make to the document and to make sure that there is no but.</p>
+<h2 id="add-metadata">3.1 Add Metadata</h2>
 <ul>
 <li>Add today’s date to the document</li>
-<li>Add a subtitle</li>
+<li>Add a title and subtitle</li>
 </ul>
-<h4 id="document-options">Document options</h4>
+<h2 id="document-options">3.2 Document options</h2>
 <p>Today, we mostly worked with <code>html_document</code> output. So add some options for this document type to the YAML header. Be careful to respect the rules of indentation.</p>
 <p>Options that might be interesting to try on your document:</p>
 <ul>
-<li><code>df_print</code>: set it to <code>"kable"</code> and see how the style of the table that you printed looks like</li>
 <li>Add a table of contents. Explore the following options (start with those that seem most interesting to you):
 <ul>
 <li><code>toc</code></li>
 <li><code>toc_depth</code></li>
 <li><code>number_sections</code></li>
-<li><code>toc_float</code>: This option is only working for html output only</li>
+<li><code>toc_float</code> (HTML only option)</li>
 </ul></li>
-<li>If you show your code, you can try different code highlighting themes using <code>highlight</code> option</li>
-<li>Try a different theme, using the <code>theme</code> option (html only)
+<li>Try different code highlighting themes using <code>highlight</code> option
 <ul>
-<li>Values you can try are “flatly”, “journal” or “united”</li>
+<li>Options are e.g. <code>"kate"</code>, <code>"espresso"</code> or <code>"zenburn"</code></li>
+</ul></li>
+<li>Try <code>code_folding: "hide"</code> (HTML only option) to hide code and make it available via a button</li>
+<li><code>df_print</code>: set it to <code>"kable"</code> and see how the style of the table that you printed looks like</li>
+</ul>
+<h4 id="extra-1">Extra</h4>
+<ul>
+<li>Try a different theme, using the <code>theme</code> option (HTML only option)
+<ul>
+<li>Values you can try are <code>"flatly"</code>, <code>"journal"</code> or <code>"united"</code></li>
 <li><a href="https://www.datadreaming.org/post/r-markdown-theme-gallery/">Here</a> you can find a list of other themes to try</li>
 </ul></li>
-<li>Try <code>code_folding: "hide"</code> (html only) to hide code and make it available via a button</li>
+<li>Set the option <code>code_download</code> to <code>true</code>. See what you can do with the button on the top right of the document.</li>
 </ul>
+<p>Have a look at <code>?rmarkdown::html_document</code>. There you find a list of all the options you can set for an HTML document output. Try some that you find interesting.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <section class="footnotes" role="doc-endnotes">

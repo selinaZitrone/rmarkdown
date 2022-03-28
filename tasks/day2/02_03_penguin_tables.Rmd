@@ -1,8 +1,8 @@
-Before you start the task, chose one of two packages to produce nice tables to start with. 
+Before you start the task, chose one of two packages to start with. 
 
-- If you want to put a focus on `word_document` output, I recommend you to try the 
+- If you want to put a focus on `word_document` output, I recommend to try the 
 `flextable` package because it works better for word output
-- If you want to focus on `pdf_document` or `html_document`, I highly recommend to
+- If you want to put a focus on `pdf_document` or `html_document`, I highly recommend to
 use `knitr::kable` in combinations with `kableExtra` because it's easy to use and 
 very flexible.
 
@@ -26,12 +26,10 @@ penguins_sum
 
 #### Option 1 `kable` and `kableExtra`
 
-Don't forget to load the packages `knitr` and `kableExtra`
-using the `library` function in the setup chunk.
+Don't forget to load the packages `knitr` and `kableExtra` in the setup chunk.
 
 Start with the `kable` function. You can for example:
 
-- Pass the table into the function
 - Add a caption
 - Restrict the number of digits printed
 - Change the column headers
@@ -40,8 +38,7 @@ Start with the `kable` function. You can for example:
 
 Knit the document in your target output format and see how the table looks like.
 
-Now start adding some extra styling using the `kableExtra` package (fitting 
-the document output that you use). For example, you can
+Now start adding some extra styling using the `kableExtra` package. For example, you can
 
 - Apply some `kable_styling`, e.g
   - Font size
@@ -49,10 +46,11 @@ the document output that you use). For example, you can
   - Specify `latex_options` and/or `bootstrap_options`
 - Change the table theme using one of the `kable_*` themes (only HTML)
 
+Have a look at `r ?kable_styling` for more options.
+
 #### Option 2 `flextable`
 
-Don't forget to load the package `flextable` using the `library` function in the setup
-chunk.
+Don't forget to load the `flextable` package in the setup chunk.
 
 Start by setting the default flex table options in the setup chunk.
 

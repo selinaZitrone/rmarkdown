@@ -1,5 +1,5 @@
 You can download the R Markdown document with a solution for today's task 
-<a href="./solution_docs/penguin_paper_6.Rmd" download>here</a> and the bibliography file from <a href="./solution_docs/references.bib" download>here</a>
+<a href="./tasks/day2//solution_docs/penguin_paper_6.Rmd" download>here</a> and the bibliography file from <a href="./tasks/day2/solution_docs/references.bib" download>here</a>
 
 ::::: {.panelset}
 

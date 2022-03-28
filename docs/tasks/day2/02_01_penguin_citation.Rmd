@@ -8,10 +8,10 @@ the document.
 First, scroll through your document and see how it looks different
 from the original document view.
 
-Take 5-10 minutes and explore the visual editor. If you want, you can try to e.g.,
+Take 5 minutes and explore the visual editor. If you want, you can try to e.g.,
 
 - Insert a link  (`r fontawesome::fa("link")` button)
-- Insert a markdown table
+- Turn some text bold, 
 - ...
 
 After you inserted an element, switch back to the normal R Studio editor view 
@@ -19,9 +19,9 @@ After you inserted an element, switch back to the normal R Studio editor view
 
 ### 1.2. Add Citation
 
-#### Add Gorman et al. (2014) via visual editor
+#### Add citation of Gorman et al. (2014) via visual editor
 
-First, we will cite the original paper that published and analysed the penguin data
+First, cite the original paper that published and analysed the penguin data
 set. The paper is by Gorman et al. (2014).
 
 Switch to the visual editor and
@@ -31,7 +31,7 @@ Switch to the visual editor and
 - Select `From DOI` and search the DOI `10.1371/journal.pone.0090081`. This should
 list the Gorman paper.
 
-Before inserting the citation, have a close look at the options that the
+Before inserting the citation, have a look at the options that the
 `Insert Citation` window offers. 
 On the bottom, There is a check box to chose between *in-text* (without brackets) 
 or *normal* (in brackets) citation.
@@ -47,9 +47,9 @@ Now hit `Insert` and see what changed in the document:
 - Knit the document and check that the citation was added correctly in the text and 
 that the reference is listed at the end of the document
 
-#### Add `palmerpenguins` citation
+#### Add citation of the `palmerpenguins` package
 
-Now let's use a different method to add a second citation of the `palmerpenguins` package. 
+Now use a different method to add a second citation of the `palmerpenguins` package. 
 
 Open the `references.bib` file in RStudio (or any other text editor) and add the
 following BibTeX entry in a new line:

@@ -597,7 +597,7 @@ iris_sum %>%
   kable() %>%
   kable_styling(
   full_width = FALSE, # display table on full page width?
-  position = "left",  # if not full width -> where 
+  position = "center",  # if not full width -> where 
   font_size = 15
 )
 ```
@@ -617,7 +617,7 @@ iris_sum %>%
   kable() %>%
   kable_styling(
   full_width = FALSE, # display table on full page width?
-  position = "left",  # if not full width -> where 
+  position = "center",  # if not full width -> where 
   font_size = 15,
   bootstrap_options = c("striped", "hover")
 )
@@ -647,7 +647,7 @@ iris_sum %>%
   kable(booktabs = TRUE) %>%
   kable_styling(
     full_width = FALSE, # display table on full page width?
-    position = "left", # if not full width -> where
+    position = "center", # if not full width -> where
     font_size = 15,
     bootstrap_options = c("striped", "hover"),
     latex_options = c("striped", "hold_position", "scale_down")
@@ -685,7 +685,7 @@ iris_sum %>%
   kable(booktabs = TRUE) %>%
   kable_styling(
     full_width = FALSE, # display table on full page width?
-    position = "left", # if not full width -> where
+    position = "center", # if not full width -> where
     font_size = 15,
     bootstrap_options = c("striped", "hover"),
     latex_options = c("striped", "hold_position", "scale_down")
@@ -757,6 +757,8 @@ iris_sum %>%
 ---
 
 # The `{flextable}` package
+
+--
 
 - Works with PDF, HTML and Word output
   - I recommend it for Word output

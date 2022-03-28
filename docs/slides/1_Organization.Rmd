@@ -143,6 +143,27 @@ I am curious to know
 - ...
 
 ---
+
 # Before we get started II
+
+I assume that you already know things like:
+
+- Creating new projects or documents in RStudio
+- Basic functionality of RStudio e.g. Console vs. Script, etc.
+- Basics of R: concept of variables, functions, packages, ...
+
+--
+
+- Also, I will use some (but very few) code examples where I use functions from
+the `tidyverse` packages (`ggplot2`, `dplyr`)
+
+--
+
+But we probably have very different R skills and levels in the group, so 
+**please ask if anything needs more explanation**
+
+---
+
+# Before we get started III
 
 .large[Did anyone have problems installing the R Markdown?]

@@ -2456,23 +2456,23 @@ Solutions
 <p>Open your R Markdown document from the last task.</p>
 <p>Switch to the visual editor by clicking on the RStudio compass button on the top right of the document.</p>
 <p>First, scroll through your document and see how it looks different from the original document view.</p>
-<p>Take 5-10 minutes and explore the visual editor. If you want, you can try to e.g.,</p>
+<p>Take 5 minutes and explore the visual editor. If you want, you can try to e.g.,</p>
 <ul>
 <li>Insert a link (<svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg> button)</li>
-<li>Insert a markdown table</li>
+<li>Turn some text bold,</li>
 <li>…</li>
 </ul>
 <p>After you inserted an element, switch back to the normal R Studio editor view (click on the compass button again) and see how your original document changed.</p>
 <h3 id="add-citation">1.2. Add Citation</h3>
-<h4 id="add-gorman-et-al.-2014-via-visual-editor">Add Gorman et al. (2014) via visual editor</h4>
-<p>First, we will cite the original paper that published and analysed the penguin data set. The paper is by Gorman et al. (2014).</p>
+<h4 id="add-citation-of-gorman-et-al.-2014-via-visual-editor">Add citation of Gorman et al. (2014) via visual editor</h4>
+<p>First, cite the original paper that published and analysed the penguin data set. The paper is by Gorman et al. (2014).</p>
 <p>Switch to the visual editor and</p>
 <ul>
 <li>Select a location in the text to add the citation</li>
 <li>Click the insert citation button (<code>@</code> symbol) on top</li>
 <li>Select <code>From DOI</code> and search the DOI <code>10.1371/journal.pone.0090081</code>. This should list the Gorman paper.</li>
 </ul>
-<p>Before inserting the citation, have a close look at the options that the <code>Insert Citation</code> window offers. On the bottom, There is a check box to chose between <em>in-text</em> (without brackets) or <em>normal</em> (in brackets) citation. You can leave the rest at the default settings.</p>
+<p>Before inserting the citation, have a look at the options that the <code>Insert Citation</code> window offers. On the bottom, There is a check box to chose between <em>in-text</em> (without brackets) or <em>normal</em> (in brackets) citation. You can leave the rest at the default settings.</p>
 <p>Now hit <code>Insert</code> and see what changed in the document:</p>
 <ul>
 <li><p>See how RStudio automatically created a <code>references.bib</code> file in your project (the same location where your <code>*.Rmd</code> file is located)</p></li>
@@ -2480,8 +2480,8 @@ Solutions
 <li><p>Look at the YAML header to find the reference file added there automatically</p></li>
 <li><p>Knit the document and check that the citation was added correctly in the text and that the reference is listed at the end of the document</p></li>
 </ul>
-<h4 id="add-palmerpenguins-citation">Add <code>palmerpenguins</code> citation</h4>
-<p>Now let’s use a different method to add a second citation of the <code>palmerpenguins</code> package.</p>
+<h4 id="add-citation-of-the-palmerpenguins-package">Add citation of the <code>palmerpenguins</code> package</h4>
+<p>Now use a different method to add a second citation of the <code>palmerpenguins</code> package.</p>
 <p>Open the <code>references.bib</code> file in RStudio (or any other text editor) and add the following BibTeX entry in a new line:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bibtex"><code class="sourceCode bibtex"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="va">@Manual</span>{<span class="ot">horst2020</span>,</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">title</span> = {palmerpenguins: Palmer Archipelago (Antarctica) penguin data},</span>
@@ -2538,10 +2538,10 @@ Solutions
 <p>See the <a href="https://raw.githubusercontent.com/rstudio/cheatsheets/master/rmarkdown-2.0.pdf">R Markdown cheat sheet</a> for YAML options that apply for this document type</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <h2 id="make-nice-tables">3 Make nice tables</h2>
-<p>Before you start the task, chose one of two packages to produce nice tables to start with.</p>
+<p>Before you start the task, chose one of two packages to start with.</p>
 <ul>
-<li>If you want to put a focus on <code>word_document</code> output, I recommend you to try the <code>flextable</code> package because it works better for word output</li>
-<li>If you want to focus on <code>pdf_document</code> or <code>html_document</code>, I highly recommend to use <code>knitr::kable</code> in combinations with <code>kableExtra</code> because it’s easy to use and very flexible.</li>
+<li>If you want to put a focus on <code>word_document</code> output, I recommend to try the <code>flextable</code> package because it works better for word output</li>
+<li>If you want to put a focus on <code>pdf_document</code> or <code>html_document</code>, I highly recommend to use <code>knitr::kable</code> in combinations with <code>kableExtra</code> because it’s easy to use and very flexible.</li>
 </ul>
 <p>Now try to make the table that is already included in your document more beautiful.</p>
 <p>A tip to start is to first save the table in a new variable. Then you can pass this variable into the table functions:</p>
@@ -2561,10 +2561,9 @@ Solutions
 </div>
 </div>
 <h4 id="option-1-kable-and-kableextra">Option 1 <code>kable</code> and <code>kableExtra</code></h4>
-<p>Don’t forget to load the packages <code>knitr</code> and <code>kableExtra</code> using the <code>library</code> function in the setup chunk.</p>
+<p>Don’t forget to load the packages <code>knitr</code> and <code>kableExtra</code> in the setup chunk.</p>
 <p>Start with the <code>kable</code> function. You can for example:</p>
 <ul>
-<li>Pass the table into the function</li>
 <li>Add a caption</li>
 <li>Restrict the number of digits printed</li>
 <li>Change the column headers</li>
@@ -2572,7 +2571,7 @@ Solutions
 <li>Use <code>booktabs</code> option (only works in PDF output, is ignored for HTML output)</li>
 </ul>
 <p>Knit the document in your target output format and see how the table looks like.</p>
-<p>Now start adding some extra styling using the <code>kableExtra</code> package (fitting the document output that you use). For example, you can</p>
+<p>Now start adding some extra styling using the <code>kableExtra</code> package. For example, you can</p>
 <ul>
 <li>Apply some <code>kable_styling</code>, e.g
 <ul>
@@ -2582,8 +2581,9 @@ Solutions
 </ul></li>
 <li>Change the table theme using one of the <code>kable_*</code> themes (only HTML)</li>
 </ul>
+<p>Have a look at C:/Users/Selina_User/Documents/R/R-4.1.0/library/kableExtra/help/kable_styling for more options.</p>
 <h4 id="option-2-flextable">Option 2 <code>flextable</code></h4>
-<p>Don’t forget to load the package <code>flextable</code> using the <code>library</code> function in the setup chunk.</p>
+<p>Don’t forget to load the <code>flextable</code> package in the setup chunk.</p>
 <p>Start by setting the default flex table options in the setup chunk.</p>
 <ul>
 <li>Have a look at the example on the slide and check out <code>?flextable::set_flextable_defaults</code></li>

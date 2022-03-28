@@ -58,8 +58,6 @@ background-position: 90% 90%
 
 - How did you produced this figure? What analysis is behind it?
 
-- What data did you use for this table? Did you leave any data points out?
-
 - Were does this value come from?
 
 - I found an error in the raw data. Can you repeat the analysis?
@@ -78,7 +76,7 @@ background-position: 90% 90%
 .pull-right[
 
 
-Main problem with this workflow: **error prone** and **non-reproducible**
+Main problem with this workflow: **error prone** and **non-reproducible** (and it can be annoying)
 
 If you have to repeat the analysis
 
@@ -88,17 +86,17 @@ If you have to repeat the analysis
   
   - Manual copy pasting of values is very error prone
   
-- Annoying and you probably have to repeat this several times
+- You probably have to repeat this several times
 
 ]
 
 ---
 
-# Solution: A workflow using `{rmarkdown}`
+# Solution: A workflow using R Markdown
 
 **Basic idea: ** Have everything (code, text, metadata) in one place. Let `{rmarkdown}` do the magic:
 
-  - Run code and add output to the document
+  - Run code and add output
   - Return a nice document of the desired output format
 
 .center[![:scale 60%](img/rmarkdown_wizards.png)]
@@ -108,7 +106,7 @@ If you have to repeat the analysis
 
 ---
 
-# Motivation for using `{rmarkdown}`
+# Motivation for using R Markdown
 
 - **Reproducibility**
 
@@ -161,7 +159,7 @@ Any type of document, especially if it contains something produced by code
 
 ---
 
-# The `rmarkdown` universe
+# The R Markdown universe
 
 - Many packages that provide additional functionality
   
@@ -189,7 +187,7 @@ There are many more ...
 
 1. Create an `.Rmd` document 
 
-2. Write text and R code in the document
+2. Write text and R code into the document
 
 3. Render the document to a defined output format using `rmarkdown`
   
@@ -239,7 +237,7 @@ There are many more ...
 ]
 
 ---
-# Structure of an `rmarkdown` document
+# Structure of an R Markdown document
 
 .center[![:scale 70%](img/day1/dummy_document_basics.png)]
 
@@ -263,13 +261,13 @@ There are many more ...
 
 .pull-left[
 
-A multipstep process that is coordinated by the `rmarkdown` package
+A multipstep process that is coordinated by the `{rmarkdown}` package
 
-- [`{knitr}`](https://yihui.org/knitr/) (an R package) runs the code and adds the output to the text
+1. [`{knitr}`](https://yihui.org/knitr/) (an R package) runs the code and adds the output to the text
 
-- `knitr` creates a `.md` document
+2. `knitr` creates a `.md` document
 
-- [Pandoc](https://pandoc.org/) (+ LaTeX) converts the markdown document to the desired output format
+3. [Pandoc](https://pandoc.org/) (+ LaTeX) converts the markdown document to the desired output format
 
 - Document is knitted in a new R session
   - This makes sure that the document is reproducible and that it does
@@ -308,7 +306,7 @@ I recommend to knit often, otherwise it can become a pain to debug.
 ---
 class: inverse, center, middle
 
-.large[# The text body]
+.large[# The text body: Markdown]
 
 ---
 # The text body
@@ -340,7 +338,7 @@ class: inverse, center, middle
 
 **Code blocks**
 
-- Inline code:  becomes `code`
+- Inline code:  fenced of with 1 backtick becomes `code`
 
 --
 
@@ -368,7 +366,7 @@ code
 ---
 # The text body
   
-- Include image (from file/web): `![Alt text/Figure caption](some/image)`
+- Include image (from file/web): `![Figure caption](some/image)`
   - `![Markdown logo](https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Markdown-mark.svg/1200px-Markdown-mark.svg.png)` becomes 
   
   .center[![:scale 20%](https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Markdown-mark.svg/1200px-Markdown-mark.svg.png)
@@ -620,6 +618,8 @@ mean(1:3)
 
 **Run code chunk**
 
+--
+
 - Code chunks are evaluated by `knitr` when rendering the document
 
 --
@@ -652,10 +652,6 @@ mean(1:3)
 
   - Chunk options have default values
   
---
-  
-- Different document outputs support different chunk options
-
 ---
 
 # Chunk options
@@ -708,12 +704,14 @@ plot(1:10, 1:10)
 
 # Chunk options
 
-- See [here](https://yihui.org/knitr/options/) for a comprehensive list of all chunk options
-
 - Some chunk options can be set by clicking on the gear icon next to the chunk
 
 
 ![](img/day1/chunk_options_gear.png)
+
+--
+
+- See [here](https://yihui.org/knitr/options/) for a comprehensive list of all chunk options
 
 ---
 
@@ -750,11 +748,15 @@ names(knitr::knit_engines$get())
 ```
 
 ```
-##  [1] "awk"         "bash"        "coffee"      "gawk"        "groovy"      "haskell"     "lein"        "mysql"       "node"        "octave"      "perl"        "psql"       
-## [13] "Rscript"     "ruby"        "sas"         "scala"       "sed"         "sh"          "stata"       "zsh"         "asis"        "asy"         "block"       "block2"     
-## [25] "bslib"       "c"           "cat"         "cc"          "comment"     "css"         "dot"         "embed"       "fortran"     "fortran95"   "go"          "highlight"  
-## [37] "js"          "julia"       "python"      "R"           "Rcpp"        "sass"        "scss"        "sql"         "stan"        "targets"     "tikz"        "verbatim"   
-## [49] "theorem"     "lemma"       "corollary"   "proposition" "conjecture"  "definition"  "example"     "exercise"    "hypothesis"  "proof"       "remark"      "solution"
+##  [1] "awk"         "bash"        "coffee"      "gawk"        "groovy"      "haskell"     "lein"       
+##  [8] "mysql"       "node"        "octave"      "perl"        "psql"        "Rscript"     "ruby"       
+## [15] "sas"         "scala"       "sed"         "sh"          "stata"       "zsh"         "asis"       
+## [22] "asy"         "block"       "block2"      "bslib"       "c"           "cat"         "cc"         
+## [29] "comment"     "css"         "dot"         "embed"       "fortran"     "fortran95"   "go"         
+## [36] "highlight"   "js"          "julia"       "python"      "R"           "Rcpp"        "sass"       
+## [43] "scss"        "sql"         "stan"        "targets"     "tikz"        "verbatim"    "theorem"    
+## [50] "lemma"       "corollary"   "proposition" "conjecture"  "definition"  "example"     "exercise"   
+## [57] "hypothesis"  "proof"       "remark"      "solution"
 ```
 
 
@@ -886,6 +888,7 @@ output:
 **Document output options**
 
 - Every output format has options than can be specified in the YAML header
+
   - Some options are shared between formats
   - Some options are specific to formats
   
@@ -893,7 +896,7 @@ output:
   
 - Have a look at `?rmarkdown::pdf_document`, `?rmarkdown::html_document`, etc. to see all options and their default values
 
-- Use the [rmarkdown cheat sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/master/rmarkdown-2.0.pdf) as reference for the most important options
+- Use the [R Markdown cheat sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/master/rmarkdown-2.0.pdf) as reference for the most important options
 
 ---
 
@@ -925,27 +928,6 @@ output:
 
 ]
 
-
----
-
-# YAML (/ˈjæməl/) header
-
-**Document parmeters**
-
-```yaml
-params: 
-  species: "setosa"
-```
-
-Document parameter values can be use in R code (inline or code chunks) with `params$param_name`
-
-
-````md
-```{r iris-figure, fig.width=4, fig.height=4}
-to_plot &lt;- subset(iris, Species == params$species)
-plot(Sepal.Length, to_plot, data = to_plot)
-```
-````
 ---
 class: inverse, middle, center
 

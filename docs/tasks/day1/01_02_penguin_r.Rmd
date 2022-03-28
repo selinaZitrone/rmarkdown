@@ -22,31 +22,30 @@ your analysis. Then you have all the `library()` calls in one place.
 
 Now let's add some R code that produces different types of output in the document.
 
-First finish all the tasks and then come back to the extra (the linear model) if you still have
-time.
+The different output types we will try using the penguin data set are:
 
-Try using both the RStudio interface (`Code` -> `Insert Chunk`) and the keyboard 
-shortcut (`Ctrl/Cmd + Alt/Option + I`) to insert R code chunks.
+- A figure
+- A summary table
 
-The different output types we will try are:
+For each output type, go through the following steps:
 
-- A figure for the penguin data set
-- A summary table of the data set
+1. Select a location in your document, where the output should be (probably the result section).
 
-For each of the output types, go through the following steps:
+2. Insert a new code chunk at the location
+  - Use the RStudio interface `Code` -> `Insert Chunk` or
+  - Use the keyboard shortcut `Ctrl/Cmd + Alt/Option + I`
 
-1. Select the location in your document, where you want the output to be (probably the result section).
-2. Insert a new code chunk at the location 
 3. Write the code that produces the output (you can copy it from my examples below)
+
 4. Run the code inside the document 
   - Click on the little green arrow button next to the code chunk
-  - Careful: if you get an error message, make sure that you run all chunks that your code depends on before. 
-  E.g. you probably have to run the setup chunk to load all the packages first.
+  - Careful: if you get an error message, make sure that you run all chunks that your code depends on before. E.g. you probably have to run the setup chunk to load all the packages first.
+
 5. Knit the document and see how the output looks like
 
-Below, you find example code for a figure, a table and a linear model. I suggest, 
+Below, you find example code for a figure and a table. I suggest, 
 you copy my code to your R chunk. If you still have time, you can change the code 
-or write new code.
+or write new code chunks yourself.
 
 **Don't forget**
 
@@ -118,11 +117,11 @@ penguins %>%
 
 :::::
 
-### 2.1 Add inline code
+### 2.3 Add inline code
 
-Add some sentences to the document that use R code to report some numbers.
+Add some sentences to the document that use R code to report numbers.
 
-You can start with the ideas below. If you still have time in the end, you can add more sentences:
+You can start with the example below. If you still have time in the end, you can add more sentences:
 
 - Report the mean body mass of all penguins, e.g. like this:
   - The mean body mass of all penguins is `r round(mean(penguins$body_mass_g, na.rm=TRUE), 0)` g.
@@ -139,7 +138,7 @@ save them in 3 variables. Then you can use these variables in the inline code.
 
 ### 2.3 Chunk options
 
-Now we modify some of the code output using chunk options.
+Now modify some of the code chunk behaviour using chunk options.
 
 Start with the chunk that produces the figure:
 
@@ -150,7 +149,7 @@ Start with the chunk that produces the figure:
 Knit the document and look at the output.
 
 Now think of some global chunk options that might make sense for your document. 
-Add the ones that you like to have to the `knitr` options in the setup chunk.
+Add these options to the `knitr` options in the setup chunk.
 
 You can for example think of things like:
 

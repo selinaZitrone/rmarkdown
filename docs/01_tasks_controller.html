@@ -2447,7 +2447,7 @@ Solutions
 <ul>
 <li><a href="#load-the-palmerpenguins-in-your-document">2.1 Load the <code>palmerpenguins</code> in your document</a></li>
 <li><a href="#add-r-code-chunks">2.2 Add R code chunks</a></li>
-<li><a href="#add-inline-code">2.1 Add inline code</a></li>
+<li><a href="#add-inline-code">2.3 Add inline code</a></li>
 <li><a href="#chunk-options">2.3 Chunk options</a></li>
 </ul></li>
 <li><a href="#change-yaml-header">3 Change YAML header</a>
@@ -2483,7 +2483,7 @@ Solutions
 <li>Chose <code>HTML</code> as default output format from the <code>Document</code> section (This should be already selected as default)</li>
 <li>If you want, you can already enter a title and author</li>
 </ul>
-<p>Save the file in a convenient location on your machine.</p>
+<p>Create and save the file in a convenient location on your machine.</p>
 <p>Before you start working with the document:</p>
 <ul>
 <li>Knit the document to see what happens
@@ -2496,10 +2496,10 @@ Solutions
 <p>Now start writing your very own paper about the 3 penguins.</p>
 <p>First, remove all template text from the document <strong>except</strong> the YAML header and the first code chunk (we will learn later what that does).</p>
 <p>Before you start writing, have a quick look at the <code>Example text</code> that I show below. It is the one we discussed together just now and includes many different markdown formatting elements and some text about the penguin data set.</p>
-<ul>
-<li>You can find the links that I used in the text in the <code>Links</code> section or by right clicking on the text</li>
-</ul>
-<p>Now write a text yourself. You can either reproduce my text and use copy paste to type less, or you can write your own text about penguins (or anything else you want to write about). The important thing in this task is to include many different markdown formatting elements.</p>
+<p>Now write a text yourself.</p>
+<p>You can either reproduce my text and use copy paste to type less, or you can write your own text about penguins (or anything else you want to write about).</p>
+<p>The important thing in this task is to include many different markdown formatting elements.</p>
+<p>You can find the links that I used in the text in the <code>Links</code> section or by right clicking on the text</p>
 <p>During the writing process, <strong>don’t forget to knit your document often</strong>. It’s easier to fix mistakes and error messages if you detect them early.</p>
 <div class="panelset">
 <section id="example-text" class="panel">
@@ -2558,19 +2558,23 @@ Solutions
 <p>You can always come back to the setup chunk and add all the packages that you need in your analysis. Then you have all the <code>library()</code> calls in one place.</p>
 <h3 id="add-r-code-chunks">2.2 Add R code chunks</h3>
 <p>Now let’s add some R code that produces different types of output in the document.</p>
-<p>First finish all the tasks and then come back to the extra (the linear model) if you still have time.</p>
-<p>Try using both the RStudio interface (<code>Code</code> -&gt; <code>Insert Chunk</code>) and the keyboard shortcut (<code>Ctrl/Cmd + Alt/Option + I</code>) to insert R code chunks.</p>
-<p>The different output types we will try are:</p>
+<p>The different output types we will try using the penguin data set are:</p>
 <ul>
-<li>A figure for the penguin data set</li>
-<li>A summary table of the data set</li>
+<li>A figure</li>
+<li>A summary table</li>
 </ul>
-<p>For each of the output types, go through the following steps:</p>
+<p>For each output type, go through the following steps:</p>
 <ol type="1">
-<li>Select the location in your document, where you want the output to be (probably the result section).</li>
-<li>Insert a new code chunk at the location</li>
-<li>Write the code that produces the output (you can copy it from my examples below)</li>
-<li>Run the code inside the document</li>
+<li><p>Select a location in your document, where the output should be (probably the result section).</p></li>
+<li><p>Insert a new code chunk at the location</p></li>
+</ol>
+<ul>
+<li>Use the RStudio interface <code>Code</code> -&gt; <code>Insert Chunk</code> or</li>
+<li>Use the keyboard shortcut <code>Ctrl/Cmd + Alt/Option + I</code></li>
+</ul>
+<ol start="3" type="1">
+<li><p>Write the code that produces the output (you can copy it from my examples below)</p></li>
+<li><p>Run the code inside the document</p></li>
 </ol>
 <ul>
 <li>Click on the little green arrow button next to the code chunk</li>
@@ -2579,7 +2583,7 @@ Solutions
 <ol start="5" type="1">
 <li>Knit the document and see how the output looks like</li>
 </ol>
-<p>Below, you find example code for a figure, a table and a linear model. I suggest, you copy my code to your R chunk. If you still have time, you can change the code or write new code.</p>
+<p>Below, you find example code for a figure and a table. I suggest, you copy my code to your R chunk. If you still have time, you can change the code or write new code chunks yourself.</p>
 <p><strong>Don’t forget</strong></p>
 <ul>
 <li>Every time, you use a function from a new package, you have to load the package into the document environment. Just add another <code>library()</code> line to the setup chunk.</li>
@@ -2644,9 +2648,9 @@ Solutions
 </div>
 </section>
 </div>
-<h3 id="add-inline-code">2.1 Add inline code</h3>
-<p>Add some sentences to the document that use R code to report some numbers.</p>
-<p>You can start with the ideas below. If you still have time in the end, you can add more sentences:</p>
+<h3 id="add-inline-code">2.3 Add inline code</h3>
+<p>Add some sentences to the document that use R code to report numbers.</p>
+<p>You can start with the example below. If you still have time in the end, you can add more sentences:</p>
 <ul>
 <li>Report the mean body mass of all penguins, e.g. like this:
 <ul>
@@ -2658,7 +2662,7 @@ Solutions
 <p>Can you report the number of penguins and their body mass separately for the three penguin species?</p>
 <p><em>Hint:</em> Calculate the mean weight of the penguin species in a separate code chunk and save them in 3 variables. Then you can use these variables in the inline code.</p>
 <h3 id="chunk-options">2.3 Chunk options</h3>
-<p>Now we modify some of the code output using chunk options.</p>
+<p>Now modify some of the code chunk behaviour using chunk options.</p>
 <p>Start with the chunk that produces the figure:</p>
 <ul>
 <li>Add a figure caption.</li>
@@ -2666,7 +2670,7 @@ Solutions
 <li>Align the figure where you like to have it</li>
 </ul>
 <p>Knit the document and look at the output.</p>
-<p>Now think of some global chunk options that might make sense for your document. Add the ones that you like to have to the <code>knitr</code> options in the setup chunk.</p>
+<p>Now think of some global chunk options that might make sense for your document. Add these options to the <code>knitr</code> options in the setup chunk.</p>
 <p>You can for example think of things like:</p>
 <ul>
 <li>Should the R code be shown in the document?</li>
@@ -2674,34 +2678,34 @@ Solutions
 </ul>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <h2 id="change-yaml-header">3 Change YAML header</h2>
-<p>We will no add some additional <code>YAML</code> metadata and document options to the document.</p>
+<p>We will now add some additional <code>YAML</code> metadata and document options to the document.</p>
 <p>In this task, you can test the options that you find most interesting. I will give you some suggestions to start with and if you still have time, you can explore other options as well.</p>
-<p>Also here, knit often, to see the difference that the options make to the document and to make sure that there is no but.</p>
+<p>Also here, knit your document often, to see the difference that the options make to the document and make sure that there is no bug.</p>
 <h3 id="add-metadata">3.1 Add Metadata</h3>
 <ul>
 <li>Add today’s date to the document</li>
 <li>Add a title and subtitle</li>
 </ul>
 <h3 id="document-options">3.2 Document options</h3>
-<p>Today, we mostly worked with <code>html_document</code> output. So add some options for this document type to the YAML header. Be careful to respect the rules of indentation.</p>
+<p>Today, we only worked with <code>html_document</code> output. So add some options for this document type to the YAML header. Be careful to respect the rules of indentation.</p>
 <p>Options that might be interesting to try on your document:</p>
 <ul>
 <li>Add a table of contents. Explore the following options (start with those that seem most interesting to you):
 <ul>
-<li><code>toc</code></li>
-<li><code>toc_depth</code></li>
-<li><code>number_sections</code></li>
-<li><code>toc_float</code> (HTML only option)</li>
+<li><code>toc_depth</code>: an integer</li>
+<li><code>toc</code>: <code>true</code> or <code>false</code></li>
+<li><code>number_sections</code>: <code>true</code> or <code>false</code></li>
+<li><code>toc_float</code>: <code>true</code> or <code>false</code> (HTML only option)</li>
 </ul></li>
 <li>Try different code highlighting themes using <code>highlight</code> option
 <ul>
 <li>Options are e.g. <code>"kate"</code>, <code>"espresso"</code> or <code>"zenburn"</code></li>
 </ul></li>
-<li>Try <code>code_folding: "hide"</code> (HTML only option) to hide code and make it available via a button</li>
-<li><code>df_print</code>: set it to <code>"kable"</code> and see how the style of the table that you printed looks like</li>
 </ul>
 <h4 id="extra-1">Extra</h4>
 <ul>
+<li><code>df_print</code>: set it to <code>"kable"</code> and see how the style of the table that you printed looks like</li>
+<li>Try <code>code_folding: "hide"</code> (HTML only option) to hide code and make it available via a button</li>
 <li>Try a different theme, using the <code>theme</code> option (HTML only option)
 <ul>
 <li>Values you can try are <code>"flatly"</code>, <code>"journal"</code> or <code>"united"</code></li>

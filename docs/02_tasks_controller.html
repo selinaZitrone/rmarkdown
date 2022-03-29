@@ -2442,7 +2442,11 @@ Solutions
 <li><a href="#explore-the-visual-editor">1.1 Explore the visual editor</a></li>
 <li><a href="#add-citation">1.2. Add Citation</a></li>
 </ul></li>
-<li><a href="#make-nice-tables">2 Make nice tables</a></li>
+<li><a href="#make-nice-tables">2 Make nice tables</a>
+<ul>
+<li><a href="#basic-styling-with-kable">2.1 Basic styling with <code>kable</code></a></li>
+<li><a href="#advanced-styline-with-kableextra-or-flextable">2.2 Advanced styline with <code>kableExtra</code> or <code>flextable</code></a></li>
+</ul></li>
 </ul>
 </nav>
 </div>
@@ -2496,11 +2500,6 @@ Solutions
 <p>Were citation and reference added correctly to the text?</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <h2 id="make-nice-tables">2 Make nice tables</h2>
-<p>Before you start the task, chose one of two packages to start with.</p>
-<ul>
-<li>If you want to put a focus on <code>word_document</code> output, I recommend to try the <code>flextable</code> package because it works better for word output</li>
-<li>If you want to put a focus on <code>pdf_document</code> or <code>html_document</code>, I highly recommend to use <code>knitr::kable</code> in combinations with <code>kableExtra</code> because it’s easy to use and very flexible.</li>
-</ul>
 <p>Now try to make the table that is already included in your document more beautiful.</p>
 <p>A tip to start is to first save the table in a new variable. Then you can pass this variable into the table functions:</p>
 <div class="layout-chunk" data-layout="l-body">
@@ -2518,18 +2517,22 @@ Solutions
 </code></pre>
 </div>
 </div>
-<h4 id="option-1-kable-and-kableextra">Option 1 <code>kable</code> and <code>kableExtra</code></h4>
-<p>Don’t forget to load the packages <code>knitr</code> and <code>kableExtra</code> in the setup chunk.</p>
-<p>Start with the <code>kable</code> function. You can for example:</p>
+<h3 id="basic-styling-with-kable">2.1 Basic styling with <code>kable</code></h3>
+<p>Start with the <code>kable</code> function. Before you can use it, load the <code>knitr</code> package in the setup chunk.</p>
+<p>You can for example:</p>
 <ul>
 <li>Add a caption</li>
 <li>Restrict the number of digits printed</li>
 <li>Change the column headers</li>
 <li>Change the alignment of text in the cells</li>
-<li>Use <code>booktabs</code> option (only works in PDF output, is ignored for HTML output)</li>
+<li>Use <code>booktabs</code> option (only works in PDF output, is ignored for HTML and Word output)</li>
 </ul>
 <p>Knit the document in your target output format and see how the table looks like.</p>
-<p>Now start adding some extra styling using the <code>kableExtra</code> package. For example, you can</p>
+<h3 id="advanced-styline-with-kableextra-or-flextable">2.2 Advanced styline with <code>kableExtra</code> or <code>flextable</code></h3>
+<p>Chose one of the options below depending on your priority output format and interest. I recommend option 1, but if your focus is strongly on word documents, you can also choose option 2.</p>
+<h4 id="option-1-kableextra-pdf-and-html">Option 1 <code>kableExtra</code> (PDF and HTML)</h4>
+<p>Don’t forget to load the <code>kableExtra</code> package in the setup chunk.</p>
+<p>Start adding extra styling to the table. For example, you can</p>
 <ul>
 <li>Apply some <code>kable_styling</code>, e.g
 <ul>
@@ -2538,8 +2541,11 @@ Solutions
 <li>Specify <code>latex_options</code> and/or <code>bootstrap_options</code></li>
 </ul></li>
 <li>Change the table theme using one of the <code>kable_*</code> themes (only HTML)</li>
+<li>Try packing some rows or columns together</li>
+<li>…</li>
 </ul>
 <p>Have a look at C:/Users/Selina_User/Documents/R/R-4.1.0/library/kableExtra/help/kable_styling for more options.</p>
+<p>If you still have time, have a look at the package documentation of <code>kableExtra</code> for <a href="https://haozhu233.github.io/kableExtra/awesome_table_in_pdf.pdf">PDF tables</a> or <a href="https://haozhu233.github.io/kableExtra/awesome_table_in_html.html">HTML tables</a> to find many more options and examples.</p>
 <h4 id="option-2-flextable">Option 2 <code>flextable</code></h4>
 <p>Don’t forget to load the <code>flextable</code> package in the setup chunk.</p>
 <p>Start by setting the default flex table options in the setup chunk.</p>

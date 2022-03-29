@@ -229,7 +229,7 @@ class: inverse, middle, center
 
 # .large[Now you]
 
-## Task 1: Add some citations
+## Task 1: Add some citations (20 mins)
 
 #### Find the task description <a href="../02_tasks_controller.html#add-citations">here</a>
 
@@ -279,6 +279,10 @@ knitr::kable(iris_sum) # or iris_sum %>% knitr::kable()
 df_print: "kable"
 ```
 
+--
+
+- `kable` works for PDF, HTML and Word output
+
 ---
 
 # `knitr::kable()`
@@ -321,7 +325,7 @@ knitr::kable(
 
 # The `{kableExtra}` package
 
-- Provides options for table styling
+- Provides options for table styling for HTML and PDF tables
 
 --
 
@@ -339,6 +343,11 @@ knitr::kable(
 library(knitr)
 library(kableExtra)
 ```
+
+--
+
+- **Careful:** Don't load `kableExtra` for `word_document` output. This will break 
+the tables made with `kable`
 
 ---
 
@@ -519,8 +528,8 @@ iris_sum %>%
 --
 
 - Works with PDF, HTML and Word output
-  - I recommend it for Word output
-  
+  - Can be used as an option to style tables in Word
+
 - Alternative to `kable` and `kableExtra`
 
 --
@@ -566,6 +575,6 @@ class: inverse, middle, center
 
 # .large[Now you]
 
-## Task 3: Create a nice table
+## Task 3: Create a nice table (30 mins)
 
 #### Find the task description <a href="../02_tasks_controller.html#make-nice-tables">here</a>

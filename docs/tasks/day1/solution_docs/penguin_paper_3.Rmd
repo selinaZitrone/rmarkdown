@@ -3,6 +3,9 @@ title: "The penguins of Antarctica"
 author: "Selina Baldauf"
 date: "25/3/2022"
 output: 
+  word_document:
+    toc: true
+    df_print: "kable"
   html_document:
     number_sections: true
     toc: true
@@ -11,6 +14,10 @@ output:
     code_download: true
     highlight: "textmate"
     theme: "journal"
+    df_print: "kable"
+  pdf_document:
+    number_sections: true
+    toc: true
     df_print: "kable"
 ---
 
@@ -28,7 +35,7 @@ library(palmerpenguins)
 
 There are three main penguin species in Antarctica (*Chinstrap*, *Gentoo*, *Adelie*). You can see them in the following figure:
 
-![Artwork by [Allison Horst](https://twitter.com/allison_horst)](https://github.com/allisonhorst/palmerpenguins/blob/master/man/figures/lter_penguins.png?raw=true)
+<!-- ![Artwork by [Allison Horst](https://twitter.com/allison_horst)](https://repository-images.githubusercontent.com/269674245/19ff8480-ab54-11ea-8932-1de30d253dad) -->
 
 In this paper we want to answer the following questions
 

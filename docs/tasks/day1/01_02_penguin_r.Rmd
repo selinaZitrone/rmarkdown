@@ -136,7 +136,7 @@ penguin species?
 *Hint:* Calculate the mean weight of the penguin species in a separate code chunk and 
 save them in 3 variables. Then you can use these variables in the inline code.
 
-### 2.3 Chunk options
+### 2.4 Chunk options
 
 Now modify some of the code chunk behaviour using chunk options.
 

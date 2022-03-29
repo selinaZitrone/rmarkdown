@@ -2448,7 +2448,7 @@ Solutions
 <li><a href="#load-the-palmerpenguins-in-your-document">2.1 Load the <code>palmerpenguins</code> in your document</a></li>
 <li><a href="#add-r-code-chunks">2.2 Add R code chunks</a></li>
 <li><a href="#add-inline-code">2.3 Add inline code</a></li>
-<li><a href="#chunk-options">2.3 Chunk options</a></li>
+<li><a href="#chunk-options">2.4 Chunk options</a></li>
 </ul></li>
 <li><a href="#change-yaml-header">3 Change YAML header</a>
 <ul>
@@ -2661,7 +2661,7 @@ Solutions
 <p>Only do this if you are alredy finished with the Chunk option task below.</p>
 <p>Can you report the number of penguins and their body mass separately for the three penguin species?</p>
 <p><em>Hint:</em> Calculate the mean weight of the penguin species in a separate code chunk and save them in 3 variables. Then you can use these variables in the inline code.</p>
-<h3 id="chunk-options">2.3 Chunk options</h3>
+<h3 id="chunk-options">2.4 Chunk options</h3>
 <p>Now modify some of the code chunk behaviour using chunk options.</p>
 <p>Start with the chunk that produces the figure:</p>
 <ul>
@@ -2678,42 +2678,27 @@ Solutions
 </ul>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <h2 id="change-yaml-header">3 Change YAML header</h2>
-<p>We will now add some additional <code>YAML</code> metadata and document options to the document.</p>
-<p>In this task, you can test the options that you find most interesting. I will give you some suggestions to start with and if you still have time, you can explore other options as well.</p>
-<p>Also here, knit your document often, to see the difference that the options make to the document and make sure that there is no bug.</p>
+<p>We will now add some additional <code>YAML</code> metadata and document options.</p>
+<p>Also here, knit your document often, to see the difference that the options make to the document and to make sure that there is no bug.</p>
+<p>If there is an error while knitting, read the error message and see if it’s something about the YAML header. If yes, check if the indentation is correct. This is a frequent source of errors.</p>
 <h3 id="add-metadata">3.1 Add Metadata</h3>
 <ul>
 <li>Add today’s date to the document</li>
 <li>Add a title and subtitle</li>
 </ul>
 <h3 id="document-options">3.2 Document options</h3>
-<p>Today, we only worked with <code>html_document</code> output. So add some options for this document type to the YAML header. Be careful to respect the rules of indentation.</p>
-<p>Options that might be interesting to try on your document:</p>
+<p>As a starting point, add the 3 document output types <code>html_document</code>, <code>pdf_document</code> and <code>word_document</code> with their default specification to the YAML header.</p>
+<p>If you use an open office instead of MS Word, use <code>odt_document</code> instead of <code>word_document</code>.</p>
+<p>Make sure that the indentation is correct. If you want to make sure that everything works, try knitting to the different output formats using the little arrow next to the knit button.</p>
+<p>Now start adding some options to the document types.</p>
+<p>Choose for yourself which document type and which options you want to explore first. Just play with the combinations of document types and options from the slides.</p>
+<p>Some ideas to try are:</p>
 <ul>
-<li>Add a table of contents. Explore the following options (start with those that seem most interesting to you):
-<ul>
-<li><code>toc_depth</code>: an integer</li>
-<li><code>toc</code>: <code>true</code> or <code>false</code></li>
-<li><code>number_sections</code>: <code>true</code> or <code>false</code></li>
-<li><code>toc_float</code>: <code>true</code> or <code>false</code> (HTML only option)</li>
-</ul></li>
-<li>Try different code highlighting themes using <code>highlight</code> option
-<ul>
-<li>Options are e.g. <code>"kate"</code>, <code>"espresso"</code> or <code>"zenburn"</code></li>
-</ul></li>
+<li>Explore the options that are shared between the three document types</li>
+<li>Find a combination of document options that result in a suitable document for your applications</li>
+<li>Have a look at the additional options of the html document</li>
+<li>..</li>
 </ul>
-<h4 id="extra-1">Extra</h4>
-<ul>
-<li><code>df_print</code>: set it to <code>"kable"</code> and see how the style of the table that you printed looks like</li>
-<li>Try <code>code_folding: "hide"</code> (HTML only option) to hide code and make it available via a button</li>
-<li>Try a different theme, using the <code>theme</code> option (HTML only option)
-<ul>
-<li>Values you can try are <code>"flatly"</code>, <code>"journal"</code> or <code>"united"</code></li>
-<li><a href="https://www.datadreaming.org/post/r-markdown-theme-gallery/">Here</a> you can find a list of other themes to try</li>
-</ul></li>
-<li>Set the option <code>code_download</code> to <code>true</code>. See what you can do with the button on the top right of the document.</li>
-</ul>
-<p>Have a look at <code>?rmarkdown::html_document</code>. There you find a list of all the options you can set for an HTML document output. Try some that you find interesting.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <section class="footnotes" role="doc-endnotes">

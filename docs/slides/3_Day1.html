@@ -748,12 +748,16 @@ names(knitr::knit_engines$get())
 ```
 
 ```
-##  [1] "awk"       "bash"      "coffee"    "gawk"      "groovy"    "haskell"   "lein"      "mysql"    
-##  [9] "node"      "octave"    "perl"      "psql"      "Rscript"   "ruby"      "sas"       "scala"    
-## [17] "sed"       "sh"        "stata"     "zsh"       "asis"      "asy"       "block"     "block2"   
-## [25] "bslib"     "c"         "cat"       "cc"        "comment"   "css"       "dot"       "embed"    
-## [33] "fortran"   "fortran95" "go"        "highlight" "js"        "julia"     "python"    "R"        
-## [41] "Rcpp"      "sass"      "scss"      "sql"       "stan"      "targets"   "tikz"      "verbatim"
+##  [1] "awk"       "bash"      "coffee"    "gawk"      "groovy"   
+##  [6] "haskell"   "lein"      "mysql"     "node"      "octave"   
+## [11] "perl"      "psql"      "Rscript"   "ruby"      "sas"      
+## [16] "scala"     "sed"       "sh"        "stata"     "zsh"      
+## [21] "asis"      "asy"       "block"     "block2"    "bslib"    
+## [26] "c"         "cat"       "cc"        "comment"   "css"      
+## [31] "dot"       "embed"     "fortran"   "fortran95" "go"       
+## [36] "highlight" "js"        "julia"     "python"    "R"        
+## [41] "Rcpp"      "sass"      "scss"      "sql"       "stan"     
+## [46] "targets"   "tikz"      "verbatim"
 ```
 
 
@@ -764,7 +768,7 @@ class: inverse, middle, center
 
 # .large[Now you]
 
-## Task 2: Add some R code to the document (60 min)
+## Task 2: Add some R code to the document (40 min)
 
 #### Find the task description &lt;a href="../01_tasks_controller.html#add-r-code"&gt;here&lt;/a&gt;
 
@@ -782,55 +786,29 @@ class: inverse, center, middle
 
 - Goes between `---` on top
 
+--
+
 - Used for
   - Meta data
   - Document output formats and their options
   
+--
+  
 - Is used by Pandoc, `rmarkdown` and `knitr`
-
----
-
-# YAML (/ˈjæməl/) header
-
-.pull-left[
-**Example**
-
-```yaml
----
-title: "My first document"
-author: "Selina Baldauf"
-date: "3/22/2022"
-output: 
-  html_document:
-    toc: true
-    toc_float: true
-bibliography: references.bib
----
-```
-]
 
 --
 
-.pull-right[
-  
-- YAML Syntax: Indentation is important
-  - Two spaces or a tab for lists
-  - Values follow a `:`
-
-- Translation:
-  - `TRUE`, `FALSE`, `NULL` become `true`, `false`, `null`
-  - Strings can be quoted but don't have to (if they don't contain special characters)
-  
-]
-
+- You don't have to have a YAML header for the document to work
+  - But usually you have at least some meta data or options to specify
 
 ---
 
 # YAML (/ˈjæməl/) header
 
-**Metadata**
+**Meta data**
 
 .pull-left[
+
 ```yaml
 ---
 title: "My first document"
@@ -869,12 +847,69 @@ To use the default version of an output format add
 output: html_document
 ```
 
-or
+---
+
+# YAML (/ˈjæməl/) header
+
+**Multiple document outputs**
+
+- You can specify multiple document outputs in the YAML header.
+
+- You have to list all output formats **inside** the output option
+
+--
+
+- Here just with default options for output types:
 
 ```yaml
-output:
+---
+title: "My first document"
+author: "Selina Baldauf"
+date: "3/22/2022"
+output: 
   html_document: default
-``` 
+  pdf_document: default
+  word_document: default
+---
+```
+
+---
+
+# YAML (/ˈjæməl/) header
+
+**The YAML Syntax rules**
+
+.pull-left[
+
+```yaml
+---
+title: "My first document"
+author: "Selina Baldauf"
+date: "3/22/2022"
+output: 
+  html_document:
+    fig_caption: true
+  pdf_document: default
+  word_document: default
+---
+```
+]
+
+--
+
+.pull-right[
+  
+- YAML Syntax: Indentation is important
+  - Two spaces or a tab for lists
+  - Values follow a `:`
+
+- Order of options does not matter
+
+- Translation R - YAML: `TRUE`, `FALSE`, `NULL` become `true/yes`, `false/no`, `null`
+  
+- Strings can be quoted but don't have to (if they don't contain special characters)
+
+]
 
 ---
 
@@ -897,7 +932,7 @@ output:
 
 # YAML (/ˈjæməl/) header
 
-**Document output options**
+**Document output options for all 3 output types**
 
 .pull-left[
 
@@ -909,26 +944,212 @@ output:
     number_sections: true
     fig_caption: true
     highlight: "espresso"
+    df_print: "kable"
 ```
 
 ]
+
+--
+
 .pull-right[
 
 - `toc`: Show table of contents?
 - `toc_depth`: Lowest header level for table of contents
 - `number_sections`: Should sections be numbered?
 - `fig_caption`: Render figure captions?
+  - For pdf this option also numbers the figures
 - `highlight`: Which style to use for syntax highlighting?
   - Some options: `"kate"`, `"tango"`, `"zenburn"`
+- `df_print`: How should tables be printed?
+  - `"kable"` is nicer than the default printing of tables
+]
+
+---
+
+# YAML (/ˈjæməl/) header
+
+**Document output options for all 3 output types**
+
+.pull-left[
+
+```yaml
+output: 
+  html_document:
+    toc: true
+    toc_depth: 2
+    number_sections: true
+    fig_caption: true
+    highlight: "espresso"
+    df_print: "kable"
+  word_document:
+    toc: true
+    toc_depth: 2
+    number_sections: true
+    fig_caption: true
+    highlight: "kate"
+    df_print: "kable"
+  pdf_document:
+    toc: true
+    fig_caption: true
+```
+]
+
+--
+
+.pull-right[
+
+- Decide which output `rmarkdown` should render
+  - Chose the output type with the little arrow next to the knit button
+
+- If you knit without specifying the output type, the last rendered type is taken
+
+- `knitr` will look at the options for the document type you chose before rendering
 
 ]
+
+---
+
+# YAML (/ˈjæməl/) header
+
+**Document output options for `html_document` only**
+
+--
+
+.pull-left[
+
+```yaml
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    code_folding: "hide"
+    code_download: true
+    theme: "flatly"
+```
+]
+
+--
+
+.pull-right[
+
+- `toc_float`: Float the table of content on the side?
+- `code_folding`: e.g. `"hide"` to hide code and make it available via a button
+  - interesting in combination with `echo=TRUE` as default chunk option
+- `code_download`: Integrate a download button for the code?
+- `theme`: Apply a theme to the output, e.g.  `"flatly"`, `"journal"` or `"united"`
+  - [Here](https://www.datadreaming.org/post/r-markdown-theme-gallery/) you can find a list of other themes to try 
+
+]
+
+
+
+
+---
+
+# YAML (/ˈjæməl/) header
+
+**Document output options for `pdf_document` only**
+
+--
+
+.pull-left[
+
+```yaml
+---
+output: 
+  pdf_document:
+    fig_caption: true
+    citation_package: "natbib"
+    keep_tex: true
+    template: "my_template.tex"
+---
+```
+]
+
+.pull-right[
+
+- `fig_caption` will automatically number figures
+- `citation_package` define the citation package to use (e.g. `"natbib"` or `"biblatex"`)
+- `keep_tex`: Keep the intermediate `*.tex` file?
+- `template`: Path to a template file
+
+]
+
+---
+
+# YAML (/ˈjæməl/) header
+
+**Document output options for `pdf_document` only**
+
+.pull-left[
+
+```yaml
+---
+output: 
+  pdf_document:
+    fig_caption: true
+    citation_package: "natbib"
+    keep_tex: true
+    template: "my_template.tex"
+fontsize: 11pt
+geometry: "margin=1in"
+documentclass: "article"
+urlcolor: "blue"
+---
+```
+]
+
+.pull-right[
+
+- Define some LaTeX options as *top-level* YAML metadata
+
+- These options will be ignored when knitting to a different format
+
+]
+
+---
+
+# YAML (/ˈjæməl/) header
+
+**Document output options for `word_document` only**
+
+--
+
+.pull-left[
+
+```yaml
+---
+title: "My first document"
+author: "Selina Baldauf"
+date: "3/22/2022"
+output: 
+  word_document:
+    reference_docx: "my-styles.docx"
+---
+```
+
+]
+
+.pull-right[
+
+- Not so many features directly available in R Markdown
+
+- `reference_docx`: Use an office template for customization 
+  - [Read](https://rmarkdown.rstudio.com/articles_docx.html) or [watch](https://vimeo.com/110804387) how to create a custom office template 
+
+- Package [`{officedown}`](https://davidgohel.github.io/officedown/) might be useful
+  - It offers templates for advanced Word documents and Powerpoint presentations
+  - `File` -&gt; `New File` -&gt; `R Markdown...` -&gt; `From Template`
+
+]
+
 
 ---
 class: inverse, middle, center
 
 # .large[Now you]
 
-## Task 3: Change meta data and document options (25 min)
+## Task 3: Change meta data and document options (30 min)
 
 #### Find the task description &lt;a href="../01_tasks_controller.html#change-yaml-header"&gt;here&lt;/a&gt;
     </textarea>

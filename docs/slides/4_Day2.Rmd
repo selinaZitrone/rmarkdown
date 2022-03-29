@@ -35,21 +35,51 @@ xaringanExtra::use_panelset()
 
 ```
 
+
 ---
 
 # Topics today
 
 - Citations 
 
-- A bit more output formats
-  - `html_document`
-  - `pdf_document`
-  - `word_document`
-  
 - Make tables look nice
 
 - Some more tips and good practice
 
+---
+
+# `html_document`
+
+**Interactive graphs** e.g. with `plotly`
+
+```{r}
+library(ggplot2)
+scatter <- ggplot(
+  data = penguins,
+  aes(
+    x = bill_length_mm,
+    y = bill_depth_mm,
+    color = species,
+    shape = species
+  )
+) +
+  geom_point(size = 2, alpha = 0.8) +
+  geom_smooth(method = "lm", se = FALSE) +
+  scale_color_manual(values = c("darkorange", "purple", "cyan4")) +
+  theme_minimal()
+```
+
+
+---
+
+# `html_document`
+
+**Interactive graphs** e.g. with `plotly`
+
+```{r fig.with=6, fig.height=5, fig.align='center'}
+library(plotly)
+ggplotly(scatter)
+```
 
 ---
 
@@ -202,278 +232,6 @@ class: inverse, middle, center
 ## Task 1: Add some citations
 
 #### Find the task description <a href="../02_tasks_controller.html#add-citations">here</a>
-
----
-class: inverse, middle, center
-
-# .large[A bit more on the output formats
-
-  `html_document`, `pdf_document`, `word_document`]
-
----
-
-# Specify multiple ouput types
-
-- Specify multiple output types in the YAML header
-  - Here just the default settings
-
---
-
-```
----
-title: "My first document"
-author: "Selina Baldauf"
-date: "3/22/2022"
-output: 
-  html_document: default
-  pdf_document: default
-  word_document: default
-bibliography: references.bib
----
-```
-
---
-
-- Decide which output you want before rendering
-
-- Chose the output type with the little arrow next to the knit button
-
-- If you knit without specifying the output type, the last rendered type is taken
-
----
-# Specify different ouput types
-
-- Specify the options for different output types in the yaml header
-
-```
----
-title: "My first document"
-author: "Selina Baldauf"
-date: "3/22/2022"
-output: 
-  html_document:
-    toc: true
-    toc_float: true
-    highlight: "kate"
-  pdf_document:
-    toc: true
-    highlight: "espresso"
-bibliography: references.bib
----
-```
-
---
-
-- Keep in mind that multiple output types can become difficult if you use a lot of 
-options and functionality specific only to one of the types
-  - You will see this later e.g. when formatting tables
-
----
-class: inverse, middle, center
-
-# .large[`html_document`]
-
-.center[See [here](https://bookdown.org/yihui/rmarkdown/html-document.html) for more examples and options]
-
----
-
-# `html_document`
-
-**Interactive graphs** e.g. with `plotly`
-
-```{r}
-library(ggplot2)
-scatter <- ggplot(
-  data = penguins,
-  aes(
-    x = bill_length_mm,
-    y = bill_depth_mm,
-    color = species,
-    shape = species
-  )
-) +
-  geom_point(size = 2, alpha = 0.8) +
-  geom_smooth(method = "lm", se = FALSE) +
-  scale_color_manual(values = c("darkorange", "purple", "cyan4")) +
-  theme_minimal()
-```
-
-
----
-
-# `html_document`
-
-**Interactive graphs** e.g. with `plotly`
-
-```{r fig.with=6, fig.height=5, fig.align='center'}
-library(plotly)
-ggplotly(scatter)
-```
-
-
----
-
-# `html_document`
-
-**Tabbed sections**
-
-```markdown
-## This is the main section {.tabset}
-
-And here I add some text to the main section.
-
-### The first tab
-
-some content
-
-### The second tab
-
-some other content
-```
-
-**This is the main section**
-
-And here I add some text to the main section
-
-.panelset[
-.panel[.panel-name[The first tab]
-some content
-]
-.panel[.panel-name[The second tab]
-
-some other content
-
-]
-
-]
-
-
----
-# `html_document`
-
-**Customize with HTML and CSS (Advanced)**
-
-- Customize elements using HTML and/or CSS (advanced)
-
-- Define custom elements
-
-- Add the custom CSS to the YAML header
-
-```yaml
-output: 
-  html_document:
-    css: "my-style.css"
-```
-
-- Add HTML tags with CSS e.g. to change font color
-
-`<span style="color: red;">red text</span>` becomes <span style="color: red;">red text</span>
-
----
-class: inverse, middle, center
-
-# .large[`pdf_document`]
-
-.center[See [here](https://bookdown.org/yihui/rmarkdown/pdf-document.html) for more examples and options]
-
----
-# `pdf_document`
-
-See all options and default values with `?rmarkdown::pdf_document`
-
---
-
-- `fig_caption` will automatically number figures
-- `citation_package` define the citation package to use (`natbib` or `biblatex`)
-- `keep_tex`: Keep the intermediate `*.tex` file?
-- `template`: Path to a template file
-
-**Example**
-
-```yaml
----
-title: "My first document"
-author: "Selina Baldauf"
-date: "3/22/2022"
-output: 
-  pdf_document:
-    fig_caption: true
-    citation_package: "natbib"
-    keep_tex: true
-    template: "my_template.tex"
----
-```
-
----
-
-# `pdf_document`
-
-- You can use LaTeX syntax in the text 
-
---
-
-- Define some latex options as *top-level* YAML metadata, e.g.
-
-```
----
-title: "My first document"
-author: "Selina Baldauf"
-date: "3/22/2022"
-output: 
-  pdf_document:
-    fig_caption: true
-fontsize: 11pt
-geometry: "margin=1in"
-documentclass: "article"
-urlcolor: "blue"
----
-```
-
----
-
-class: inverse, middle, center
-
-# .large[`word_document`]
-
-.center[See [here](https://bookdown.org/yihui/rmarkdown/word-document.html) for more examples and options]
-
----
-
-# `word_document`
-
-See all options and default values with `?rmarkdown::word_document`
-
-- Not so many features directly available in R Markdown
-
-- Use an office template for customization
-
-```
----
-title: "My first document"
-author: "Selina Baldauf"
-date: "3/22/2022"
-output: 
-  word_document:
-    reference_docx: "my-styles.docx"
----
-```
-
-[Read](https://rmarkdown.rstudio.com/articles_docx.html) or [watch](https://vimeo.com/110804387) how to create a custom office template 
-
---
-
-- Package [`{officedown}`](https://davidgohel.github.io/officedown/) might be useful
-  - It offers templates for advanced Word documents and Powerpoint presentations
-  - `File` -> `New File` -> `R Markdown...` -> `From Template`
-
----
-class: inverse, middle, center
-
-# .large[Now you]
-
-## Task 2: Try different output formats
-
-#### Find the task description <a href="../02_tasks_controller.html#multiple-output-formats">here</a>
 
 
 ---

@@ -2442,12 +2442,7 @@ Solutions
 <li><a href="#explore-the-visual-editor">1.1 Explore the visual editor</a></li>
 <li><a href="#add-citation">1.2. Add Citation</a></li>
 </ul></li>
-<li><a href="#multiple-output-formats">2 Multiple output formats</a>
-<ul>
-<li><a href="#add-other-output-formats-to-your-document">2.1 Add other output formats to your document</a></li>
-<li><a href="#customize-your-favourite-output-format">2.2 Customize your favourite output format</a></li>
-</ul></li>
-<li><a href="#make-nice-tables">3 Make nice tables</a></li>
+<li><a href="#make-nice-tables">2 Make nice tables</a></li>
 </ul>
 </nav>
 </div>
@@ -2480,8 +2475,9 @@ Solutions
 <li><p>Look at the YAML header to find the reference file added there automatically</p></li>
 <li><p>Knit the document and check that the citation was added correctly in the text and that the reference is listed at the end of the document</p></li>
 </ul>
-<h4 id="add-citation-of-the-palmerpenguins-package">Add citation of the <code>palmerpenguins</code> package</h4>
-<p>Now use a different method to add a second citation of the <code>palmerpenguins</code> package.</p>
+<p>Now try adding the same citation to a different location in your document. Just start typing <code>@</code> and then the first letters of the citation. RStudio should suggest you some citations to chose from.</p>
+<h4 id="extra">Extra</h4>
+<p>Add a second citation of the <code>palmerpenguins</code> package.</p>
 <p>Open the <code>references.bib</code> file in RStudio (or any other text editor) and add the following BibTeX entry in a new line:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bibtex"><code class="sourceCode bibtex"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="va">@Manual</span>{<span class="ot">horst2020</span>,</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">title</span> = {palmerpenguins: Palmer Archipelago (Antarctica) penguin data},</span>
@@ -2498,46 +2494,8 @@ Solutions
 </ul>
 <p>Knit the document.</p>
 <p>Were citation and reference added correctly to the text?</p>
-<h4 id="extras">Extras</h4>
-<p>Play with adding both <em>in-text</em> and <em>normal</em> citations. You can search citations via DOI or one of the other methods. If you have Zotero, you can also try to add a reference from there.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
-<h2 id="multiple-output-formats">2 Multiple output formats</h2>
-<h3 id="add-other-output-formats-to-your-document">2.1 Add other output formats to your document</h3>
-<p>Go to the YAML section of your R Markdown document and add a new <code>pdf_document</code> and <code>word_document</code> (or <code>odt_document</code> if you have Open Office instead of MS Word) into the list of outputs. For now, just specify, that these outputs should take the <code>default</code> values.</p>
-<p>Make sure that the indentation is correct.</p>
-<p>Know knit your document to these different formats (using the little arrow next to the <code>Knit</code> button) and see how the output looks like.</p>
-<h3 id="customize-your-favourite-output-format">2.2 Customize your favourite output format</h3>
-<p>Chose one of the output formats that you’d like to customize a bit more. Either chose the one you like best or the one your are most likely to use for your work. If you finish early, you can also try a second output format</p>
-<h4 id="pdf_document"><code>pdf_document</code></h4>
-<p>Add some YAML options to this output format e.g. to</p>
-<ul>
-<li>Number the figures</li>
-<li>Add a table of contents</li>
-<li>Change code highlighting</li>
-<li>Give the URLs some color</li>
-<li>Change the font size</li>
-<li>…</li>
-</ul>
-<p>See the <a href="https://raw.githubusercontent.com/rstudio/cheatsheets/master/rmarkdown-2.0.pdf">R Markdown cheat sheet</a> for YAML options that apply for this document type</p>
-<h4 id="word_documentodt_document"><code>word_document</code>/<code>odt_document</code></h4>
-<p>Add some YAML options to this output format to</p>
-<ul>
-<li>Number the figures</li>
-<li>Add a table of contents</li>
-<li>Change code highlighting</li>
-<li>…</li>
-</ul>
-<p>See the <a href="https://raw.githubusercontent.com/rstudio/cheatsheets/master/rmarkdown-2.0.pdf">R Markdown cheat sheet</a> for YAML options that apply for this document type</p>
-<h4 id="html_document"><code>html_document</code></h4>
-<p>You can</p>
-<ul>
-<li>Insert a tabbed section</li>
-<li>Turn the plot into an interactive one</li>
-<li>Change some of the YAML options that you have not explored so far</li>
-</ul>
-<p>See the <a href="https://raw.githubusercontent.com/rstudio/cheatsheets/master/rmarkdown-2.0.pdf">R Markdown cheat sheet</a> for YAML options that apply for this document type</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
-<h2 id="make-nice-tables">3 Make nice tables</h2>
+<h2 id="make-nice-tables">2 Make nice tables</h2>
 <p>Before you start the task, chose one of two packages to start with.</p>
 <ul>
 <li>If you want to put a focus on <code>word_document</code> output, I recommend to try the <code>flextable</code> package because it works better for word output</li>
@@ -2596,8 +2554,8 @@ Solutions
 <li>Applying the formatting for the double columns</li>
 </ul>
 <p>If you still have time, move from Word to HTML or PDF output and try the other packages.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

@@ -47,9 +47,13 @@ Now hit `Insert` and see what changed in the document:
 - Knit the document and check that the citation was added correctly in the text and 
 that the reference is listed at the end of the document
 
-#### Add citation of the `palmerpenguins` package
+Now try adding the same citation to a different location in your document. Just start
+typing `@` and then the first letters of the citation. RStudio should suggest you some
+citations to chose from.
 
-Now use a different method to add a second citation of the `palmerpenguins` package. 
+#### Extra
+
+Add a second citation of the `palmerpenguins` package. 
 
 Open the `references.bib` file in RStudio (or any other text editor) and add the
 following BibTeX entry in a new line:
@@ -77,9 +81,3 @@ palmerpenguins package.
 Knit the document.
 
 Were citation and reference added correctly to the text?
-
-#### Extras
-
-Play with adding both *in-text* and *normal* citations. You can search 
-citations via DOI or one of the other methods.
-If you have Zotero, you can also try to add a reference from there.

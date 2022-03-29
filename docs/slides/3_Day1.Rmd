@@ -206,7 +206,7 @@ There are many more ...
 
 - **From a template**:
 
-  Rmarkdown itself comes with some templates
+  R Markdown itself comes with some templates
     - `File` -> `New File` -> `Rmarkdown...`
     
   Additional packages come with additional packages
@@ -489,7 +489,7 @@ class: inverse, middle, center
 
 # .large[Now you]
 
-## Task 1: Create a first docuemnt and add some text
+## Task 1: Create a first docuemnt and add some text (45 min)
 
 #### Find the task description <a href="../01_tasks_controller.html#first-document-and-text">here</a>
 
@@ -749,7 +749,7 @@ class: inverse, middle, center
 
 # .large[Now you]
 
-## Task 2: Add some R code to the document
+## Task 2: Add some R code to the document (60 min)
 
 #### Find the task description <a href="../01_tasks_controller.html#add-r-code">here</a>
 
@@ -806,8 +806,6 @@ bibliography: references.bib
   - `TRUE`, `FALSE`, `NULL` become `true`, `false`, `null`
   - Strings can be quoted but don't have to (if they don't contain special characters)
   
-- Can also contain inline code to be evaluated
-
 ]
 
 
@@ -915,6 +913,6 @@ class: inverse, middle, center
 
 # .large[Now you]
 
-## Task 3: Change meta data and document options
+## Task 3: Change meta data and document options (25 min)
 
 #### Find the task description <a href="../01_tasks_controller.html#change-yaml-header">here</a>

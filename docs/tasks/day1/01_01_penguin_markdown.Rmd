@@ -9,13 +9,14 @@ The data is available from the [palmerpenguins](https://allisonhorst.github.io/p
 
 - Install the package with `install.packages("palmerpenguins")`
 
-Take a moment to get familiar with the data set and its variables:
+Take a minute to get familiar with the data set and its variables (if you already know the data
+you can also skip this step):
     
 - Load the package into your R session with `library(palmerpenguins)` (just do this in the console)
 - Type `penguins` in the console and you should see the penguins tibble
 - It contains data on bill and flipper size, weight and sex of the 3 penguin species
 
-We will need the data later, so remember that you can access via the variable `penguins`.
+We will need the data later, so remember that you can access it via the variable `penguins`.
 
 ### 1.2 Create first `rmarkdown` document
 
@@ -45,11 +46,11 @@ Before you start writing, have a quick look at the `Example text` that I show be
 
 Now write a text yourself.
 
-You can either reproduce my text and use copy paste to type less, or you can write your own text about penguins (or anything else you want to write about).
+You can either reproduce my text (copy paste to type less), or you can write your own text about penguins.
 
-The important thing in this task is to include many different markdown formatting elements.
+The point of this task is to include many different markdown formatting elements.
 
-You can find the links that I used in the text in the `Links` section or by right clicking on the text
+You can find the links that I used in the text below in the `Links` tab.
 
 During the writing process, **don't forget to knit your document often**. It's easier to fix mistakes and error messages if you detect them early.
 

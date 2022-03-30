@@ -1,6 +1,6 @@
-Now try to make the table that is already included in your document more beautiful.
+Try to make the table that is already included in your document more beautiful.
 
-A tip to start is to first save the table in a new variable. Then you can pass this 
+My tip is to first save the table in a variable. Then you can pass this 
 variable into the table functions:
 
 ```{r eval=FALSE, echo=TRUE}
@@ -18,7 +18,7 @@ penguins_sum
 
 ### 2.1 Basic styling with `kable`
 
-Start with the `kable` function. Before you can use it, load the `knitr` package 
+Start with the `kable` function. Before you use it, load the `knitr` package 
 in the setup chunk.
 
 You can for example:
@@ -31,7 +31,7 @@ You can for example:
 
 Knit the document in your target output format and see how the table looks like.
 
-### 2.2 Advanced styline with `kableExtra` or `flextable`
+### 2.2 Advanced styling with `kableExtra` or `flextable`
 
 Chose one of the options below depending on your priority output format and interest.
 I recommend option 1, but if your focus is strongly on word documents, you can also 
@@ -51,7 +51,7 @@ Start adding extra styling to the table. For example, you can
 - Try packing some rows or columns together
 - ...
 
-Have a look at `r ?kable_styling` for more options.
+Have a look at `?kable_styling` for more options.
 
 If you still have time, have a look at the package documentation of `kableExtra`
 for [PDF tables](https://haozhu233.github.io/kableExtra/awesome_table_in_pdf.pdf) or [HTML tables](https://haozhu233.github.io/kableExtra/awesome_table_in_html.html) to find many more options and examples.

@@ -173,3 +173,35 @@ But we probably have very different R skills and levels in the group, so
 # Before we get started III
 
 .large[Did anyone have problems installing the R Markdown?]
+
+---
+
+# Feedback
+
+Please take 5 mins to complete the feedback survey for the Graduate center (don't use Internet Explorer)
+
+.center[https://votingo.cedis.fu-berlin.de/survey/P93BAL]
+
+--
+
+Please take another 5 mins to complete my more specific survey to further improve the course
+
+
+.center[https://forms.gle/rpMtG843dT9pSNmu7]
+
+---
+# Feedback and Questions
+
+
+- Any other feedback/comments/questions from your side?
+
+---
+class: inverse, middle, center
+
+# .large[The End]
+## Thanks a lot for participating!
+
+![:scale 55%](img/rmarkdown_rockstar.png)
+
+
+.footnote-right[Artwork by [Allison Horst](https://twitter.com/allison_horst)]

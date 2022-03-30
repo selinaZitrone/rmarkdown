@@ -8,7 +8,7 @@ the document.
 First, scroll through your document and see how it looks different
 from the original document view.
 
-Take 5 minutes and explore the visual editor. If you want, you can try to e.g.,
+Take some minutes and explore the visual editor. If you want, you can try to e.g.,
 
 - Insert a link  (`r fontawesome::fa("link")` button)
 - Turn some text bold, 

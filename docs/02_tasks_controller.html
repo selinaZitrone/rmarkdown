@@ -2445,7 +2445,7 @@ Solutions
 <li><a href="#make-nice-tables">2 Make nice tables</a>
 <ul>
 <li><a href="#basic-styling-with-kable">2.1 Basic styling with <code>kable</code></a></li>
-<li><a href="#advanced-styline-with-kableextra-or-flextable">2.2 Advanced styline with <code>kableExtra</code> or <code>flextable</code></a></li>
+<li><a href="#advanced-styling-with-kableextra-or-flextable">2.2 Advanced styling with <code>kableExtra</code> or <code>flextable</code></a></li>
 </ul></li>
 </ul>
 </nav>
@@ -2455,7 +2455,7 @@ Solutions
 <p>Open your R Markdown document from the last task.</p>
 <p>Switch to the visual editor by clicking on the RStudio compass button on the top right of the document.</p>
 <p>First, scroll through your document and see how it looks different from the original document view.</p>
-<p>Take 5 minutes and explore the visual editor. If you want, you can try to e.g.,</p>
+<p>Take some minutes and explore the visual editor. If you want, you can try to e.g.,</p>
 <ul>
 <li>Insert a link (<svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg> button)</li>
 <li>Turn some text bold,</li>
@@ -2500,8 +2500,8 @@ Solutions
 <p>Were citation and reference added correctly to the text?</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <h2 id="make-nice-tables">2 Make nice tables</h2>
-<p>Now try to make the table that is already included in your document more beautiful.</p>
-<p>A tip to start is to first save the table in a new variable. Then you can pass this variable into the table functions:</p>
+<p>Try to make the table that is already included in your document more beautiful.</p>
+<p>My tip is to first save the table in a variable. Then you can pass this variable into the table functions:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>penguins_sum</span> <span class='op'>&lt;-</span> <span class='va'>penguins</span> <span class='op'>%&gt;%</span>
@@ -2518,7 +2518,7 @@ Solutions
 </div>
 </div>
 <h3 id="basic-styling-with-kable">2.1 Basic styling with <code>kable</code></h3>
-<p>Start with the <code>kable</code> function. Before you can use it, load the <code>knitr</code> package in the setup chunk.</p>
+<p>Start with the <code>kable</code> function. Before you use it, load the <code>knitr</code> package in the setup chunk.</p>
 <p>You can for example:</p>
 <ul>
 <li>Add a caption</li>
@@ -2528,7 +2528,7 @@ Solutions
 <li>Use <code>booktabs</code> option (only works in PDF output, is ignored for HTML and Word output)</li>
 </ul>
 <p>Knit the document in your target output format and see how the table looks like.</p>
-<h3 id="advanced-styline-with-kableextra-or-flextable">2.2 Advanced styline with <code>kableExtra</code> or <code>flextable</code></h3>
+<h3 id="advanced-styling-with-kableextra-or-flextable">2.2 Advanced styling with <code>kableExtra</code> or <code>flextable</code></h3>
 <p>Chose one of the options below depending on your priority output format and interest. I recommend option 1, but if your focus is strongly on word documents, you can also choose option 2.</p>
 <h4 id="option-1-kableextra-pdf-and-html">Option 1 <code>kableExtra</code> (PDF and HTML)</h4>
 <p>Don’t forget to load the <code>kableExtra</code> package in the setup chunk.</p>
@@ -2544,7 +2544,7 @@ Solutions
 <li>Try packing some rows or columns together</li>
 <li>…</li>
 </ul>
-<p>Have a look at C:/Users/Selina_User/Documents/R/R-4.1.0/library/kableExtra/help/kable_styling for more options.</p>
+<p>Have a look at <code>?kable_styling</code> for more options.</p>
 <p>If you still have time, have a look at the package documentation of <code>kableExtra</code> for <a href="https://haozhu233.github.io/kableExtra/awesome_table_in_pdf.pdf">PDF tables</a> or <a href="https://haozhu233.github.io/kableExtra/awesome_table_in_html.html">HTML tables</a> to find many more options and examples.</p>
 <h4 id="option-2-flextable">Option 2 <code>flextable</code></h4>
 <p>Don’t forget to load the <code>flextable</code> package in the setup chunk.</p>

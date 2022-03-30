@@ -445,8 +445,6 @@ iris_sum %>%
 
 - Additional styling options for PDF output are passed via `latex_options`
 
---
-
 ```{r eval=FALSE}
 iris_sum %>%
   kable(booktabs = TRUE) %>%

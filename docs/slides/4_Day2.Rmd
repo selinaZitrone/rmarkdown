@@ -573,6 +573,6 @@ class: inverse, middle, center
 
 # .large[Now you]
 
-## Task 3: Create a nice table (30 mins)
+## Task 3: Create a nice table (25 mins)
 
 #### Find the task description <a href="../02_tasks_controller.html#make-nice-tables">here</a>

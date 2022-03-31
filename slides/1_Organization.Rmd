@@ -120,15 +120,20 @@ library(fontawesome)
 #### Learning by doing
 
 - Create your own documents
+
   - Use methods learned in the course
   - Try something new
   - Create the document that you actually need or want to learn
 
+--
+
 - It is optional
   - Think about it and let me know tomorrow afternoon if you want to participate
   - If you already know: add your name to the [joint document](https://hackmd.io/@selinaZitrone/SknOLL17c/edit)
+  
+--
 
-- If you want to try something specific: Let me know and I can check for resources etc. before
+- If you want to try something specific: Let me know and I can check for resources/packages/examples etc. before
 
 ---
 # Before we get started I
@@ -138,8 +143,8 @@ Any feedback and questions are very welcome.
 I am curious to know
 
 - What you liked/disliked
-- Which topics or methods you missed
-- Which tasks were too easy/too difficult or just right
+- If the time was enough for the tasks
+- If you missed some topics
 - ...
 
 ---
@@ -149,13 +154,14 @@ I am curious to know
 I assume that you already know things like:
 
 - Creating new projects or documents in RStudio
+
 - Basic functionality of RStudio e.g. Console vs. Script, etc.
+
 - Basics of R: concept of variables, functions, packages, ...
 
 --
 
-- Also, I will use some (but very few) code examples where I use functions from
-the `tidyverse` packages (`ggplot2`, `dplyr`)
+- Also, I will use some (but very few) code examples with functions from the `tidyverse` packages (`ggplot2`, `dplyr`)
 
 --
 
@@ -167,3 +173,35 @@ But we probably have very different R skills and levels in the group, so
 # Before we get started III
 
 .large[Did anyone have problems installing the R Markdown?]
+
+---
+
+# Feedback
+
+Please take 5 mins to complete the feedback survey for the Graduate center (don't use Internet Explorer)
+
+.center[https://votingo.cedis.fu-berlin.de/survey/P93BAL]
+
+--
+
+Please take another 5 mins to complete my more specific survey to further improve the course
+
+
+.center[https://forms.gle/rpMtG843dT9pSNmu7]
+
+---
+# Feedback and Questions
+
+
+- Any other feedback/comments/questions from your side?
+
+---
+class: inverse, middle, center
+
+# .large[The End]
+## Thanks a lot for participating!
+
+![:scale 55%](img/rmarkdown_rockstar.png)
+
+
+.footnote-right[Artwork by [Allison Horst](https://twitter.com/allison_horst)]

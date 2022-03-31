@@ -2,7 +2,10 @@
 title: "The penguins of Antarctica"
 author: "Selina Baldauf"
 date: "25/3/2022"
-output: html_document
+output:
+  html_document:
+    fig_caption: true
+  pdf_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -19,7 +22,7 @@ library(palmerpenguins)
 
 There are three main penguin species in Antarctica (*Chinstrap*, *Gentoo*, *Adelie*). You can see them in the following figure:
 
-![Artwork by [Allison Horst](https://twitter.com/allison_horst)](https://github.com/allisonhorst/palmerpenguins/blob/master/man/figures/lter_penguins.png?raw=true)
+<!-- ![Artwork by [Allison Horst](https://twitter.com/allison_horst)](https://github.com/allisonhorst/palmerpenguins/blob/master/man/figures/lter_penguins.png?raw=true) -->
 
 In this paper we want to answer the following questions
 
@@ -47,8 +50,7 @@ The data is published via the `palmerpenguins` R package which you can find [on 
 ### The analysis
 
 We did some plots, calculated some summary statistics and a linear model of the 
-form $y = ax + b + \epsilon$
-
+form $y = ax + b$
 
 ## Results
 
@@ -58,6 +60,7 @@ adelie_mean <- penguins %>% filter(species == "Adelie") %>% pull(body_mass_g) %>
 chinstrap_mean <- penguins %>% filter(species == "Chinstrap") %>% pull(body_mass_g) %>% mean(na.rm = TRUE) 
 gentoo_mean <- penguins %>% filter(species == "Gentoo") %>% pull(body_mass_g) %>% mean(na.rm = TRUE) 
 ```
+
 The mean weight of all penguin species is `r mean(penguins$body_mass_g, na.rm = TRUE)`. *Gentoo* penguins have an average weight of `r round(gentoo_mean,0)` g, *Adelie* penguins of `r round(adelie_mean, 0)` g and *Chinstrap* penguins of `r round(chinstrap_mean, 0)` g.
 
 The figure below shows that *Gentoo* penguins have the highest body mass.
@@ -86,6 +89,7 @@ ggplot(
   scale_color_manual(values = c("darkorange", "purple", "cyan4")) +
   theme_minimal()
 ```
+
 In general, it looks like the body characteristics differ between the sexes but also between the penguin
 species, as the table below illustrates:
 

@@ -49,7 +49,7 @@ can find [on this website](https://allisonhorst.github.io/palmerpenguins/).
 ## The analysis
 
 We did some plots, calculated some summary statistics and a linear model of the 
-form $y = ax + b + \epsilon$
+form $y = ax + b$
 
 
 # Results

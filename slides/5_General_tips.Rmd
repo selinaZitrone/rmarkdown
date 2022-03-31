@@ -178,3 +178,55 @@ knitr::opts_chunk$set(echo = FALSE)
   - [R Markdown - The Definitve Guide](https://bookdown.org/yihui/rmarkdown/)
   
 - You can also find some <a href="../online_resources.html">resources on the workshop website</a>
+
+---
+
+# Tip 5: Use a project oriented workflow
+
+.pull-left[
+- One directory with all files relevant for project
+  - Scripts, data, plots, documents, ...
+- An RStudio project is just a normal directory with an `*.Rproj` file
+
+- Advantages of using RStudio projects
+    - Easy to navigate in R Studio (`File` pane)
+    - Easy to find and access scripts in RStudio
+    - Project root is working directory
+    - Open multiple projects simultaneously in separate RStudio instances
+]    
+
+.pull-right[
+
+
+```{}
+Project
+|
+|- data
+|
+|- doc
+|   |
+|   |- analysis.Rmd
+|   |
+|   |- publication.Rmd
+|
+|- analysis
+|   |
+|   |- clean_data.R 
+|   |
+|   |- statistics.R
+|
+|- *.RProj
+```
+.small[Example project structure]
+]
+
+---
+
+# Tip 5: Use a project oriented workflow
+
+Create a project from scratch:
+  
+1. `File -> New Project -> New Directory -> New Project`
+2. Enter a directory name (this will be the name of your project)
+3. Choose the Directory where the project should be initiated
+4. `Create Project`

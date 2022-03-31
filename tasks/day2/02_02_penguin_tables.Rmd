@@ -1,14 +1,14 @@
-Before you start the task, chose one of two packages to start with. 
+---
+title: " Make nice tables"
+output: 
+  distill::distill_article:
+    toc: true
+    toc_float: true
+---
 
-- If you want to put a focus on `word_document` output, I recommend to try the 
-`flextable` package because it works better for word output
-- If you want to put a focus on `pdf_document` or `html_document`, I highly recommend to
-use `knitr::kable` in combinations with `kableExtra` because it's easy to use and 
-very flexible.
+Try to make the table that is already included in your document more beautiful.
 
-Now try to make the table that is already included in your document more beautiful.
-
-A tip to start is to first save the table in a new variable. Then you can pass this 
+My tip is to first save the table in a variable. Then you can pass this 
 variable into the table functions:
 
 ```{r eval=FALSE, echo=TRUE}
@@ -24,29 +24,45 @@ penguins_sum <- penguins %>%
 penguins_sum
 ```
 
-#### Option 1 `kable` and `kableExtra`
+### 2.1 Basic styling with `kable`
 
-Don't forget to load the packages `knitr` and `kableExtra` in the setup chunk.
+Start with the `kable` function. Before you use it, load the `knitr` package 
+in the setup chunk.
 
-Start with the `kable` function. You can for example:
+You can for example:
 
 - Add a caption
 - Restrict the number of digits printed
 - Change the column headers
 - Change the alignment of text in the cells
-- Use `booktabs` option (only works in PDF output, is ignored for HTML output)
+- Use `booktabs` option (only works in PDF output, is ignored for HTML and Word output)
 
 Knit the document in your target output format and see how the table looks like.
 
-Now start adding some extra styling using the `kableExtra` package. For example, you can
+### 2.2 Advanced styling with `kableExtra` or `flextable`
+
+Chose one of the options below depending on your priority output format and interest.
+I recommend option 1, but if your focus is strongly on word documents, you can also 
+choose option 2.
+
+#### Option 1 `kableExtra` (PDF and HTML)
+
+Don't forget to load the `kableExtra` package in the setup chunk.
+
+Start adding extra styling to the table. For example, you can
 
 - Apply some `kable_styling`, e.g
   - Font size
   - Position of the table or full width table
   - Specify `latex_options` and/or `bootstrap_options`
 - Change the table theme using one of the `kable_*` themes (only HTML)
+- Try packing some rows or columns together
+- ...
 
-Have a look at `r ?kable_styling` for more options.
+Have a look at `?kable_styling` for more options.
+
+If you still have time, have a look at the package documentation of `kableExtra`
+for [PDF tables](https://haozhu233.github.io/kableExtra/awesome_table_in_pdf.pdf) or [HTML tables](https://haozhu233.github.io/kableExtra/awesome_table_in_html.html) to find many more options and examples.
 
 #### Option 2 `flextable`
 

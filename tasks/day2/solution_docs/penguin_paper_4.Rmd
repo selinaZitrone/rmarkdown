@@ -3,6 +3,9 @@ title: "The penguins of Antarctica"
 author: "Selina Baldauf"
 date: "25/3/2022"
 output: 
+  word_document:
+    toc: true
+    df_print: "kable"
   html_document:
     number_sections: true
     toc: true
@@ -11,6 +14,10 @@ output:
     code_download: true
     highlight: "textmate"
     theme: "journal"
+    df_print: "kable"
+  pdf_document:
+    number_sections: true
+    toc: true
     df_print: "kable"
 bibliography: references.bib
 ---
@@ -63,7 +70,7 @@ The data is published via the `palmerpenguins` R package [@horst2020] which you 
 
 ## The analysis
 
-We did some plots, calculated some summary statistics and a linear model of the form $y = ax + b + \epsilon$
+We did some plots, calculated some summary statistics and a linear model of the form $y = ax + b$
 
 # Results
 

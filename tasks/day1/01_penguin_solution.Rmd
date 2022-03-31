@@ -18,6 +18,13 @@ output:
     highlight: "textmate"
     theme: "journal"
     df_print: "kable"
+  pdf_document:
+    number_sections: true
+    toc: true
+    df_print: "kable"
+  word_document:
+    toc: true
+    df_print: "kable"
 ---
 
 ```{r setup, include=FALSE}`r ''`

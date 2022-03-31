@@ -177,7 +177,7 @@ knitr::opts_chunk$set(echo = FALSE)
   - [R Markdown Cookbook](https://bookdown.org/yihui/rmarkdown-cookbook/)
   - [R Markdown - The Definitve Guide](https://bookdown.org/yihui/rmarkdown/)
   
-- You can also find some <a href="../online_resources.html">resources on the workshop website</a>
+- You can also find some <a href="https://selinazitrone.github.io/rmarkdown/online_resources.html">resources on the workshop website</a>
 
 ---
 

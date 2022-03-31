@@ -7,3 +7,8 @@ docs/*.Rmd
 
 slides/*.html
 slides/*.pdf
+tasks/day1/*.html
+tasks/day2/*.html
+**/.docx
+slides/*_files/**
+tasks/day1/solution_docs/*.html

@@ -1,3 +1,11 @@
+---
+title: " Make nice tables"
+output: 
+  distill::distill_article:
+    toc: true
+    toc_float: true
+---
+
 Try to make the table that is already included in your document more beautiful.
 
 My tip is to first save the table in a variable. Then you can pass this 

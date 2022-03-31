@@ -35,6 +35,7 @@ knitr::opts_chunk$set(
 )
 library(tidyverse)
 library(palmerpenguins)
+
 # packages for the tables
 library(knitr)
 library(kableExtra)
@@ -46,6 +47,7 @@ set_flextable_defaults(
   theme_fun = theme_booktabs,
   digits = 1
 )
+
 
 ```
 
@@ -87,7 +89,7 @@ The data is published via the `palmerpenguins` R package [@horst2020] which you 
 
 ## The analysis
 
-We did some plots, calculated some summary statistics and a linear model of the form $y = ax + b + \epsilon$
+We did some plots, calculated some summary statistics and a linear model of the form $y = ax + b$
 
 # Results
 
@@ -187,7 +189,6 @@ penguins_sum %>%
   ) %>%
   pack_rows("female", 1, 3) %>%
   pack_rows("male", 4, 6) %>%
-  kable_paper() %>%
   kable_styling(
     latex_options = c("striped", "hold_position"),
     bootstrap_options = c("striped", "hover"),

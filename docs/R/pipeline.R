@@ -2,6 +2,11 @@
 
 source("./R/render_slides.R")
 
+
+# Render tasks ------------------------------------------------------------
+
+source("./R/render_tasks.R")
+
 # Render site -------------------------------------------------------------
 
 rmarkdown::render_site(encoding = "UTF-8")

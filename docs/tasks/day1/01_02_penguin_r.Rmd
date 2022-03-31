@@ -1,7 +1,17 @@
+---
+title: "Add R Code"
+output: 
+  distill::distill_article:
+    toc: true
+    toc_float: true
+---
+
 ```{r include=FALSE}
 library(palmerpenguins)
 library(ggplot2)
 library(dplyr)
+xaringanExtra::use_panelset()
+xaringanExtra::use_clipboard()
 ```
 
 ### 2.1 Load the `palmerpenguins` in your document

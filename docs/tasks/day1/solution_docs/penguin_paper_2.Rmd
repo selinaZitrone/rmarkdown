@@ -50,7 +50,7 @@ The data is published via the `palmerpenguins` R package which you can find [on 
 ### The analysis
 
 We did some plots, calculated some summary statistics and a linear model of the 
-form $y = ax + b + \epsilon$
+form $y = ax + b$
 
 ## Results
 

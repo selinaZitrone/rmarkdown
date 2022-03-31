@@ -1,3 +1,16 @@
+---
+title: "Add citations"
+output: 
+  distill::distill_article:
+    toc: true
+    toc_float: true
+---
+
+```{r include=FALSE}
+xaringanExtra::use_clipboard()
+```
+
+
 ### 1.1 Explore the visual editor
 
 Open your R Markdown document from the last task. 

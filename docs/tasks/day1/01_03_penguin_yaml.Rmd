@@ -1,3 +1,11 @@
+---
+title: "Change the YAML header"
+output: 
+  distill::distill_article:
+    toc: true
+    toc_float: true
+---
+
 We will now add some additional `YAML` metadata and document options.
 
 Also here, knit your document often, to see the difference that the options make to the document

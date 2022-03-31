@@ -5,3 +5,5 @@
 docs/data/*
 docs/*.Rmd
 
+slides/*.html
+slides/*.pdf

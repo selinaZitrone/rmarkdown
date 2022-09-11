@@ -30,9 +30,9 @@ your analysis. Then you have all the `library()` calls in one place.
 
 ### 2.2 Add R code chunks
 
-Now let's add some R code that produces different types of output in the document.
+Now add some R code that produces different types of output in the document.
 
-The different output types we will try using the penguin data set are:
+The output types we will include using the penguin data set are:
 
 - A figure
 - A summary table

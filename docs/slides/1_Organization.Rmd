@@ -98,7 +98,7 @@ library(fontawesome)
   - Some examples
   
 - **Tasks** regarding this topic
-  - Two groups: Only chat or meeting
+  - In groups: You can start a meeting in the groups or use the chat
   
 - **Joint discussion** of tasks and additional questions
 
@@ -161,11 +161,11 @@ I assume that you already know things like:
 
 --
 
-- Also, I will use some (but very few) code examples with functions from the `tidyverse` packages (`ggplot2`, `dplyr`)
+- I will use some (but very few) code examples with functions from the `tidyverse` packages (`ggplot2`, `dplyr`)
 
 --
 
-But we probably have very different R skills and levels in the group, so 
+We probably all have very different R skills and levels in the group, so 
 **please ask if anything needs more explanation**
 
 ---

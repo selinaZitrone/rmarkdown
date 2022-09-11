@@ -4,7 +4,7 @@
     <title>3_Day1.knit</title>
     <meta charset="utf-8" />
     <meta name="author" content="Selina Baldauf" />
-    <script src="3_Day1_files/header-attrs-2.11/header-attrs.js"></script>
+    <script src="3_Day1_files/header-attrs-2.16/header-attrs.js"></script>
     <link href="3_Day1_files/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/new_slides.css" type="text/css" />
   </head>
@@ -29,7 +29,7 @@ background-position: 90% 90%
 ### Freie Universität Berlin - Theoretical Ecology
 
 .footnote-left[
-  2022-22-03 (updated: 2022-03-31)
+  2022-22-03 (updated: 2022-09-11)
 ]
 
 ---
@@ -299,9 +299,18 @@ A multipstep process that is coordinated by the `{rmarkdown}` package
 
 --
 
-<svg aria-hidden="true" role="img" viewBox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"/></svg> Iterate through steps 2 and 3 until finished
+<svg aria-hidden="true" role="img" viewBox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M438.6 278.6l-160 160C272.4 444.9 264.2 448 256 448s-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L338.8 288H32C14.33 288 .0016 273.7 .0016 256S14.33 224 32 224h306.8l-105.4-105.4c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l160 160C451.1 245.9 451.1 266.1 438.6 278.6z"/></svg> Iterate through steps 2 and 3 until finished
 
 I recommend to knit often, otherwise it can become a pain to debug.
+
+---
+class: inverse, middle, center
+
+# .large[Now you]
+
+## Task 0: Create a first template R Markdown document (10 min)
+
+#### Find the task description &lt;a href="https://selinazitrone.github.io/rmarkdown/tasks/day1/01_02_penguin_r.html"&gt;here&lt;/a&gt;
 
 ---
 class: inverse, center, middle
@@ -447,6 +456,12 @@ $$
 f(k) = {n \choose k} p^{k} (1-p)^{n-k}
 $$
 
+--
+
+- If you need formulas in your documents see e.g. [here](https://forketyfork.medium.com/latex-math-formulas-a-cheat-sheet-21e5eca70aae)
+for more examples
+
+
 ---
 # The text body
 
@@ -482,14 +497,14 @@ This is an ordered list:
 
 **Let's look at an example together**
 
-Can you identify the formatting elements in &lt;a href="../tasks/day1/solution_docs/penguin_paper_1.html"&gt;this document&lt;/a&gt;?
+Can you identify the formatting elements in &lt;a href="https://selinazitrone.github.io/rmarkdown/tasks/day1/solution_docs/penguin_paper_1.html"&gt;this document&lt;/a&gt;?
 
 ---
 class: inverse, middle, center
 
 # .large[Now you]
 
-## Task 1: Create a first docuemnt and add some text (45 min)
+## Task 1: Add some markdown text to the template (30 min)
 
 #### Find the task description &lt;a href="https://selinazitrone.github.io/rmarkdown/tasks/day1/01_01_penguin_markdown.html"&gt;here&lt;/a&gt;
 
@@ -670,7 +685,7 @@ mean(1:3)
 
 - `include`: `TRUE`, `FALSE`, Include anything from the chunk in the output?
   - Runs the code but does not show any output or source code
-
+  - Short version of `message = FALSE, warning = FALSE, eval = TRUE, echo = FALSE`
 
 ---
 # Chunk options
@@ -748,14 +763,11 @@ names(knitr::knit_engines$get())
 ```
 
 ```
-##  [1] "awk"         "bash"        "coffee"      "gawk"        "groovy"      "haskell"     "lein"        "mysql"      
-##  [9] "node"        "octave"      "perl"        "psql"        "Rscript"     "ruby"        "sas"         "scala"      
-## [17] "sed"         "sh"          "stata"       "zsh"         "asis"        "asy"         "block"       "block2"     
-## [25] "bslib"       "c"           "cat"         "cc"          "comment"     "css"         "dot"         "embed"      
-## [33] "fortran"     "fortran95"   "go"          "highlight"   "js"          "julia"       "python"      "R"          
-## [41] "Rcpp"        "sass"        "scss"        "sql"         "stan"        "targets"     "tikz"        "verbatim"   
-## [49] "theorem"     "lemma"       "corollary"   "proposition" "conjecture"  "definition"  "example"     "exercise"   
-## [57] "hypothesis"  "proof"       "remark"      "solution"
+##  [1] "awk"       "bash"      "coffee"    "gawk"      "groovy"    "haskell"   "lein"      "mysql"     "node"      "octave"    "perl"      "php"       "psql"     
+## [14] "Rscript"   "ruby"      "sas"       "scala"     "sed"       "sh"        "stata"     "zsh"       "asis"      "asy"       "block"     "block2"    "bslib"    
+## [27] "c"         "cat"       "cc"        "comment"   "css"       "ditaa"     "dot"       "embed"     "eviews"    "exec"      "fortran"   "fortran95" "go"       
+## [40] "highlight" "js"        "julia"     "python"    "R"         "Rcpp"      "sass"      "scss"      "sql"       "stan"      "targets"   "tikz"      "verbatim" 
+## [53] "glue"      "glue_sql"  "gluesql"
 ```
 
 
@@ -766,7 +778,7 @@ class: inverse, middle, center
 
 # .large[Now you]
 
-## Task 2: Add some R code to the document (40 min)
+## Task 2: Add some R code to the document (35 min)
 
 #### Find the task description &lt;a href="https://selinazitrone.github.io/rmarkdown/tasks/day1/01_02_penguin_r.html"&gt;here&lt;/a&gt;
 
@@ -778,7 +790,7 @@ class: inverse, center, middle
 
 ---
 
-# YAML (/ˈjæməl/) header
+# YAML header
 
 - YAML is a data-serialization language
 
@@ -801,7 +813,7 @@ class: inverse, center, middle
 
 ---
 
-# YAML (/ˈjæməl/) header
+# YAML header
 
 **Meta data**
 
@@ -825,7 +837,7 @@ date: "`r Sys.Date()`"
 
 ---
 
-# YAML (/ˈjæməl/) header
+# YAML header
 
 **Document outputs**
 
@@ -847,7 +859,7 @@ output: html_document
 
 ---
 
-# YAML (/ˈjæməl/) header
+# YAML header
 
 **Multiple document outputs**
 
@@ -873,7 +885,7 @@ output:
 
 ---
 
-# YAML (/ˈjæməl/) header
+# YAML header
 
 **The YAML Syntax rules**
 
@@ -911,7 +923,7 @@ output:
 
 ---
 
-# YAML (/ˈjæməl/) header
+# YAML header
 
 **Document output options**
 
@@ -928,7 +940,7 @@ output:
 
 ---
 
-# YAML (/ˈjæməl/) header
+# YAML header
 
 **Document output options for all 3 output types**
 
@@ -964,7 +976,7 @@ output:
 
 ---
 
-# YAML (/ˈjæməl/) header
+# YAML header
 
 **Document output options for all 3 output types**
 
@@ -1007,7 +1019,7 @@ output:
 
 ---
 
-# YAML (/ˈjæməl/) header
+# YAML header
 
 **Document output options for `html_document` only**
 
@@ -1040,11 +1052,9 @@ output:
 ]
 
 
-
-
 ---
 
-# YAML (/ˈjæməl/) header
+# YAML header
 
 **Document output options for `pdf_document` only**
 
@@ -1075,7 +1085,7 @@ output:
 
 ---
 
-# YAML (/ˈjæməl/) header
+# YAML header
 
 **Document output options for `pdf_document` only**
 
@@ -1107,7 +1117,7 @@ urlcolor: "blue"
 
 ---
 
-# YAML (/ˈjæməl/) header
+# YAML header
 
 **Document output options for `word_document` only**
 
@@ -1147,7 +1157,7 @@ class: inverse, middle, center
 
 # .large[Now you]
 
-## Task 3: Change meta data and document options (30 min)
+## Task 3: Change meta data and document options (25 min)
 
 #### Find the task description &lt;a href="https://selinazitrone.github.io/rmarkdown/tasks/day1/01_03_penguin_yaml.html"&gt;here&lt;/a&gt;
     </textarea>
@@ -1199,6 +1209,19 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     deleted = true;
   });
 })();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
 (function() {
   "use strict"
   // Replace <script> tags in slides area to make them executable

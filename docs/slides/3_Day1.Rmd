@@ -304,6 +304,15 @@ A multipstep process that is coordinated by the `{rmarkdown}` package
 I recommend to knit often, otherwise it can become a pain to debug.
 
 ---
+class: inverse, middle, center
+
+# .large[Now you]
+
+## Task 0: Create a first template R Markdown document (10 min)
+
+#### Find the task description <a href="https://selinazitrone.github.io/rmarkdown/tasks/day1/01_02_penguin_r.html">here</a>
+
+---
 class: inverse, center, middle
 
 .large[# The text body: Markdown]
@@ -447,6 +456,12 @@ $$
 f(k) = {n \choose k} p^{k} (1-p)^{n-k}
 $$
 
+--
+
+- If you need formulas in your documents see e.g. [here](https://forketyfork.medium.com/latex-math-formulas-a-cheat-sheet-21e5eca70aae)
+for more examples
+
+
 ---
 # The text body
 
@@ -482,14 +497,14 @@ This is an ordered list:
 
 **Let's look at an example together**
 
-Can you identify the formatting elements in <a href="../tasks/day1/solution_docs/penguin_paper_1.html">this document</a>?
+Can you identify the formatting elements in <a href="https://selinazitrone.github.io/rmarkdown/tasks/day1/solution_docs/penguin_paper_1.html">this document</a>?
 
 ---
 class: inverse, middle, center
 
 # .large[Now you]
 
-## Task 1: Create a first docuemnt and add some text (45 min)
+## Task 1: Add some markdown text to the template (30 min)
 
 #### Find the task description <a href="https://selinazitrone.github.io/rmarkdown/tasks/day1/01_01_penguin_markdown.html">here</a>
 
@@ -665,7 +680,7 @@ mean(1:3)
 
 - `include`: `TRUE`, `FALSE`, Include anything from the chunk in the output?
   - Runs the code but does not show any output or source code
-
+  - Short version of `message = FALSE, warning = FALSE, eval = TRUE, echo = FALSE`
 
 ---
 # Chunk options
@@ -749,7 +764,7 @@ class: inverse, middle, center
 
 # .large[Now you]
 
-## Task 2: Add some R code to the document (40 min)
+## Task 2: Add some R code to the document (35 min)
 
 #### Find the task description <a href="https://selinazitrone.github.io/rmarkdown/tasks/day1/01_02_penguin_r.html">here</a>
 
@@ -761,7 +776,7 @@ class: inverse, center, middle
 
 ---
 
-# YAML (/ˈjæməl/) header
+# YAML header
 
 - YAML is a data-serialization language
 
@@ -784,7 +799,7 @@ class: inverse, center, middle
 
 ---
 
-# YAML (/ˈjæməl/) header
+# YAML header
 
 **Meta data**
 
@@ -808,7 +823,7 @@ date: "`r knitr::inline_expr("Sys.Date()")`"
 
 ---
 
-# YAML (/ˈjæməl/) header
+# YAML header
 
 **Document outputs**
 
@@ -830,7 +845,7 @@ output: html_document
 
 ---
 
-# YAML (/ˈjæməl/) header
+# YAML header
 
 **Multiple document outputs**
 
@@ -856,7 +871,7 @@ output:
 
 ---
 
-# YAML (/ˈjæməl/) header
+# YAML header
 
 **The YAML Syntax rules**
 
@@ -894,7 +909,7 @@ output:
 
 ---
 
-# YAML (/ˈjæməl/) header
+# YAML header
 
 **Document output options**
 
@@ -911,7 +926,7 @@ output:
 
 ---
 
-# YAML (/ˈjæməl/) header
+# YAML header
 
 **Document output options for all 3 output types**
 
@@ -947,7 +962,7 @@ output:
 
 ---
 
-# YAML (/ˈjæməl/) header
+# YAML header
 
 **Document output options for all 3 output types**
 
@@ -990,7 +1005,7 @@ output:
 
 ---
 
-# YAML (/ˈjæməl/) header
+# YAML header
 
 **Document output options for `html_document` only**
 
@@ -1023,11 +1038,9 @@ output:
 ]
 
 
-
-
 ---
 
-# YAML (/ˈjæməl/) header
+# YAML header
 
 **Document output options for `pdf_document` only**
 
@@ -1058,7 +1071,7 @@ output:
 
 ---
 
-# YAML (/ˈjæməl/) header
+# YAML header
 
 **Document output options for `pdf_document` only**
 
@@ -1090,7 +1103,7 @@ urlcolor: "blue"
 
 ---
 
-# YAML (/ˈjæməl/) header
+# YAML header
 
 **Document output options for `word_document` only**
 
@@ -1130,6 +1143,6 @@ class: inverse, middle, center
 
 # .large[Now you]
 
-## Task 3: Change meta data and document options (30 min)
+## Task 3: Change meta data and document options (25 min)
 
 #### Find the task description <a href="https://selinazitrone.github.io/rmarkdown/tasks/day1/01_03_penguin_yaml.html">here</a>

@@ -22,17 +22,21 @@ source of errors.
 
 ### 3.2 Document options
 
-As a starting point, add the 3 document output types `html_document`, `pdf_document` and
-`word_document` with their default specification to the YAML header.
+In this task, focus on the document type that you like to learn most. If you don't know yet, I suggest HTML as it has the most options and works smoothly.
+
+As a starting point, add the 3 document output types `html_document`, `pdf_document` and `word_document` with their default specification to the YAML header.
 
 If you use an open office instead of MS Word, use `odt_document` instead of `word_document`.
 
-Make sure that the indentation is correct. If you want to make sure that everything works,
-try knitting to the different output formats using the little arrow next to the knit button.
+Make sure that the indentation is correct. If you want to make sure that everything works, try knitting to the different output formats using the little arrow next to the knit button.
 
-Now start adding some options to the document types. 
+Note here, that unfortunately the pdf version cannot deal with images fetched directly from the internet. So you can't include the penguin picture in pdf output. If you decide to focus on pdf output, you have two options:
 
-Choose for yourself which document type and which options you want to explore first.
+- Remove the picture
+- Download the picture from the link, save it in the same location as the Rmarkdown document and use the path to the file instead of the URL
+
+Now start adding some options starting with your favorite document type. When you are finished, you can move to another type as well. 
+
 Just play with the combinations of document types and options from the slides.
 
 Some ideas to try are:
@@ -41,3 +45,4 @@ Some ideas to try are:
 - Find a combination of document options that result in a suitable document for your applications
 - Have a look at the additional options of the html document
 - ..
+

@@ -1,0 +1,25 @@
+---
+title: "Summary for the `r params$species` penguin"
+output: html_document
+params:
+  species: "Adelie"
+---
+
+```{r setup}
+library(palmerpenguins)
+```
+
+```{r}
+mean_mass <- penguins %>% filter(species == params$species) %>%
+  pull(body_mass_g) %>% mean(na.rm = TRUE) 
+```
+
+The mean body mass of the `r params$species` penguin is `r round(mean_mass, 0)` g.
+
+```{r}
+penguins %>% 
+  filter(species == params$species) %>% 
+  ggplot(aes(x = body_mass_g)) +
+  geom_histogram()
+```
+

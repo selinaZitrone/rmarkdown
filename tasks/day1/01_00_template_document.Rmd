@@ -1,0 +1,23 @@
+---
+title: "First template document"
+output: 
+  distill::distill_article:
+    toc: false
+---
+
+### Create a `rmarkdown` document
+
+Start by creating a new `.Rmd` file:
+
+- Go to `File` -> `New File` -> `R Markdown...` 
+- Chose `HTML` as default output format from the `Document` section (This should be already selected as default)
+- Enter a title and author for your document (not important what it is - you can change it later)
+
+Create and then save the file (`Ctrl/Cmd + S`) in a convenient location on your machine.
+
+Before we start working with the document just try rendering the template document:
+
+- Knit the document to see what happens
+  - Use either the Knit button on top of your document or the keyboard shortcut `Ctrl/Cmd + Shift + K`
+  - Chose different output formats to knit to by clicking on the little black arrow next to the Knit button
+    - If you get an error with one of those, let me know and send me a screenshot of the error message you get.

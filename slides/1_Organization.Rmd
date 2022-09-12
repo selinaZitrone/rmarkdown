@@ -98,7 +98,7 @@ library(fontawesome)
   - Some examples
   
 - **Tasks** regarding this topic
-  - Two groups: Only chat or meeting
+  - In groups: You can start a meeting in the groups or use the chat
   
 - **Joint discussion** of tasks and additional questions
 
@@ -129,13 +129,14 @@ library(fontawesome)
 
 - It is optional
   - Think about it and let me know tomorrow afternoon if you want to participate
-  - If you already know: add your name to the [joint document](https://hackmd.io/@selinaZitrone/SknOLL17c/edit)
+  - If you already know: add your name to the [joint document](https://hackmd.io/XdORDPAlQsqMu1VNJsRfbw?both)
   
 --
 
 - If you want to try something specific: Let me know and I can check for resources/packages/examples etc. before
 
 ---
+
 # Before we get started I
 
 Any feedback and questions are very welcome.
@@ -161,12 +162,16 @@ I assume that you already know things like:
 
 --
 
-- Also, I will use some (but very few) code examples with functions from the `tidyverse` packages (`ggplot2`, `dplyr`)
+- I will use some code examples with functions from the `tidyverse` packages (`ggplot2`, `dplyr`)
 
 --
 
-But we probably have very different R skills and levels in the group, so 
+We probably all have very different R skills and levels in the group, so 
 **please ask if anything needs more explanation**
+
+--
+
+- There are always some extra tasks for the fast ones that you can but don't have to do
 
 ---
 

@@ -15,11 +15,10 @@ xaringanExtra::use_clipboard()
 
 Open your R Markdown document from the last task. 
 
-Switch to the visual editor by clicking on the RStudio compass button on the top right of 
-the document. 
+Switch to the visual editor by clicking on the button on the top left.
 
 First, scroll through your document and see how it looks different
-from the original document view.
+from the source document view.
 
 Take some minutes and explore the visual editor. If you want, you can try to e.g.,
 
@@ -40,7 +39,7 @@ set. The paper is by Gorman et al. (2014).
 Switch to the visual editor and
 
 - Select a location in the text to add the citation
-- Click the insert citation button (`@` symbol) on top
+- Find the menu to insert a citation
 - Select `From DOI` and search the DOI `10.1371/journal.pone.0090081`. This should
 list the Gorman paper.
 
@@ -55,18 +54,18 @@ Now hit `Insert` and see what changed in the document:
 - See how RStudio automatically created a `references.bib` file in your project
 (the same location where your `*.Rmd` file is located)
 - Open `references.bib` in the editor to see how it looks like
-- Look at the YAML header to find the reference file added there automatically
+- Look at the YAML header and you will find that the reference file was added automatically
 
 - Knit the document and check that the citation was added correctly in the text and 
 that the reference is listed at the end of the document
 
 Now try adding the same citation to a different location in your document. Just start
-typing `@` and then the first letters of the citation. RStudio should suggest you some
+typing `@` and then the first letters of the citation. RStudio should suggest you
 citations to chose from.
 
 #### Extra
 
-Add a second citation of the `palmerpenguins` package. 
+Add a second citation for the `palmerpenguins` package. 
 
 Open the `references.bib` file in RStudio (or any other text editor) and add the
 following BibTeX entry in a new line:

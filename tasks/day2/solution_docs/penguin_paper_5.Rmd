@@ -3,16 +3,6 @@ title: "The penguins of Antarctica"
 author: "Selina Baldauf"
 date: "25/3/2022"
 output: 
-  word_document:
-    number_sections: true
-    toc: true
-    fig_caption: true
-    df_print: "kable"
-  pdf_document: 
-    number_sections: true
-    toc: true
-    fig_caption: true
-    df_print: "kable"
   html_document:
     number_sections: true
     toc: true
@@ -22,6 +12,16 @@ output:
     highlight: "textmate"
     theme: "journal"
     df_print: "kable"
+  pdf_document: 
+    number_sections: true
+    toc: true
+    fig_caption: true
+    df_print: "kable"
+  word_document:
+    number_sections: true
+    toc: true
+    fig_caption: true
+    df_print: "kable"
 bibliography: references.bib
 always_allow_html: true
 urlcolor: "blue"
@@ -29,7 +29,7 @@ urlcolor: "blue"
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(
-  echo = FALSE, # code is included in output
+  echo = TRUE, # code is included in output
   warning = FALSE, # don't show warnings
   message = FALSE # don't show messages
 )
@@ -39,23 +39,17 @@ library(palmerpenguins)
 # packages for the tables
 library(knitr)
 library(kableExtra)
-library(flextable)
-
-# set flextable defaults
-set_flextable_defaults(
-  font.size = 12,
-  theme_fun = theme_booktabs,
-  digits = 1
-)
-
-
 ```
 
 # Introduction
 
 There are three main penguin species in Antarctica (*Chinstrap*, *Gentoo*, *Adelie*). You can see them in the following figure:
 
-<!-- ![Artwork by [Allison Horst](https://twitter.com/allison_horst)](https://github.com/allisonhorst/palmerpenguins/blob/master/man/figures/lter_penguins.png?raw=true) -->
+```{r include-penguins, out.width="60%", fig.align = "center", fig.cap="Illustration of the three penguin species by Allison Horst"}
+# with this code chunk, you can include images from a file and have more control
+# over the size of it
+knitr::include_graphics("img/lter_penguins.png")
+```
 
 In this paper we want to answer the following questions
 
@@ -113,7 +107,7 @@ ggplot(penguins, aes(x = body_mass_g, fill = species)) +
 
 There is a positive relationship between bill length and bill depth for all 3 species, as the figure below shows.
 
-```{r scatterplot-bill, eval=FALSE, fig.cap="Scatter plot with regression lines showing the relationship between bill length and bill depth for the 3 penguin species"}
+```{r scatterplot-bill, fig.cap="Scatter plot with regression lines showing the relationship between bill length and bill depth for the 3 penguin species"}
 ggplot(
   data = penguins,
   aes(
@@ -141,21 +135,6 @@ penguins_sum <- penguins %>%
     flipper_length = mean(flipper_length_mm, na.rm = TRUE),
     body_mass = mean(body_mass_g, na.rm = TRUE)
   )
-```
-
-```{r summary-table-flextable}
-penguins_sum %>% 
-  flextable() %>%
-  set_header_labels(
-    bill_length = "Bill length (mm)",
-    bill_depth = "Bill depth (mm)",
-    flipper_length = "Flipper length (mm)",
-    body_mass = "Body mass (g)"
-  ) %>%
-  set_caption(
-    "Mean penguin variables with `flextable`"
-  ) %>%
-  colformat_double()
 ```
 
 

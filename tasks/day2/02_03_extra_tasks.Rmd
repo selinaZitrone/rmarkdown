@@ -1,0 +1,138 @@
+---
+title: "Extra tasks"
+output: 
+  distill::distill_article:
+    toc: true
+    toc_float: true
+---
+
+In the following are some extra tasks concerning the more advanced R Markdown techniques and tips that we looked at in the end.
+Choose the task that you are interested in most. Start with that one and then 
+move on the next.
+
+### 3.1 Source an R script in R Markdown
+
+**Step 1: Create new files**
+
+Create the following files:
+
+- An `.R` script that will be sourced
+- An `.Rmd` file into which you will source the R file. You can just make a copy of the penguin paper from the last task. 
+
+**Step 2: Move R code to the R script**
+
+Think of the R code from the `.Rmd` file that you want to move to the R script. Some example might be: 
+
+- Calculation of the mean bodyweight
+- Calculation of the summary table
+- Loading the penguin data set from the package
+
+Move the respective code from the `.Rmd` file into the R script. Make sure that you store every result you want to reuse in R Markdown in a variable.
+
+**Step 3: Source R script in R Markdown**
+
+Go back to the `.Rmd` file. Source the `.R` file in the setup chunk using the `source()` function. 
+
+One tip when constructing the path to the R file in the source function: Start making the quotes (`source("")`) and then in between then hit the `tab` key of your keyboard. Then you can construct the path to your R file using auto-completion. This is much less error prone than typing out the path.
+
+**Step 4: Knit the document**
+
+Knit the document and fix potential error messages.
+
+### 3.2 Split larger documents into multiple `.Rmd` files
+
+In this exercise, split the penguin paper from the last task into multiple R Markdown
+files.
+
+**Step 1: create the `.Rmd` files**
+
+Create separate R markdown files for the sections and one control file:
+
+- `Main.Rmd`
+- `Introduction.Rmd`
+- `Methods.Rmd`
+- `Results.Rmd`
+
+Remove all template text from the files.
+
+**Step 2: Fill the control document**
+
+Start with the control document `Main.Rmd`.
+This file will hold the following information:
+
+- YAML header
+- Setup chunk
+- Top level headings for the sections
+- References
+
+Insert these elements into `Main.Rmd` and knit the document. There should be no
+error messages and you should have an almost empty document as a result with only
+headings.
+
+**Step 3: Source the child documents**
+
+Below the section headings in `Main.Rmd` add a code chunk.
+Include the child documents using the `child` chunk option.
+
+Knit the document again. The result should be the same as in the step before, as the 
+child documents are empty still. But there should be no error messages.
+
+**Step 4: Fill the child documents**
+
+Go back to the penguin paper from the last task. Copy the content for the main sections into the child documents.
+
+Save the child documents. Then knit `Main.Rmd` again.
+
+Now the result should look like the the penguin paper from the previous task.
+
+### 3.3 Render your document from an R script
+
+Create a new R file. To use the render function, load the rmarkdown package on top:
+
+```{r, eval=FALSE}
+library(rmarkdown)
+```
+
+Write a render function that takes the `.Rmd` file of the penguin paper as input
+and specify which output format you want to render.
+Run the R function and see if the document is rendered correctly.
+
+One tip when constructing the path to the R file in the source function: Start making the quotes (`render(input = "")`) and then in between then hit the `tab` key of your keyboard. Then you can construct the path to your `Rmd` file using auto-completion. This is much less error prone than typing out the path.
+
+If that worked well, you can try some other arguments to the `render` function that
+you saw on the slides. You can also check `?render` to see all options.
+
+### 3.4 Parameterized reports (most tricky one)
+
+Before you do this task, make sure you do task 3.3 first.
+
+Now like in the slides, parameterize the report, so you can flexibly choose which
+penguin species you want to generate a report for.
+
+To do this, first create a copy of the penguin paper to work on for this task.
+
+**Step 1: Introduce parameters**
+
+Add a field for the parameters to the YAML header. Add one parameter for the 
+species you want to select and give this parameter a default value.
+Have a look at the slides to see how.
+
+**Step 2: Adapt your document to use the parameter**
+
+Go through the document and use the parameter list `params` that you now have
+available to change the R code in the document.
+
+Identify the positions where you want to filter the data before continuing with
+the analysis. Have a look at the example in the slides for inspiration.
+
+Knit the document often to see if everything works correctly.
+
+**Step 3: Render document from `render` function**
+
+Adapt the render function from task 3.3 and add the `params` argument to the function. Run the function for different values for the species param and check
+if the rendered document is correct.
+
+**Step 4: Render documents in a for loop**
+
+Write a for loop similar to the one on the slides that renders the documents for
+all three penguin species at once into files with different output names.

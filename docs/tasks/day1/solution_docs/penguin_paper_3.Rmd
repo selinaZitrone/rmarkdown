@@ -60,13 +60,9 @@ The data is published via the `palmerpenguins` R package which you can find [on 
 **The data contains (among others) the following measurements:**
 
 -   bill length
-
 -   bill depth
-
 -   body mass
-
 -   sex
-
     -   male
     -   female
 
@@ -96,7 +92,7 @@ ggplot(penguins, aes(x = body_mass_g, fill = species)) +
 
 There is a positive relationship between bill length and bill depth for all 3 species, as the figure below shows.
 
-```{r scatterplot-bill, eval=FALSE, fig.cap="Scatter plot with regression lines showing the relationship between bill length and bill depth for the 3 penguin species", echo=TRUE}
+```{r scatterplot-bill, fig.cap="Scatter plot with regression lines showing the relationship between bill length and bill depth for the 3 penguin species", echo=TRUE}
 ggplot(
   data = penguins,
   aes(

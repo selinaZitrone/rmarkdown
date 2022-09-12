@@ -29,7 +29,7 @@ output:
 
 ```{r setup, include=FALSE}`r ''`
 knitr::opts_chunk$set(
-  echo = TRUE, # code is included in output
+  echo = FALSE, # code is included in output
   warning = FALSE, # don't show warnings
   message = FALSE # don't show messages
 )
@@ -44,6 +44,12 @@ There are three main penguin species in Antarctica
 
 ![Artwork by [Allison Horst](https://twitter.com/allison_horst)](
 https://github.com/allisonhorst/palmerpenguins/blob/master/man/figures/lter_penguins.png?raw=true)
+
+```{r include-penguins, out.width="60%", fig.align = "center", fig.cap="Illustration of the three penguin species by Allison Horst"}`r ''`
+# with this code chunk, you can include images from a file and have more control
+# over the size of it
+knitr::include_graphics("img/lter_penguins.png")
+```
 
 In this paper we want to answer the following questions
 
@@ -76,7 +82,7 @@ can find [on this website](https://allisonhorst.github.io/palmerpenguins/).
 ## The analysis
 
 We did some plots, calculated some summary statistics and a linear model of the 
-form $y = ax + b + \epsilon$
+form $y = ax + b$
 
 
 # Results
@@ -100,7 +106,7 @@ The mean weight of all penguin species is
 The figure below shows that *Gentoo* penguins have the highest body mass.
 
 ```{r histogram-body, fig.cap="Histogram of weight of the three penguin species.",
-fig.width=4, fig.height=3, fig.align='center'}
+fig.width=4, fig.height=3, fig.align='center', echo=TRUE}
 ggplot(penguins, aes(x = body_mass_g, fill = species)) +
   geom_histogram(alpha = 0.6) +
    scale_fill_manual(values = c("darkorange", "purple", "cyan4")) +
@@ -110,8 +116,8 @@ ggplot(penguins, aes(x = body_mass_g, fill = species)) +
 There is a positive relationship between bill length and bill depth for all 3 
 species, as the figure below shows.
 
-```{r scatterplot-bill, eval=FALSE, fig.cap="Scatter plot with regression lines
-showing the relationship between bill length and bill depth for the 3 penguin species"}
+```{r scatterplot-bill, fig.cap="Scatter plot with regression lines
+showing the relationship between bill length and bill depth for the 3 penguin species", echo=TRUE}
 ggplot(
   data = penguins,
   aes(
@@ -130,7 +136,7 @@ In general, it looks like the body characteristics differ between the sexes but
 also between the penguin
 species, as the table below illustrates:
 
-```{r summary-table}`r ''`
+```{r summary-table, echo=TRUE}`r ''`
 penguins %>% 
   filter(!(is.na(sex))) %>% 
   group_by(species, sex) %>% 

@@ -107,7 +107,7 @@ ggplot(penguins, aes(x = body_mass_g, fill = species)) +
 
 There is a positive relationship between bill length and bill depth for all 3 species, as the figure below shows.
 
-```{r scatterplot-bill, eval=FALSE, fig.cap="Scatter plot with regression lines showing the relationship between bill length and bill depth for the 3 penguin species"}
+```{r scatterplot-bill, fig.cap="Scatter plot with regression lines showing the relationship between bill length and bill depth for the 3 penguin species"}
 ggplot(
   data = penguins,
   aes(

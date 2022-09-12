@@ -40,28 +40,20 @@ The output types we will include using the penguin data set are:
 For each output type, go through the following steps:
 
 1. Select a location in your document, where the output should be (probably the result section).
-
 2. Insert a new code chunk at the location
-  - Use the RStudio interface `Code` -> `Insert Chunk` or
-  - Use the keyboard shortcut `Ctrl/Cmd + Alt/Option + I`
-
+    - Use the RStudio interface `Code` -> `Insert Chunk` or
+    - Use the keyboard shortcut `Ctrl/Cmd + Alt/Option + I`
 3. Write the code that produces the output (you can copy it from my examples below)
-
-4. Run the code inside the document 
-  - Click on the little green arrow button next to the code chunk
-  - Careful: if you get an error message, make sure that you run all chunks that your code depends on before. E.g. you probably have to run the setup chunk to load all the packages first.
-
+4. Run the code inside the document: 
+    - Click on the little green arrow button next to the code chunk
+    - Careful: if you get an error message, make sure that you run all chunks that your code depends on before. E.g. you probably have to run the setup chunk to load all the packages first.
 5. Knit the document and see how the output looks like
 
-Below, you find example code for a figure and a table. I suggest, 
-you copy my code to your R chunk. If you still have time, you can change the code 
-or write new code chunks yourself.
+Below, you find example code for a figure and a table. For now, just copy my code to your R chunk.
+If you still have time in the end, change the code or write new code chunks yourself for different
+types of output.
 
-**Don't forget**
-
-- Every time, you use a function from a new package, you have to load the package into
-the document environment. Just add another `library()` line to the setup chunk.
-- Knit your document often to detect errors early on
+**Don't forget** to knit your document often to detect errors early on.
 
 ::::: {.panelset}
 
@@ -72,7 +64,7 @@ the document environment. Just add another `library()` line to the setup chunk.
 I use `ggplot2` to produce the figures, so don't forget to load the package in the setup
 chunk.
 
-Chose one of the two figure ideas from below:
+Choose one of the two figure ideas from below:
 
 1. Create a histogram of the body mass for the 3 penguin species
 
@@ -107,10 +99,11 @@ ggplot(
 
 ### Summary table
 
-I create a summary table of the mean variable values grouped
+I use the `dplyr` package here, so don't forget to load it in the setup chunk.
+
+Create a summary table of the mean variable values grouped
 by penguin species and sex. 
 
-I use the `dplyr` package here, so don't forget to load it in the setup chunk.
 
 ```{r eval=FALSE, echo=TRUE}
 penguins %>% 
@@ -136,16 +129,6 @@ You can start with the example below. If you still have time in the end, you can
 - Report the mean body mass of all penguins, e.g. like this:
   - The mean body mass of all penguins is `r round(mean(penguins$body_mass_g, na.rm=TRUE), 0)` g.
 
-#### Extra
-
-Only do this if you are alredy finished with the Chunk option task below.
-
-Can you report the number of penguins and their body mass separately for the three 
-penguin species?
-
-*Hint:* Calculate the mean weight of the penguin species in a separate code chunk and 
-save them in 3 variables. Then you can use these variables in the inline code.
-
 ### 2.4 Chunk options
 
 Now modify some of the code chunk behaviour using chunk options.
@@ -165,3 +148,57 @@ You can for example think of things like:
 
 - Should the R code be shown in the document?
 - Should warnings and messages be printed into the document as well?
+
+### Extras
+
+Get creative. Add new code chunks that produced different types of output. Find
+some ideas below:
+
+#### More inline code
+
+Can you report the number of penguins and their body mass separately for the three 
+penguin species?
+
+*Hint:* Calculate the mean weight of the penguin species in a separate code chunk and 
+save them in 3 variables. Then you can use these variables in the inline code.
+
+#### `knitr::include_graphics()`
+
+Include the penguin illustration from within a code chunk instead of with `![]()`.
+This will allow you to make it a smaller so the document looks nicer. To do so
+
+- Download the image from [here]((https://raw.githubusercontent.com/allisonhorst/palmerpenguins/main/man/figures/lter_penguins.png) (depends on browser but something like `Right Click -> Save image as`). Save it in the same location as your `.Rmd` document.
+- Include the downloaded image in a code chunk in a similar way as on the slides.
+- Make the image smaller until it looks good in your document
+
+#### Add an interactive plot
+
+Careful because this only works with HTML output and will give you an error for 
+pdf and word output.
+You can use the `plotly` package to include an interactive plot in your document.
+To turn a "normal" plot into an interactive plot you just need the following steps:
+
+- Install the plotly package with `install.packages("plotly")`
+- Save the plot you want to turn interactive in a variable
+- Call the `ggplotly()` function
+
+Below you find an example. You can do the same now for one of the plots that you
+already have in your document. 
+
+```{r}
+# Make the plot and save it in a variable
+my_boxplot <- ggplot(
+  data = penguins,
+  aes(
+    y = bill_depth_mm,
+    fill = species,
+    x = species
+  )
+) +
+  geom_boxplot()+
+  scale_fill_manual(values = c("darkorange", "purple", "cyan4")) +
+  theme_minimal()
+
+# Turn the plot interactive
+plotly::ggplotly(my_boxplot)
+```

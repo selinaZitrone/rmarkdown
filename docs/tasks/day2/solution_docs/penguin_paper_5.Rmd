@@ -3,16 +3,6 @@ title: "The penguins of Antarctica"
 author: "Selina Baldauf"
 date: "25/3/2022"
 output: 
-  word_document:
-    number_sections: true
-    toc: true
-    fig_caption: true
-    df_print: "kable"
-  pdf_document: 
-    number_sections: true
-    toc: true
-    fig_caption: true
-    df_print: "kable"
   html_document:
     number_sections: true
     toc: true
@@ -22,6 +12,16 @@ output:
     highlight: "textmate"
     theme: "journal"
     df_print: "kable"
+  pdf_document: 
+    number_sections: true
+    toc: true
+    fig_caption: true
+    df_print: "kable"
+  word_document:
+    number_sections: true
+    toc: true
+    fig_caption: true
+    df_print: "kable"
 bibliography: references.bib
 always_allow_html: true
 urlcolor: "blue"
@@ -29,7 +29,7 @@ urlcolor: "blue"
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(
-  echo = FALSE, # code is included in output
+  echo = TRUE, # code is included in output
   warning = FALSE, # don't show warnings
   message = FALSE # don't show messages
 )
@@ -39,16 +39,6 @@ library(palmerpenguins)
 # packages for the tables
 library(knitr)
 library(kableExtra)
-library(flextable)
-
-# set flextable defaults
-set_flextable_defaults(
-  font.size = 12,
-  theme_fun = theme_booktabs,
-  digits = 1
-)
-
-
 ```
 
 # Introduction
@@ -141,21 +131,6 @@ penguins_sum <- penguins %>%
     flipper_length = mean(flipper_length_mm, na.rm = TRUE),
     body_mass = mean(body_mass_g, na.rm = TRUE)
   )
-```
-
-```{r summary-table-flextable}
-penguins_sum %>% 
-  flextable() %>%
-  set_header_labels(
-    bill_length = "Bill length (mm)",
-    bill_depth = "Bill depth (mm)",
-    flipper_length = "Flipper length (mm)",
-    body_mass = "Body mass (g)"
-  ) %>%
-  set_caption(
-    "Mean penguin variables with `flextable`"
-  ) %>%
-  colformat_double()
 ```
 
 

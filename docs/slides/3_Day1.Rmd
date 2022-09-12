@@ -310,7 +310,7 @@ class: inverse, middle, center
 
 ## Task 0: Create a first template R Markdown document (10 min)
 
-#### Find the task description <a href="https://selinazitrone.github.io/rmarkdown/tasks/day1/01_02_penguin_r.html">here</a>
+#### Find the task description <a href="https://selinazitrone.github.io/rmarkdown/tasks/day1/01_00_template_document.html">here</a>
 
 ---
 class: inverse, center, middle
@@ -746,6 +746,26 @@ knitr::opts_chunk$set(
 ````
 
 ---
+# Include image via code chunk
+
+Include an image from a code chunk via `knitr::include_graphics()`. This gives
+you more control over the image compared to `![Figure Caption](path/to/figure)`
+
+--
+
+````md
+`r ''````{r include-image, echo=FALSE, fig.caption="A caption", fig.align="center", out.width="60%"}
+knitr::include_graphics("img/my_image.png")
+```
+````
+--
+
+- Path starts where your rmd file is located
+- Tip to construct paths: Use the `tab` key on your keyboard instead of typing the
+path -> less error prone
+
+
+---
 
 # Other language engines
 
@@ -764,7 +784,7 @@ class: inverse, middle, center
 
 # .large[Now you]
 
-## Task 2: Add some R code to the document (35 min)
+## Task 2: Add some R code to the document (40 min)
 
 #### Find the task description <a href="https://selinazitrone.github.io/rmarkdown/tasks/day1/01_02_penguin_r.html">here</a>
 

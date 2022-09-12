@@ -16,7 +16,7 @@ xaringanExtra::use_panelset()
 To practice, we will write a short paper about a data set on 3 different penguin species (*Chinstrap*, *Gentoo*, and *Adelie*) on islands in Antarctica. 
 As we progress in the workshop, we will incorporate more options, functionality and formatting into the document.
 
-![Artwork by [Allison Horst](https://twitter.com/allison_horst)](https://github.com/allisonhorst/palmerpenguins/blob/master/man/figures/lter_penguins.png?raw=true)
+![Artwork by [Allison Horst](https://twitter.com/allison_horst)](https://raw.githubusercontent.com/allisonhorst/palmerpenguins/main/man/figures/lter_penguins.png)
 
 The data is available from the [palmerpenguins](https://allisonhorst.github.io/palmerpenguins/) package. To get it, you have to open RStudio and:
 
@@ -31,13 +31,17 @@ you can also skip this step):
 
 We will need the data later, so remember that you can access it via the variable `penguins`.
 
-### 1.2 Add some text
+### 1.2 Add markdown text
 
-Now go back to the template document, you created in the previous task. 
+For all the tasks of today, you might find it helpful to look at the R Markdown
+cheat sheet and the R Markdown reference guide. You can find them from inside RStudio by clicking on
+`Help -> Cheat Sheets -> R Markdown Cheat Sheet / R Markdown Reference Guide`
 
-Start writing your own paper about the 3 penguins. 
+Now go back to the template document, you created in the previous task.
 
-First, remove all template text from the template document **except** the YAML header and the first code chunk (we will learn later what that does).
+In this document, we start writing the paper about the 3 penguins. 
+
+First, remove all template text **except** the YAML header and the first code chunk (we will learn later what that does).
 
 Have another look at the [example document](https://selinazitrone.github.io/rmarkdown/tasks/day1/solution_docs/penguin_paper_1.html) we just discussed together.
 
@@ -45,15 +49,13 @@ Now try to reproduce this document in your own Rmarkdown file.
 
 The point of this task is to include many different markdown formatting elements.
 
-So you can copy paste my text and add the formatting elements. Find the links that I used
-in the document below.
+So you can copy paste my text and add the formatting elements. Find the links that I used below.
 
 During the writing process, **don't forget to knit your document often**. It's easier to fix mistakes and error messages if you detect them early. For this task, only use HTML output for now.
 
 #### Links used
 
-Here are the links that I used in the text for URL links and the figure. You can
-use them to reproduce my text. But feel also free to link other things if you want.
+Here are the links that I used in the text for URL links and the figure.
 
 - Link to Allison Horst's twitter: https://twitter.com/allison_horst
 - Link to the paper: https://doi.org/10.1371/journal.pone.0090081
@@ -63,5 +65,5 @@ use them to reproduce my text. But feel also free to link other things if you wa
 #### Extras
 
 Add your own text and more formatting. Have a look at the 
-`Write with Markdown` section of the R Markdown cheat sheet to find examples for more
+`Write with Markdown` section of the R Markdown cheat sheet or the R Markdown reference guide to find examples for more
 markdown elements to use.

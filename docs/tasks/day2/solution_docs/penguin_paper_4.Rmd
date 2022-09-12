@@ -36,7 +36,11 @@ library(palmerpenguins)
 
 There are three main penguin species in Antarctica (*Chinstrap*, *Gentoo*, *Adelie*). You can see them in the following figure:
 
-![Artwork by [Allison Horst](https://twitter.com/allison_horst)](https://github.com/allisonhorst/palmerpenguins/blob/master/man/figures/lter_penguins.png?raw=true)
+```{r include-penguins, out.width="60%", fig.align = "center", fig.cap="Illustration of the three penguin species by Allison Horst"}
+# with this code chunk, you can include images from a file and have more control
+# over the size of it
+knitr::include_graphics("img/lter_penguins.png")
+```
 
 In this paper we want to answer the following questions
 
@@ -49,7 +53,7 @@ All analysis was done using R version 4.1.3 [@Rcore2022] and the R markdown pack
 
 ## The data
 
-The data was collected on islands in Antarctica and published by @gorman2014. You can find the original paper with the title "Ecological sexual dimorphism and environmental variability within a community of Antarctic penguins (genus *Pygoscelis*)" [@gorman2014] in PLoS ONE[^1]
+The data was collected on islands in Antarctica and published by @gorman2014 . You can find the original paper with the title "Ecological sexual dimorphism and environmental variability within a community of Antarctic penguins (genus *Pygoscelis*)" [@gorman2014] in PLoS ONE[^1]
 
 [^1]: paper available [here](https://doi.org/10.1371/journal.pone.0090081).
 

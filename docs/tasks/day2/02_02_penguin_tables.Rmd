@@ -37,15 +37,12 @@ You can for example:
 - Change the alignment of text in the cells
 - Use `booktabs` option (only works in PDF output, is ignored for HTML and Word output)
 
-Knit the document in your target output format and see how the table looks like.
+Knit the document to different target output formats and see how the table looks like.
 
-### 2.2 Advanced styling with `kableExtra` or `flextable`
+### 2.2 Advanced styling with `kableExtra`
 
-Chose one of the options below depending on your priority output format and interest.
-I recommend option 1, but if your focus is strongly on word documents, you can also 
-choose option 2.
-
-#### Option 1 `kableExtra` (PDF and HTML)
+The following now only works for PDF and HTML output. If you want to keep knitting
+to word, you later have to switch back the only using `kable`.
 
 Don't forget to load the `kableExtra` package in the setup chunk.
 
@@ -61,23 +58,7 @@ Start adding extra styling to the table. For example, you can
 
 Have a look at `?kable_styling` for more options.
 
+### Extras
+
 If you still have time, have a look at the package documentation of `kableExtra`
 for [PDF tables](https://haozhu233.github.io/kableExtra/awesome_table_in_pdf.pdf) or [HTML tables](https://haozhu233.github.io/kableExtra/awesome_table_in_html.html) to find many more options and examples.
-
-#### Option 2 `flextable`
-
-Don't forget to load the `flextable` package in the setup chunk.
-
-Start by setting the default flex table options in the setup chunk.
-
-- Have a look at the example on the slide and check out `?flextable::set_flextable_defaults`
-
-Now print the table in your document as a flextable by passing it into the `flextable()` function.
-
-Customize the look further, e.g. by
-
-- Changing the header labels
-- Adding a table caption
-- Applying the formatting for the double columns
-
-If you still have time, move from Word to HTML or PDF output and try the other packages.

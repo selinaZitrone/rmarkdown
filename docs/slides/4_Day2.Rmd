@@ -40,46 +40,13 @@ xaringanExtra::use_panelset()
 
 # Topics today
 
+- Visual editor in RStudio
+
 - Citations 
 
 - Make tables look nice
 
 - Some more tips and good practice
-
----
-
-# `html_document`
-
-**Interactive graphs** e.g. with `plotly`
-
-```{r}
-library(ggplot2)
-scatter <- ggplot(
-  data = penguins,
-  aes(
-    x = bill_length_mm,
-    y = bill_depth_mm,
-    color = species,
-    shape = species
-  )
-) +
-  geom_point(size = 2, alpha = 0.8) +
-  geom_smooth(method = "lm", se = FALSE) +
-  scale_color_manual(values = c("darkorange", "purple", "cyan4")) +
-  theme_minimal()
-```
-
-
----
-
-# `html_document`
-
-**Interactive graphs** e.g. with `plotly`
-
-```{r fig.with=6, fig.height=5, fig.align='center'}
-library(plotly)
-ggplotly(scatter)
-```
 
 ---
 
@@ -91,9 +58,9 @@ ggplotly(scatter)
   
 --
   
-- Click on the button on the top right
+- Click on the button on the top left
 
-![:scale 40%](img/day2/visual_editor_button_circle.png)
+![:scale 40%](img/day2/source_visual.png)
 
 --
 
@@ -105,6 +72,8 @@ ggplotly(scatter)
 
 - But careful: Can reformat the `.Rmd` file a bit, so sometimes if you switch back 
 it can look different than before.
+
+  - Best to choose the editor you like most and stick with it
 
 
 ---
@@ -191,7 +160,7 @@ Citations can also be added using the **visual editor** in RStudio.
 
 --
 
-- Visual editor creates and extends `.bib` file automatically
+- Visual editor creates and updates `.bib` file automatically
 
 --
 
@@ -201,15 +170,32 @@ Citations can also be added using the **visual editor** in RStudio.
   - DOI
   - ...
   
---
+---
 
-- Just click on the `@` symbol in the visual editor to add a citation
+# Adding citations - Visual editor
 
-![](img/day2/visual_editor_citation_button.png)
---
+- Just click on the `Insert -> citation`
+
+![](img/day2/visual_editor_citation.png)
+
+---
+
+# Adding citations - Visual editor
+
+- Select source of citation on the left (e.g. DOI, Zotero, ...)
+- Click `Insert` to add citation to `bibliography.bib`
+
+
+![:scale 60%](img/day2/insert_citation_window.png)
+
+---
+
+# Adding citations - Visual editor
+
 
 - You can also start typing `@` and the editor will suggest you a list of citations that fit
 
+![](img/day2/citation_insert.png)
 
 ---
 
@@ -356,6 +342,7 @@ the tables made with `kable`
 **`kable_styling()`** is the basic styling function
 
 - Use the pipe operator (`%>%`) to pipe `kable()` output to styling function `kable_styling()`
+  - Use the keyboard shortcut ` Ctrl/Cmd + Shift + M ` to insert ` %>% `
 
 --
 
@@ -364,7 +351,7 @@ iris_sum %>%
   kable() %>%
   kable_styling(
   full_width = FALSE, # display table on full page width?
-  position = "center",  # if not full width -> where 
+  position = "center",  # if not full width -> where to put table
   font_size = 15
 )
 ```
@@ -386,7 +373,7 @@ iris_sum %>%
   full_width = FALSE, # display table on full page width?
   position = "center",  # if not full width -> where 
   font_size = 15,
-  bootstrap_options = c("striped", "hover")
+  bootstrap_options = c("striped", "hover") #<<
 )
 ```
 
@@ -411,13 +398,13 @@ iris_sum %>%
 
 ```{r eval=FALSE}
 iris_sum %>%
-  kable(booktabs = TRUE) %>%
+  kable(booktabs = TRUE) %>%  #<<
   kable_styling(
-    full_width = FALSE, # display table on full page width?
-    position = "center", # if not full width -> where
+    full_width = FALSE,
+    position = "center", 
     font_size = 15,
     bootstrap_options = c("striped", "hover"),
-    latex_options = c("striped", "hold_position", "scale_down")
+    latex_options = c("striped", "hold_position", "scale_down") #<<
   )
 ```
 
@@ -425,17 +412,16 @@ iris_sum %>%
 iris_sum %>% 
   kable() %>%
   kable_styling(
-  full_width = FALSE, # display table on full page width?
-  position = "left",  # if not full width -> where 
+  full_width = FALSE, 
+  position = "left",
   font_size = 15,
 ) |> 
   kable_classic(c("hover", "striped"))
 ```
 
---
-
-- Depending on the output format you chose, `bootstrap_options` or `latex_options` will be ignored
-
+- `booktabs = TRUE` will use the `booktabs` LaTeX package to create nice horizontal lines and removes vertical lines
+- `hold_position` places the table where it is created in the document (no floating)
+- `scale_down` scales the text down to fit the table width
 
 ---
 
@@ -447,19 +433,17 @@ iris_sum %>%
 
 ```{r eval=FALSE}
 iris_sum %>%
-  kable(booktabs = TRUE) %>%
+  kable(booktabs = TRUE) %>%  #<<
   kable_styling(
-    full_width = FALSE, # display table on full page width?
-    position = "center", # if not full width -> where
+    full_width = FALSE,
+    position = "center", 
     font_size = 15,
     bootstrap_options = c("striped", "hover"),
-    latex_options = c("striped", "hold_position", "scale_down")
+    latex_options = c("striped", "hold_position", "scale_down") #<<
   )
 ```
 
-- `booktabs = TRUE` will use the `booktabs` LaTeX package to create nice horizontal lines and removes vertical lines
-- `hold_position` places the table where it is created in the document (no floating)
-- `striped` creates striped tables
+- Depending on the output format you chose, `bootstrap_options` or `latex_options` will be ignored
 
 ---
 
@@ -471,28 +455,10 @@ iris_sum %>%
 iris_sum %>%
   kable() %>%
   kable_styling(font_size = 15) %>%
-  add_header_above(c("", "Sepals" = 2, "Petals" = 2)) %>%
-  pack_rows("Group 1", 1, 1) %>%
-  pack_rows("Group 2", 2, 3)
+  add_header_above(c("", "Sepals" = 2, "Petals" = 2)) %>% #<<
+  pack_rows("Group 1", 1, 1) %>% #<<
+  pack_rows("Group 2", 2, 3) #<<
 ```
-
----
-
-# The `{kableExtra}` package
-
-**Adding footnotes**
-
-```{r eval=FALSE}
-iris_sum %>% 
-  kable() %>% 
-  footnote(general = "Here is a general comments of the table. ",
-           number = c("Footnote 1; ", "Footnote 2; "),
-           alphabet = c("Footnote A; ", "Footnote B; "),
-           symbol = c("Footnote Symbol 1; ", "Footnote Symbol 2")
-           )
-```
-
-![](img/day2/footnote_table.png)
 
 ---
 
@@ -509,9 +475,9 @@ iris_sum %>%
 ```{r}
 iris_sum %>%
   kable() %>%
-  kable_classic(
-    font_size = 15
-  )
+  kable_classic( #<<
+    font_size = 15 #<<
+  ) #<<
 ```
 
 --
@@ -530,49 +496,14 @@ iris_sum %>%
 
 - Alternative to `kable` and `kableExtra`
 
---
-
-- Set options for all tables in beginning (e.g. in setup chunk)
-
-```{r}
-library(flextable)
-set_flextable_defaults(
-  font.size = 10,
-  theme_fun = theme_booktabs,
-  padding = 6,
-  digits = 1
-)
-```
-
-- See all options with `?flextable::set_flextable_defaults`
-
----
-
-# The `{flextable}` package
-
-- An example table that looks decent in all 3 outputs
-
-```{r}
-iris_sum %>%
-  flextable() %>%
-  set_caption("Summary of the iris data") %>%
-  set_header_labels(
-    Sepal.Length = "Sepal Length",
-    Sepal.Width = "Sepal Width",
-    Petal.Length = "Petal Length",
-    Petal.Width = "Petal Width"
-  ) %>%
-  colformat_double()
-```
-
-- See [here](https://ardata-fr.github.io/flextable-book/design.html#map-of-functions) for all the functions that you can add to the flextable
-  - Use `?function_name` to see how to use the function
+- See [here](https://ardata-fr.github.io/flextable-book/index.html) for an extensive documentation
+of the flextable package
 
 ---
 class: inverse, middle, center
 
 # .large[Now you]
 
-## Task 3: Create a nice table (30 mins)
+## Task 3: Create a nice table (25 mins)
 
 #### Find the task description <a href="https://selinazitrone.github.io/rmarkdown/tasks/day2/02_02_penguin_tables.html">here</a>

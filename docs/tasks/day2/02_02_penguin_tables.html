@@ -93,8 +93,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--  https://schema.org/Article -->
-  <meta property="article:published" itemprop="datePublished" content="2022-09-11" />
-  <meta property="article:created" itemprop="dateCreated" content="2022-09-11" />
+  <meta property="article:published" itemprop="datePublished" content="2022-09-12" />
+  <meta property="article:created" itemprop="dateCreated" content="2022-09-12" />
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
   <meta property="og:title" content=" Make nice tables" />
@@ -109,7 +109,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","output","date"]}},"value":[{"type":"character","attributes":{},"value":[" Make nice tables"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc","toc_float"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]}]}]},{"type":"character","attributes":{},"value":["09-11-2022"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","output","date"]}},"value":[{"type":"character","attributes":{},"value":[" Make nice tables"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc","toc_float"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]}]}]},{"type":"character","attributes":{},"value":["09-12-2022"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   
@@ -2507,7 +2507,7 @@ distill-header .nav a {
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":" Make nice tables","authors":[],"publishedDate":"2022-09-11T00:00:00.000+02:00"}
+{"title":" Make nice tables","authors":[],"publishedDate":"2022-09-12T00:00:00.000+02:00"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2530,7 +2530,8 @@ distill-header .nav a {
 <h3>Contents</h3>
 <ul>
 <li><a href="#basic-styling-with-kable" id="toc-basic-styling-with-kable">2.1 Basic styling with <code>kable</code></a></li>
-<li><a href="#advanced-styling-with-kableextra-or-flextable" id="toc-advanced-styling-with-kableextra-or-flextable">2.2 Advanced styling with <code>kableExtra</code> or <code>flextable</code></a></li>
+<li><a href="#advanced-styling-with-kableextra" id="toc-advanced-styling-with-kableextra">2.2 Advanced styling with <code>kableExtra</code></a></li>
+<li><a href="#extras" id="toc-extras">Extras</a></li>
 </ul>
 </nav>
 </div>
@@ -2562,12 +2563,10 @@ in the setup chunk.</p>
 <li>Change the alignment of text in the cells</li>
 <li>Use <code>booktabs</code> option (only works in PDF output, is ignored for HTML and Word output)</li>
 </ul>
-<p>Knit the document in your target output format and see how the table looks like.</p>
-<h3 id="advanced-styling-with-kableextra-or-flextable">2.2 Advanced styling with <code>kableExtra</code> or <code>flextable</code></h3>
-<p>Chose one of the options below depending on your priority output format and interest.
-I recommend option 1, but if your focus is strongly on word documents, you can also
-choose option 2.</p>
-<h4 id="option-1-kableextra-pdf-and-html">Option 1 <code>kableExtra</code> (PDF and HTML)</h4>
+<p>Knit the document to different target output formats and see how the table looks like.</p>
+<h3 id="advanced-styling-with-kableextra">2.2 Advanced styling with <code>kableExtra</code></h3>
+<p>The following now only works for PDF and HTML output. If you want to keep knitting
+to word, you later have to switch back the only using <code>kable</code>.</p>
 <p>Don’t forget to load the <code>kableExtra</code> package in the setup chunk.</p>
 <p>Start adding extra styling to the table. For example, you can</p>
 <ul>
@@ -2582,22 +2581,9 @@ choose option 2.</p>
 <li>…</li>
 </ul>
 <p>Have a look at <code>?kable_styling</code> for more options.</p>
+<h3 id="extras">Extras</h3>
 <p>If you still have time, have a look at the package documentation of <code>kableExtra</code>
 for <a href="https://haozhu233.github.io/kableExtra/awesome_table_in_pdf.pdf">PDF tables</a> or <a href="https://haozhu233.github.io/kableExtra/awesome_table_in_html.html">HTML tables</a> to find many more options and examples.</p>
-<h4 id="option-2-flextable">Option 2 <code>flextable</code></h4>
-<p>Don’t forget to load the <code>flextable</code> package in the setup chunk.</p>
-<p>Start by setting the default flex table options in the setup chunk.</p>
-<ul>
-<li>Have a look at the example on the slide and check out <code>?flextable::set_flextable_defaults</code></li>
-</ul>
-<p>Now print the table in your document as a flextable by passing it into the <code>flextable()</code> function.</p>
-<p>Customize the look further, e.g. by</p>
-<ul>
-<li>Changing the header labels</li>
-<li>Adding a table caption</li>
-<li>Applying the formatting for the double columns</li>
-</ul>
-<p>If you still have time, move from Word to HTML or PDF output and try the other packages.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->

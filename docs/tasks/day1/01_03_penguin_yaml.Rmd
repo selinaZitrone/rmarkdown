@@ -33,11 +33,11 @@ Make sure that the indentation is correct. If you want to make sure that everyth
 Note here, that unfortunately the pdf version cannot deal with images fetched directly from the internet. So you can't include the penguin picture in pdf output. If you decide to focus on pdf output, you have two options:
 
 - Remove the picture
-- Download the picture from the link, save it in the same location as the Rmarkdown document and use the path to the file instead of the URL
+- Download the picture from the link, save it in the same location as the Rmarkdown document and use the path to the file instead of the URL (either with `![](local/path/to/file.png)` or using a code chunk and `knitr::include_graphics("local/path/to/file.png")`)
 
-Now start adding some options starting with your favorite document type. When you are finished, you can move to another type as well. 
+Now start adding YAML options to your favorite document type. When you are finished, you can move to another document type as well. 
 
-Just play with the combinations of document types and options from the slides.
+Play with the combinations of document types and options from the slides.
 
 Some ideas to try are:
 

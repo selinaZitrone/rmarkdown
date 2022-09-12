@@ -1,5 +1,5 @@
 ---
-subtitle: "Some general tips and good practice"
+subtitle: "Some good practice and more tips and tricks"
 author: "Selina Baldauf"
 institute: "Freie Universität Berlin - Theoretical Ecology"
 date: "2022-22-03"
@@ -41,25 +41,33 @@ library(palmerpenguins)
 `.Rmd` documents can quickly become large and messy. To keep them clean, you can
 
 --
+
+.pull-left[
   
 - Use headers to mark sections in your document
-- Navigate the file using the document outline
+- Navigate the file using the document outline]
 
-![:scale 20%](img/day2/document_outline_circle.png)
+.pull-right[
+
+.center[![:scale 40%](img/day2/document_outline_circle.png)]
+]
 
 --
+
+.pull-left[
   
 - Use names for your code chunks
-- Navigate code chunks with the code and document outline (bottom left of script)
+- Navigate code chunks with the code and document outline (bottom left of script)]
 
-![:scale 20%](img/day2/chunk_outline.png)
+.pull-right[
+
+.center[![:scale 50%](img/day2/chunk_outline.png)]
+]
 
 ---
   
 # Tip 2: Source large data preparation scripts
   
-- Related to Tip 1
-
 - If it's not necessary for the document, do data preparation in a separate R Script
 
 - Place that R Script in the project where the `.Rmd` is located
@@ -79,10 +87,68 @@ source("path/to/script.R")
 - This runs all the R code in `script.R` and loads the results into the `.Rmd` document
 
 ---
+  
+# Tip 2: Source large data preparation scripts
+
+.pull-left[
+
+- Use R scripts to read in data, clean it, summarize it, ...
+- Store the clean and summarized data in an R object
+- Source the R script in your R Markdown file to use the summarized object
+
+
+R script `summarize_data.R` in a subfolder `R` in the project:
+
+```{r eval=FALSE}
+library(palmerpenguins)
+penguin_summary <- penguins %>% 
+  filter(!(is.na(sex))) %>% 
+  group_by(species, sex) %>% 
+  summarize(
+    bill_length = mean(bill_length_mm,
+    na.rm = TRUE),
+    bill_depth = mean(bill_depth_mm,
+    na.rm = TRUE)
+  )
+```
+]
+
+--
+
+.pull-right[
+
+````md
+---
+title: "My paper"
+author: "Selina Baldauf"
+output: 
+  pdf_document:
+    toc: true
+---
+
+```{r global-setup, include = FALSE}`r ''`
+knitr::opts_chunk$set(echo = FALSE)
+source("R/summarize_data.R")
+```
+
+# Introduction
+
+# Methods
+
+# Results
+
+```{r summary-table}`r ''`
+penguin_summary %>% 
+  knitr::kable()
+```
+
+````
+
+]
+
+---
 
 # Tip 3: Split larger documents into multiple `.Rmd` files
-
-- Related to Tip 1
 
 - Write separate `.Rmd` files e.g. for Introduction, Methods and Results
 
@@ -180,53 +246,171 @@ knitr::opts_chunk$set(echo = FALSE)
 - You can also find some <a href="https://selinazitrone.github.io/rmarkdown/online_resources.html">resources on the workshop website</a>
 
 ---
+class: inverse, middle, center
 
-# Tip 5: Use a project oriented workflow
-
-.pull-left[
-- One directory with all files relevant for project
-  - Scripts, data, plots, documents, ...
-- An RStudio project is just a normal directory with an `*.Rproj` file
-
-- Advantages of using RStudio projects
-    - Easy to navigate in R Studio (`File` pane)
-    - Easy to find and access scripts in RStudio
-    - Project root is working directory
-    - Open multiple projects simultaneously in separate RStudio instances
-]    
-
-.pull-right[
-
-
-```{}
-Project
-|
-|- data
-|
-|- doc
-|   |
-|   |- analysis.Rmd
-|   |
-|   |- publication.Rmd
-|
-|- analysis
-|   |
-|   |- clean_data.R 
-|   |
-|   |- statistics.R
-|
-|- *.RProj
-```
-.small[Example project structure]
-]
+# .large[Two more advanced tips and tricks]
 
 ---
 
-# Tip 5: Use a project oriented workflow
+# 1 - Render your document from an R script
 
-Create a project from scratch:
-  
-1. `File -> New Project -> New Directory -> New Project`
-2. Enter a directory name (this will be the name of your project)
-3. Choose the Directory where the project should be initiated
-4. `Create Project`
+- Use the `render()` function from the `rmarkdown` package to render your documents instead of using the `Knit button`
+
+--
+
+**Why?**
+
+- Reproducibility -> Everything that you do manually and not by code cannot
+necessarily be reproduced by someone else
+- Allows you do easily control and manipulate document options
+- Easy automation of report creation (see next tip)
+
+--
+
+- Call the help function on `render` to see all options
+
+```{r eval=FALSE}
+library(rmarkdown)
+?render
+```
+
+---
+
+# 1 - Render your document from an R script
+
+Render into **all output formats** defined in the `.Rmd` file:
+
+```{r eval=FALSE}
+render(input = "my_paper.Rmd", 
+       output_format = "all")
+```
+
+--
+
+Render into a **specific output format**:
+
+```{r eval=FALSE}
+render(
+  input = "my_paper.Rmd",
+  output_format = "html_document"
+)
+```
+
+--
+
+Put the output in a separate directory (default is same directory as `.Rmd` file)
+
+```{r eval=FALSE}
+render(
+  input = "my_paper.Rmd",
+  output_format = "html_document",
+  output_dir = "final_reports" # put output into a folder called final_reports
+)
+```
+
+---
+
+# 1 - Render your document from an R script
+
+Overwrite the document options set in the `.Rmd` file
+
+```{r eval=FALSE}
+render(
+  input = "my_paper",
+  output_format = "html_document",
+  output_dir = "final_reports",
+  output_options = list(
+    toc = TRUE,
+    toc_depth = 2
+  )
+)
+```
+
+---
+
+# 2 - Parameterized reports
+
+**Situation**: You want the **same report** (same text, formatting, plots, statistics, ...) for **different inputs**
+
+--
+
+**Basic idea**
+
+- Write an `.Rmd` file for your report
+- Use parameters to adress the variable input for your report
+  - e.g. different data input files, different subset of the data, ...
+- Use the render function to render your report for a specific set of input parameters.
+
+--
+
+- Parameters are passed as a list to the document and can be accessed via the `params` variable
+  - Just use `$` to access specific parameters
+
+---
+
+# 2 - Parameterized reports
+
+````md
+---
+title: "Summary for the `r params$species` penguin"
+output: html_document
+params:
+  species: "Adelie"
+---
+
+```{r }`r ''`
+library(palmerpenguins)
+```
+
+# Introduction
+
+```{r}`r ''`
+mean_mass <- penguins %>% filter(species == params$species) %>%
+  pull(body_mass_g) %>% mean(na.rm = TRUE) 
+```
+
+The mean body mass of the `r knitr::inline_expr("params$species")` penguin is `r round(mean_mass, 0)` g.
+
+```{r}`r ''`
+penguins %>% 
+  filter(species == params$species) %>% 
+  ggplot(aes(x = body_mass_g)) +
+  geom_histogram()
+```
+
+````
+
+---
+
+# 2 - Parameterized reports
+
+Render the report only for the Chinstrap penguins:
+
+```{r eval=FALSE}
+render(
+  input = "penguins_parameterized.Rmd",
+  output_file = "Chinstrap_report.html",
+  params = list( #<<
+    species = "Chinstrap" #<<
+  ) #<<
+)
+```
+
+--
+
+Or render 3 reports for the 3 penguins in a for loop
+
+```{r eval=FALSE}
+for(x in c("Adelie", "Chinstrap", "Gentoo")){ # loop over all penguin species
+  render(
+    input = "penguins_parameterized.Rmd",
+    output_file = paste0(x, "_report.html"), # give every output a separate filename
+    params = list(
+      species = x
+    )
+  )
+}
+```
+
+
+

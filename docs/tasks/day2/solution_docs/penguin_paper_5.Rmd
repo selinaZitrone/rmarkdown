@@ -45,7 +45,11 @@ library(kableExtra)
 
 There are three main penguin species in Antarctica (*Chinstrap*, *Gentoo*, *Adelie*). You can see them in the following figure:
 
-<!-- ![Artwork by [Allison Horst](https://twitter.com/allison_horst)](https://github.com/allisonhorst/palmerpenguins/blob/master/man/figures/lter_penguins.png?raw=true) -->
+```{r include-penguins, out.width="60%", fig.align = "center", fig.cap="Illustration of the three penguin species by Allison Horst"}
+# with this code chunk, you can include images from a file and have more control
+# over the size of it
+knitr::include_graphics("img/lter_penguins.png")
+```
 
 In this paper we want to answer the following questions
 

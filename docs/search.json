@@ -5,27 +5,27 @@
       "title": "Solutions for day 1",
       "author": [],
       "contents": "\r\n\r\n[1] FALSE\r\n\r\nSolution will be uploaded later\r\n\r\n\r\n\r\n\r\n",
-      "last_modified": "2022-09-12T22:36:50+02:00"
+      "last_modified": "2022-09-13T10:31:01+02:00"
     },
     {
       "path": "02_solutions_controller.html",
       "title": "Solutions for day 2",
       "author": [],
       "contents": "\r\n\r\n[1] FALSE\r\n\r\nSolution will be uploaded later\r\n\r\n\r\n\r\n\r\n",
-      "last_modified": "2022-09-12T22:36:52+02:00"
+      "last_modified": "2022-09-13T10:31:03+02:00"
     },
     {
       "path": "index.html",
       "title": "Reproducible documents with `{rmarkdown}`",
       "author": [],
-      "contents": "\r\nWorkshop organization and schedule\r\n🕘 1 p.m. - 5 p.m. \r\n📍 We will meet every day in the General meeting room of our Webex team.\r\nWorkshop Material\r\nYou can find all the workshop material on this website.\r\nOn top, you can navigate to the presentation slides and the tasks for each day.\r\nAt the end of each workshop day, I will upload the solutions for the tasks.\r\nTo download presentation slides in pdf format, you can use the following links:\r\n Day 1: Introduction to R Markdown \r\n Day 2: Citations and Tables\r\n Some General tips and good practice \r\n\r\n\r\n\r\n",
-      "last_modified": "2022-09-12T22:36:55+02:00"
+      "contents": "\r\nWorkshop organization and schedule\r\n🕘 1 p.m. - 5 p.m. \r\n📍 We will meet every day in the General meeting room of our Webex team.\r\nWorkshop Material\r\nYou can find all the workshop material on this website.\r\nOn top, you can navigate to the presentation slides and the tasks for each day.\r\nAt the end of each workshop day, I will upload the solutions for the tasks.\r\nTo download presentation slides in pdf format, you can use the following links:\r\n Day 1: Introduction to R Markdown \r\n Day 2: Citations and Tables\r\n Some General tips and good practice \r\nAfter the workshop is finished, you can download a zipped version of the content (slides in pdf, data and R scripts) here\r\n\r\n\r\n\r\n\r\n",
+      "last_modified": "2022-09-13T10:31:05+02:00"
     },
     {
       "path": "LICENSE.html",
       "author": [],
       "contents": "\r\nMIT License\r\nCopyright (c) 2021 Selina Baldauf\r\nPermission is hereby granted, free of charge, to any person obtaining a copy\r\nof this software and associated documentation files (the “Software”), to deal\r\nin the Software without restriction, including without limitation the rights\r\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\r\ncopies of the Software, and to permit persons to whom the Software is\r\nfurnished to do so, subject to the following conditions:\r\nThe above copyright notice and this permission notice shall be included in all\r\ncopies or substantial portions of the Software.\r\nTHE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\r\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\r\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\r\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\r\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\r\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\r\nSOFTWARE.\r\n\r\n\r\n",
-      "last_modified": "2022-09-12T22:36:56+02:00"
+      "last_modified": "2022-09-13T10:31:07+02:00"
     },
     {
       "path": "online_resources.html",
@@ -33,7 +33,7 @@
       "description": "Below you can find a collection of helpful links to further online resources and a list of useful packages regarding the workshop topics.\n",
       "author": [],
       "contents": "\r\n\r\nContents\r\nGeneral\r\nR packages\r\n\r\nGeneral\r\nThere are two books that I very much recommend as reference:\r\nR Markdown: The definitive guide: Covers everything from getting started, to many different document types (html, pdf, word, xaringan presentations, websites, books, journal articles, …), to parameterized reports. You can just scroll through the table of contents of the book to see what you can do with rmarkdown and get inspiration.\r\nR markdown cookbook: Covers the basics and different document types. Is more structured by docuemnt elements than by document types. Also here, you can scroll through the table of\r\ncontents to see what is possible and how to do it.\r\nA list of R Markdown books: This list contains the two above-mentioned books but also lists some other books about R Markdown that are freely available\r\nR markdown cheat sheet: Handy as a reference while working\r\nComprehensive Markdown cheat sheet: Not exactly pandoc flavoured markdown but most of the things work the same. So this page is a good and comprehensive list of markdown elements that you can use to format your texts\r\nR packages\r\nIn the table below, you can find a list of R packages with a short description and\r\nsome links for further reading. The package selection is based on my personal experience and\r\npackages that I regularly use and like in combination with rmarkdown.\r\nThe list is in no way complete. If you know a useful package\r\nthat I missed, let me know and I can add it to the list.\r\n\r\n\r\nPackage\r\n\r\n\r\nKeywords\r\n\r\n\r\nDescription\r\n\r\n\r\nLinks\r\n\r\n\r\nxaringan\r\n\r\n\r\nPresenation\r\n\r\n\r\nProvides functionality to create nice html presentations, also provides some template documents\r\n\r\n\r\nDocumentation as presentation\r\nDocumentation in R Markdown book\r\n\r\n\r\nrticles\r\n\r\n\r\nTemplates\r\n\r\n\r\nProvides templates for different journal articles\r\n\r\n\r\nwebsite\r\n\r\n\r\nofficedown\r\n\r\n\r\nMicrosoft office\r\n\r\n\r\nProvides functionality for formatting Microsoft office documents in Rmarkdown\r\n\r\n\r\nwebsite\r\n\r\n\r\nbookdown\r\n\r\n\r\nBooks\r\n\r\n\r\nFunctionality for authoring books such as the “R markdown cookbook”. Also provides functionality for cross referencing sections, figures and tables in the text\r\n\r\n\r\nwebsite\r\n\r\n\r\nkableExtra\r\n\r\n\r\nTables\r\n\r\n\r\nFunctions for formatting tables in a nice way for html and pdf\r\n\r\n\r\noverview website\r\nhtml tables\r\n\r\n\r\nflextable\r\n\r\n\r\nTables\r\n\r\n\r\nFormat tables for HTML, PDF and Office output, an alternative to kableExtra if you want to render a word or powerpoint document\r\n\r\n\r\nFlextable book\r\n\r\n\r\nplotly\r\n\r\n\r\nInteractive graphs\r\n\r\n\r\nCreate interactive plots, turn ggplot objects into interactive plots for html output\r\n\r\n\r\nwebsite\r\n\r\n\r\n\r\n\r\n\r\n",
-      "last_modified": "2022-09-12T22:36:58+02:00"
+      "last_modified": "2022-09-13T10:31:09+02:00"
     }
   ],
   "collections": []

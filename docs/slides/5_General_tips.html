@@ -29,7 +29,7 @@ background-position: 90% 90%
 ### Freie Universität Berlin - Theoretical Ecology
 
 .footnote-left[
-  2022-22-03 (updated: 2022-09-12)
+  2022-22-03 (updated: 2022-09-13)
 ]
 
 
@@ -374,7 +374,7 @@ mean_mass &lt;- penguins %&gt;% filter(species == params$species) %&gt;%
   pull(body_mass_g) %&gt;% mean(na.rm = TRUE) 
 ```
 
-The mean body mass of the `r params$species` penguin is 5076 g.
+The mean body mass of the `r params$species` penguin is `r round(mean_mass, 0)` g.
 
 ```{r}
 penguins %&gt;% 

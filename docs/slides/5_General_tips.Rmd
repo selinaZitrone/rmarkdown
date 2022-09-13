@@ -369,7 +369,7 @@ mean_mass <- penguins %>% filter(species == params$species) %>%
   pull(body_mass_g) %>% mean(na.rm = TRUE) 
 ```
 
-The mean body mass of the `r knitr::inline_expr("params$species")` penguin is `r round(mean_mass, 0)` g.
+The mean body mass of the `r knitr::inline_expr("params$species")` penguin is `r knitr::inline_expr("round(mean_mass, 0)")` g.
 
 ```{r}`r ''`
 penguins %>% 

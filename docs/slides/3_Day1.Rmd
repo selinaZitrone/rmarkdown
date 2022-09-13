@@ -345,29 +345,6 @@ class: inverse, center, middle
 ---
 # The text body
 
-**Code blocks**
-
-- Inline code:  fenced of with 1 backtick becomes `code`
-
---
-
-- Code blocks: fenced of with 3 backticks 
-
-````markdown
-```
-code
-```
-````
-
-becomes
-
-```markdown
-code
-```
-
----
-# The text body
-
 - Links: `[text](link)`
   - `[RStudio](https://www.rstudio.com)` becomes [RStudio](https://www.rstudio.com)
   

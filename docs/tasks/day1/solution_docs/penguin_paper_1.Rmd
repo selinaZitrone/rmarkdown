@@ -3,8 +3,8 @@ title: "The penguins of Antarctica"
 author: "Selina Baldauf"
 date: "25/3/2022"
 output:
-  html_document: default
   pdf_document: default
+  html_document: default
   word_document: default
 ---
 

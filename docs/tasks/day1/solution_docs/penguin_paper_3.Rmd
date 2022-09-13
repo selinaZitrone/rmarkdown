@@ -39,6 +39,7 @@ There are three main penguin species in Antarctica (*Chinstrap*, *Gentoo*, *Adel
 ```{r include-penguins, out.width="60%", fig.align = "center", fig.cap="Illustration of the three penguin species by Allison Horst"}
 # with this code chunk, you can include images from a file and have more control
 # over the size of it
+# This only works if you have the file stored locally in a folder called /img
 knitr::include_graphics("img/lter_penguins.png")
 ```
 

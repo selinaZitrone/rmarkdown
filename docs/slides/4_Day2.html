@@ -147,12 +147,6 @@ csl: myrefstyle.csl
 
 - Most (all?) reference managers can export your citations as a `.bib` file
 
---
-
-- Problem: RStudio does not auto-fill citations
-  - You have to know the name of the citation in order to cite it
-
-
 ---
 
 # Adding citations - Visual editor
@@ -546,41 +540,6 @@ iris_sum %&gt;%
   )
 ```
 
-&lt;table class="table lightable-classic lightable-striped lightable-hover" style='font-size: 15px; width: auto !important;  font-family: "Arial Narrow", "Source Sans Pro", sans-serif; margin-left: auto; margin-right: auto;'&gt;
- &lt;thead&gt;
-  &lt;tr&gt;
-   &lt;th style="text-align:left;"&gt; Species &lt;/th&gt;
-   &lt;th style="text-align:right;"&gt; Sepal.Length &lt;/th&gt;
-   &lt;th style="text-align:right;"&gt; Sepal.Width &lt;/th&gt;
-   &lt;th style="text-align:right;"&gt; Petal.Length &lt;/th&gt;
-   &lt;th style="text-align:right;"&gt; Petal.Width &lt;/th&gt;
-  &lt;/tr&gt;
- &lt;/thead&gt;
-&lt;tbody&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; setosa &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 5.006 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.428 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 1.462 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.246 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; versicolor &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 5.936 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 2.770 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.260 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 1.326 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; virginica &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 6.588 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 2.974 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 5.552 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 2.026 &lt;/td&gt;
-  &lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
 - `booktabs = TRUE` will use the `booktabs` LaTeX package to create nice horizontal lines and removes vertical lines
 - `hold_position` places the table where it is created in the document (no floating)
 - `scale_down` scales the text down to fit the table width
@@ -665,67 +624,6 @@ iris_sum %&gt;%
   &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-
----
-
-# The `{kableExtra}` package
-
-**Some predefined html themes**
-
-- `kableExtra` offers some themes for HTML tables
-  - `kable_paper`, `kable_classic`, `kable_classic_2`, `kable_minimal`, `kable_material` and `kable_material_dark`
-  - Use them alternative to `kable_styling()`
-  
---
-
-
-```r
-iris_sum %&gt;%
-  kable() %&gt;%
-* kable_classic(
-*   font_size = 15
-* )
-```
-
-&lt;table class=" lightable-classic" style='font-size: 15px; font-family: "Arial Narrow", "Source Sans Pro", sans-serif; margin-left: auto; margin-right: auto;'&gt;
- &lt;thead&gt;
-  &lt;tr&gt;
-   &lt;th style="text-align:left;"&gt; Species &lt;/th&gt;
-   &lt;th style="text-align:right;"&gt; Sepal.Length &lt;/th&gt;
-   &lt;th style="text-align:right;"&gt; Sepal.Width &lt;/th&gt;
-   &lt;th style="text-align:right;"&gt; Petal.Length &lt;/th&gt;
-   &lt;th style="text-align:right;"&gt; Petal.Width &lt;/th&gt;
-  &lt;/tr&gt;
- &lt;/thead&gt;
-&lt;tbody&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; setosa &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 5.006 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.428 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 1.462 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.246 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; versicolor &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 5.936 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 2.770 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.260 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 1.326 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; virginica &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 6.588 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 2.974 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 5.552 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 2.026 &lt;/td&gt;
-  &lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
---
-
-- This only works with HTML output! It will give you an error for PDF output.
-
 
 ---
 

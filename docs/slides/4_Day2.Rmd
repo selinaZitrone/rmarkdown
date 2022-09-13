@@ -146,12 +146,6 @@ csl: myrefstyle.csl
 
 - Most (all?) reference managers can export your citations as a `.bib` file
 
---
-
-- Problem: RStudio does not auto-fill citations
-  - You have to know the name of the citation in order to cite it
-
-
 ---
 
 # Adding citations - Visual editor
@@ -408,17 +402,6 @@ iris_sum %>%
   )
 ```
 
-```{r echo=FALSE}
-iris_sum %>% 
-  kable() %>%
-  kable_styling(
-  full_width = FALSE, 
-  position = "left",
-  font_size = 15,
-) |> 
-  kable_classic(c("hover", "striped"))
-```
-
 - `booktabs = TRUE` will use the `booktabs` LaTeX package to create nice horizontal lines and removes vertical lines
 - `hold_position` places the table where it is created in the document (no floating)
 - `scale_down` scales the text down to fit the table width
@@ -459,31 +442,6 @@ iris_sum %>%
   pack_rows("Group 1", 1, 1) %>% #<<
   pack_rows("Group 2", 2, 3) #<<
 ```
-
----
-
-# The `{kableExtra}` package
-
-**Some predefined html themes**
-
-- `kableExtra` offers some themes for HTML tables
-  - `kable_paper`, `kable_classic`, `kable_classic_2`, `kable_minimal`, `kable_material` and `kable_material_dark`
-  - Use them alternative to `kable_styling()`
-  
---
-
-```{r}
-iris_sum %>%
-  kable() %>%
-  kable_classic( #<<
-    font_size = 15 #<<
-  ) #<<
-```
-
---
-
-- This only works with HTML output! It will give you an error for PDF output.
-
 
 ---
 

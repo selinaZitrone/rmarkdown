@@ -3,9 +3,9 @@ title: "The penguins of Antarctica"
 author: "Selina Baldauf"
 date: "25/3/2022"
 output:
-  html_document: default
-  word_document: default
   pdf_document: default
+  word_document: default
+  html_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -22,18 +22,11 @@ library(palmerpenguins)
 
 There are three main penguin species in Antarctica (*Chinstrap*, *Gentoo*, *Adelie*). You can see them in the following figure:
 
-
-[![The image](https://raw.githubusercontent.com/allisonhorst/palmerpenguins/main/man/figures/lter_penguins.png)](https://raw.githubusercontent.com/allisonhorst/palmerpenguins/main/man/figures/lter_penguins.png)
-
-![Artwork by [Allison Horst](https://twitter.com/allison_horst)](img/lter_penguins.png)
-
-
-```{r include-penguins, out.width="60%", fig.align = "center", fig.cap="Illustration of the three penguin species by [Allison Horst](https://twitter.com/allison_horst)"}
+```{r include-penguins, out.width="60%", fig.align = "center", fig.cap="Illustration of the three penguin species by Allison Horst"}
 # with this code chunk, you can include images from a file and have more control
 # over the size of it
 knitr::include_graphics("img/lter_penguins.png")
 ```
-
 
 In this paper we want to answer the following questions
 
@@ -72,7 +65,7 @@ chinstrap_mean <- penguins %>% filter(species == "Chinstrap") %>% pull(body_mass
 gentoo_mean <- penguins %>% filter(species == "Gentoo") %>% pull(body_mass_g) %>% mean(na.rm = TRUE) 
 ```
 
-The mean weight of all penguin species is `r round(mean(penguins$body_mass_g, na.rm = TRUE), 0)`. *Gentoo* penguins have an average weight of `r round(gentoo_mean,0)` g, *Adelie* penguins of `r round(adelie_mean, 0)` g and *Chinstrap* penguins of `r round(chinstrap_mean, 0)` g.
+The mean weight of all penguin species is `r round(mean(penguins$body_mass_g, na.rm = TRUE), 0)` g. *Gentoo* penguins have an average weight of `r round(gentoo_mean,0)` g, *Adelie* penguins of `r round(adelie_mean, 0)` g and *Chinstrap* penguins of `r round(chinstrap_mean, 0)` g.
 
 The figure below shows that *Gentoo* penguins have the highest body mass.
 
@@ -103,10 +96,10 @@ scatter <- ggplot(
 # print the plot to the document
 
 # This works for all outputs
-# scatter
+scatter
 
 # This only works for HTLM output and makes an interactive plot
-plotly::ggplotly(scatter)
+#plotly::ggplotly(scatter)
 ```
 
 In general, it looks like the body characteristics differ between the sexes but also between the penguin

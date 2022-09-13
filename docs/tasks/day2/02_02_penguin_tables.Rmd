@@ -42,7 +42,7 @@ Knit the document to different target output formats and see how the table looks
 ### 2.2 Advanced styling with `kableExtra`
 
 The following now only works for PDF and HTML output. If you want to keep knitting
-to word, you later have to switch back the only using `kable`.
+to word, you later have to switch back to only using `kable`.
 
 Don't forget to load the `kableExtra` package in the setup chunk.
 
@@ -52,9 +52,6 @@ Start adding extra styling to the table. For example, you can
   - Font size
   - Position of the table or full width table
   - Specify `latex_options` and/or `bootstrap_options`
-- Change the table theme using one of the `kable_*` themes (only HTML)
-- Try packing some rows or columns together
-- ...
 
 Have a look at `?kable_styling` for more options.
 

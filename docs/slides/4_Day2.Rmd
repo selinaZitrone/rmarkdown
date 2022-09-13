@@ -430,21 +430,6 @@ iris_sum %>%
 
 ---
 
-# The `{kableExtra}` package
-
-**Packing rows and columns**
-
-```{r}
-iris_sum %>%
-  kable() %>%
-  kable_styling(font_size = 15) %>%
-  add_header_above(c("", "Sepals" = 2, "Petals" = 2)) %>% #<<
-  pack_rows("Group 1", 1, 1) %>% #<<
-  pack_rows("Group 2", 2, 3) #<<
-```
-
----
-
 # The `{flextable}` package
 
 --

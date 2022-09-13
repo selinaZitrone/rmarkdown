@@ -233,7 +233,7 @@ iris_sum
 ```
 
 ```
-## # A tibble: 3 × 5
+## # A tibble: 3 x 5
 ##   Species    Sepal.Length Sepal.Width Petal.Length Petal.Width
 ##   &lt;fct&gt;             &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt;
 ## 1 setosa             5.01        3.43         1.46       0.246
@@ -566,64 +566,6 @@ iris_sum %&gt;%
 ```
 
 - Depending on the output format you chose, `bootstrap_options` or `latex_options` will be ignored
-
----
-
-# The `{kableExtra}` package
-
-**Packing rows and columns**
-
-
-```r
-iris_sum %&gt;%
-  kable() %&gt;%
-  kable_styling(font_size = 15) %&gt;%
-* add_header_above(c("", "Sepals" = 2, "Petals" = 2)) %&gt;%
-* pack_rows("Group 1", 1, 1) %&gt;%
-* pack_rows("Group 2", 2, 3)
-```
-
-&lt;table class="table" style="font-size: 15px; margin-left: auto; margin-right: auto;"&gt;
- &lt;thead&gt;
-&lt;tr&gt;
-&lt;th style="empty-cells: hide;border-bottom:hidden;" colspan="1"&gt;&lt;/th&gt;
-&lt;th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="2"&gt;&lt;div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; "&gt;Sepals&lt;/div&gt;&lt;/th&gt;
-&lt;th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="2"&gt;&lt;div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; "&gt;Petals&lt;/div&gt;&lt;/th&gt;
-&lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;th style="text-align:left;"&gt; Species &lt;/th&gt;
-   &lt;th style="text-align:right;"&gt; Sepal.Length &lt;/th&gt;
-   &lt;th style="text-align:right;"&gt; Sepal.Width &lt;/th&gt;
-   &lt;th style="text-align:right;"&gt; Petal.Length &lt;/th&gt;
-   &lt;th style="text-align:right;"&gt; Petal.Width &lt;/th&gt;
-  &lt;/tr&gt;
- &lt;/thead&gt;
-&lt;tbody&gt;
-  &lt;tr grouplength="1"&gt;&lt;td colspan="5" style="border-bottom: 1px solid;"&gt;&lt;strong&gt;Group 1&lt;/strong&gt;&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;
-   &lt;td style="text-align:left;padding-left: 2em;" indentlevel="1"&gt; setosa &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 5.006 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.428 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 1.462 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 0.246 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr grouplength="2"&gt;&lt;td colspan="5" style="border-bottom: 1px solid;"&gt;&lt;strong&gt;Group 2&lt;/strong&gt;&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;
-   &lt;td style="text-align:left;padding-left: 2em;" indentlevel="1"&gt; versicolor &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 5.936 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 2.770 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.260 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 1.326 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;padding-left: 2em;" indentlevel="1"&gt; virginica &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 6.588 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 2.974 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 5.552 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 2.026 &lt;/td&gt;
-  &lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
 
 ---
 

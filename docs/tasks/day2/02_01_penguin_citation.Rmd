@@ -36,7 +36,7 @@ After you inserted an element, switch back to the normal R Studio editor view
 First, cite the original paper that published and analysed the penguin data
 set. The paper is by Gorman et al. (2014).
 
-Switch to the visual editor and
+In the visual editor and
 
 - Select a location in the text to add the citation
 - Find the menu to insert a citation
